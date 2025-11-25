@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Details</title>
+
+<style>
+/* Navigation Bar */
+        .navbar {
+            background-color: #4CAF50;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+/* FOOTER FIXED EXACT AS REQUESTED */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+
+.footer-copy {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.footer-desc {
+  text-align: right;
+  white-space: nowrap;
+  opacity: .85;
+}
+
+/* Breadcrumb */
+.breadcrumbs {
+  padding: 10px 20px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  color: #7f8c8d;
+}
+
+/* Minimal base */
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f8f9fa;color:#333}
+a{text-decoration:none;color:inherit}
+
+/* Layout wrapper */
+.wrap{max-width:900px; margin:0 auto; padding:0 20px}
+
+/* Purple hero title */
+.hero{
+  margin:70px auto 0;
+  background:linear-gradient(135deg,#489540,#3aaf40);
+  color:#fff; padding:22px; text-align:center;
+  border-radius:18px; font-weight:bold;
+}
+
+/* White card for content */
+.card{
+  margin:50px 0; background:#fff; border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.07); padding:18px;
+}
+
+/* Details list */
+.row{margin:12px 0}
+.row b{display:inline-block; min-width:170px}
+
+/* Status pills */
+.pills{
+  display:flex;
+  gap: 6px; /* تعديل بسيط لمسافة متوازنة */
+  margin-top:8px;
+}
+
+.pill{
+  display:inline-block; padding:6px 12px; border-radius:999px; color:#fff;
+  font-weight:bold; font-size:.95rem;
+}
+.pill--pending{ background:#FFB74D }
+.pill--declined{ background:#FFD54F; color:#5a4100 }
+.pill--provided{ background:#4CAF50 }
+
+.active {
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  transform: scale(1.15);
+  border: 2px solid white;
+}
+/* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+}
+/* يعالج اللون الأبيض حول المحتوى */
+/* الثيم الفاتح (العادي) */
+
+
+
+/* الثيم الغامق */
+body.dark-theme {
+    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
+    color: #f9f9f9;
+}
+
+
+/* خلي الكروت والبوكسات تصير داكنة بزيادة */
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
+}
+
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; /* غامق وواضح فوق الأبيض */
+}
+/* النافبار في الثيم الغامق */
+/* Dark navbar */
+body.dark-theme .navbar {
+  background-color: #111827;
+}
+
+/* الفوتر في الثيم الغامق */
+/* Dark footer */
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+
+/* روابط النافبار في الثيم الغامق */
+/* Navbar links in dark theme */
+body.dark-theme .nav-menu a {
+  color: #f9f9f9;
+}
+
+/* الهيرو سيكشن في الثيم الغامق (مثال) */
+/* Hero section in dark theme (example) */
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div style="display:flex; flex-direction:column; align-items:flex-start;">
+          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
+          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="homepage.html" class="active">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+            <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+        </ul>
+</div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumbs">
+  <a href="homepage.html">Home</a> > 
+  <a href="dashboard.html">Customer Dashboard</a> > 
+  <span>Service Details</span>
+</div>
+
+<div class="wrap">
+  <!-- Page Title -->
+  <h1 class="hero">details</h1>
+
+  <!-- Content -->
+  <div class="card">
+    <div class="row"><b>name of service:</b> bus delivery</div>
+    <div class="row"><b>bus direction:</b> drop-off</div>
+    <div class="row"><b>date of request:</b> 2025-10-20</div>
+    <div class="row"><b>cost:</b> 1000</div>
+
+    <div class="row">
+      <b>status of the request:</b>
+      <div class="pills">
+        <span class="pill pill--pending">pending</span>
+        <span class="pill pill--declined active">declined</span>
+        <span class="pill pill--provided">provided</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-left">
+      <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+
+      <div class="footer-socials">
+        <div class="icon-box">
+          <img src="insta.png" class="social-icon">
+          <span>@LittleStepsKSA</span>
+        </div>
+        <div class="icon-box">
+          <img src="snap.png" class="social-icon">
+          <span>@LittleSteps</span>
+        </div>
+        <div class="icon-box">
+          <img src="x.png" class="social-icon">
+          <span>@LittleStepsNursery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copy">©️ 2025 Little Steps. All rights reserved.</div>
+    <div class="footer-desc">Nurturing happy little minds.</div>
+  </div>
+</footer>
+
+</body>
+</html>
