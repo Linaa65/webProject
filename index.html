@@ -1,1 +1,380 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Steps - Homepage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div style="display:flex; flex-direction:column; align-items:flex-start;">
+          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px; object-fit:contain;">
+          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="homepage.html" class="active">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+          <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+        </ul>
+
+        <!-- زر تبديل الثيم Light / Dark -->
+        <button id="themeToggle"
+                style="margin-left: 15px; padding: 6px 12px; border-radius: 8px; border: none; cursor: pointer;">
+          🌞 / 🌙
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumbs">
+    <a href="homepage.html">home</a> &gt;
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>Welcome to Little Steps Nursery</h2>
+      <p>Where your child's journey begins with care, education, and fun!</p>
+    </div>
+  </section>
+
+  <!-- Main Content with Services and Offers -->
+  <div class="main-content">
+    <!-- Services Section (INLINE STYLES ONLY) -->
+    <section style="text-align:center; padding:50px 0;">
+      <h2 style="font-size:32px; color:#ff7b9c; margin:0 0 30px 0; font-family:Arial, sans-serif;">Our Services</h2>
+
+    <div class="services-row"
+     style="display:flex; flex-direction:row; gap:20px; justify-content:center; align-items:flex-start;">
+
+
+        <!-- Service 1 -->
+        <div
+          style="background:#fff; width:270px; padding:20px; border-radius:20px; box-shadow:0 6px 15px rgba(255,173,202,0.3); cursor:pointer; position:relative; overflow:hidden; border:2px solid #ffd8e3; transition:transform .3s;"
+          onmouseover="this.style.transform='translateY(-8px)'; this.querySelector('.hover-info').style.display='block';"
+          onmouseout="this.style.transform='translateY(0)'; this.querySelector('.hover-info').style.display='none';"
+        >
+          <div style="width:100%; height:160px; display:flex; align-items:center; justify-content:center; background:#fff; border-radius:12px;">
+            <img src="bus.png" alt="Nursery Service" style="max-width:100%; max-height:160px; object-fit:contain; border-radius:12px;">
+          </div>
+
+          <div style="text-align:left; font-family:Arial, sans-serif;">
+            <h3 style="font-size:20px; font-weight:bold; margin:10px 0 6px; color:#ff4f87;">Nursery Service</h3>
+            <p style="color:#444; font-size:14px; margin:0 0 8px; line-height:1.5;">
+              Comprehensive child care in a safe and educational environment with professional staff and modern facilities.
+            </p>
+            <span style="display:block; margin-top:8px; font-weight:bold; color:#ff4f87;">4000 SAR / month</span>
+
+            <!-- Hover info -->
+            <div class="hover-info"
+                 style="display:none; background:#fff7fa; padding:10px; border-radius:10px; border:1px dashed #ff8bb7; margin-top:10px; font-size:13px; color:#d4386e;">
+              Safe, fun, and educational space for kids.
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div
+          style="background:#fff; width:270px; padding:20px; border-radius:20px; box-shadow:0 6px 15px rgba(255,173,202,0.3); cursor:pointer; position:relative; overflow:hidden; border:2px solid #ffd8e3; transition:transform .3s;"
+          onmouseover="this.style.transform='translateY(-8px)'; this.querySelector('.hover-info').style.display='block';"
+          onmouseout="this.style.transform='translateY(0)'; this.querySelector('.hover-info').style.display='none';"
+        >
+          <div style="width:100%; height:160px; display:flex; align-items:center; justify-content:center; background:#fff; border-radius:12px;">
+            <img src="b.png" alt="Bus Delivery Service" style="max-width:100%; max-height:160px; object-fit:contain; border-radius:12px;">
+          </div>
+
+          <div style="text-align:left; font-family:Arial, sans-serif;">
+            <h3 style="font-size:20px; font-weight:bold; margin:10px 0 6px; color:#ff4f87;">Bus Delivery Service</h3>
+            <p style="color:#444; font-size:14px; margin:0 0 8px; line-height:1.5;">
+              Safe and comfortable transportation service for children with trained drivers and GPS tracking.
+            </p>
+            <span style="display:block; margin-top:8px; font-weight:bold; color:#ff4f87;">1000 SAR / month</span>
+
+            <div class="hover-info"
+                 style="display:none; background:#fff7fa; padding:10px; border-radius:10px; border:1px dashed #ff8bb7; margin-top:10px; font-size:13px; color:#d4386e;">
+              Tracked routes, verified drivers, seat belts.
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div
+          style="background:#fff; width:270px; padding:20px; border-radius:20px; box-shadow:0 6px 15px rgba(255,173,202,0.3); cursor:pointer; position:relative; overflow:hidden; border:2px solid #ffd8e3; transition:transform .3s;"
+          onmouseover="this.style.transform='translateY(-8px)'; this.querySelector('.hover-info').style.display='block';"
+          onmouseout="this.style.transform='translateY(0)'; this.querySelector('.hover-info').style.display='none';"
+        >
+          <div style="width:100%; height:160px; display:flex; align-items:center; justify-content:center; background:#fff; border-radius:12px;">
+            <img src="g.png" alt="Interactive Games Service" style="max-width:100%; max-height:160px; object-fit:contain; border-radius:12px;">
+          </div>
+
+          <div style="text-align:left; font-family:Arial, sans-serif;">
+            <h3 style="font-size:20px; font-weight:bold; margin:10px 0 6px; color:#ff4f87;">Interactive Games Service</h3>
+            <p style="color:#444; font-size:14px; margin:0 0 8px; line-height:1.5;">
+              Educational and entertaining activities to develop children's creative and social skills.
+            </p>
+            <span style="display:block; margin-top:8px; font-weight:bold; color:#ff4f87;">800 SAR / month</span>
+
+            <div class="hover-info"
+                 style="display:none; background:#fff7fa; padding:10px; border-radius:10px; border:1px dashed #ff8bb7; margin-top:10px; font-size:13px; color:#d4386e;">
+              Fine-motor skills, teamwork, creativity.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Offers Sidebar -->
+    <aside
+      class="offers-sidebar"
+      style="
+        width: 290px;
+        padding: 18px;
+        background: linear-gradient(160deg,#fff0f6 0%, #e6f7ff 100%);
+        border: 2px dashed #8e24aa;
+        border-radius: 20px;
+        box-shadow: 0 10px 24px rgba(142,36,170,0.12);
+        font-family: Arial, sans-serif;
+      "
+    >
+      <h2
+        style="
+          margin: 0 0 14px;
+          font-size: 22px;
+          color: #6a1b9a;
+          text-align: center;
+        "
+      >
+        Special Offers
+      </h2>
+
+      <!-- Offer Card 1 -->
+      <div
+        class="offer-card"
+        style="
+          background:#ffffff;
+          border:1px dashed #f48fb1;
+          border-radius:16px;
+          padding:14px;
+          margin-bottom:14px;
+          position:relative;
+          transition:transform .25s;
+          box-shadow:0 6px 14px rgba(244,143,177,.15);
+          cursor:pointer;
+        "
+        onmouseover="this.style.transform='translateY(-6px)'"
+        onmouseout="this.style.transform='translateY(0)'"
+      >
+        <!-- sticker -->
+        <div
+          style="
+            position:absolute; top:-10px; right:-10px;
+            background:#ff4081; color:#fff; font-weight:700; font-size:11px;
+            padding:6px 10px; border-radius:14px; transform:rotate(6deg);
+            box-shadow:0 4px 10px rgba(255,64,129,.3);
+          "
+        >HOT</div>
+
+        <h3 style="margin:0 0 6px; font-size:18px; color:#8e24aa;">🎉 First Week Free</h3>
+        <p style="margin:0 0 10px; font-size:14px; color:#444;">
+          Get first week of bus service completely free!
+        </p>
+
+        <span
+          class="offer-badge"
+          style="
+            display:inline-block;
+            background:#e1f5fe; color:#0277bd;
+            font-size:12px; font-weight:700;
+            padding:4px 10px; border-radius:999px;
+            margin-right:8px;
+          "
+        >New Students</span>
+
+        <button
+          class="offer-button"
+          style="
+            display:inline-block;
+            margin-top:10px;
+            background:#8e24aa; color:#fff;
+            border:none; border-radius:12px;
+            padding:10px 14px; font-size:14px; font-weight:700;
+            box-shadow:0 6px 12px rgba(142,36,170,.2);
+            cursor:pointer; transition:transform .2s, opacity .2s;
+          "
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.opacity='0.9';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.opacity='1';"
+        >
+          Claim Offer
+        </button>
+      </div>
+
+      <!-- Offer Card 2 -->
+      <div
+        class="offer-card"
+        style="
+          background:#ffffff;
+          border:1px dashed #80deea;
+          border-radius:16px;
+          padding:14px;
+          margin-bottom:0;
+          position:relative;
+          transition:transform .25s;
+          box-shadow:0 6px 14px rgba(128,222,234,.15);
+          cursor:pointer;
+        "
+        onmouseover="this.style.transform='translateY(-6px)'"
+        onmouseout="this.style.transform='translateY(0)'"
+      >
+        <!-- sticker -->
+        <div
+          style="
+            position:absolute; top:-10px; right:-10px;
+            background:#00acc1; color:#fff; font-weight:700; font-size:11px;
+            padding:6px 10px; border-radius:14px; transform:rotate(6deg);
+            box-shadow:0 4px 10px rgba(0,172,193,.3);
+          "
+        >-20%</div>
+
+        <h3 style="margin:0 0 6px; font-size:18px; color:#006064;">💰 20% Discount</h3>
+        <p style="margin:0 0 10px; font-size:14px; color:#444;">
+          Special discount on first month enrollment
+        </p>
+
+        <span
+          class="offer-badge"
+          style="
+            display:inline-block;
+            background:#e8f5e9; color:#1b5e20;
+            font-size:12px; font-weight:700;
+            padding:4px 10px; border-radius:999px;
+            margin-right:8px;
+          "
+        >Limited Time</span>
+
+        <button
+          class="offer-button"
+          style="
+            display:inline-block;
+            margin-top:10px;
+            background:#006064; color:#fff;
+            border:none; border-radius:12px;
+            padding:10px 14px; font-size:14px; font-weight:700;
+            box-shadow:0 6px 12px rgba(0,96,100,.2);
+            cursor:pointer; transition:transform .2s, opacity .2s;
+          "
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.opacity='0.9';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.opacity='1';"
+        >
+          Get Discount
+        </button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Loyalty Program Section -->
+  <section class="loyalty-section">
+    <div class="loyalty-content">
+      <h2>Join Our Loyalty Program 🌟</h2>
+      <p>Earn points every time you use our nursery services and redeem amazing rewards for your kids! 🎁</p>
+      <a href="loyalty program.html" class="loyalty-btn">View Loyalty Program</a>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section">
+    <h2>Customer Reviews</h2>
+    <div class="reviews-container">
+      <div class="review-card">
+        <h4>Mohammed's Mother</h4>
+        <div class="rating">★★★★★</div>
+        <p>"Excellent service and my children are very happy with the nursery"</p>
+        <span class="service-name">Nursery Service</span>
+      </div>
+      <div class="review-card">
+        <h4>Abdullah's Father</h4>
+        <div class="rating">★★★★☆</div>
+        <p>"Transportation is regular and drivers are professional"</p>
+        <span class="service-name">Delivery Service</span>
+      </div>
+      <div class="review-card">
+        <h4>Nour's Mother</h4>
+        <div class="rating">★★★★★</div>
+        <p>"Interactive games are amazing and develop children's skills"</p>
+        <span class="service-name">Games Service</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <!-- اليسار: اللوقو + الحسابات -->
+      <div class="footer-left">
+        <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+
+        <div class="footer-socials">
+          <div class="icon-box">
+            <img src="insta.png" alt="" class="social-icon">
+            <span>@LittleStepsKSA</span>
+          </div>
+
+          <div class="icon-box">
+            <img src="snap.png" alt="" class="social-icon">
+            <span>@LittleStepsKSA</span>
+          </div>
+
+          <div class="icon-box">
+            <img src="x.png" alt="" class="social-icon">
+            <span>@LittleStepsKSA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- الوسط: كوبي رايت + الساعة -->
+      <div class="footer-copy">
+        © 2025 Little Steps.
+        <span id="clock" style="display:block; margin-top:5px; font-size:14px;"></span>
+      </div>
+
+      <!-- اليمين: وصف -->
+      <div class="footer-desc">
+        Nurturing happy little minds.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- زر Back to Top -->
+  <button id="backToTop"
+          style="
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 14px;
+            border-radius: 50%;
+            border: none;
+            background-color: #ff7b9c;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none;
+          ">
+    ↑
+  </button>
+
+  <!-- ربط ملف الجافاسكربت الخاص بالهوم بيج -->
+  <script src="homepage.js"></script>
+</body>
+</html>
