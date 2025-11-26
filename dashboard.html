@@ -256,82 +256,76 @@ body.dark-theme .hero-section {
   color: #f9f9f9;
 }
 .navbar img { border-radius: 8px; }
-
-/* ================= Responsive Layout ================= */
-
-/* للأجهزة المتوسطة مثل التابلت */
-@media (max-width: 992px) {
-  .nav-container {
-    padding: 0 1rem;
-  }
-
-  .nav-menu {
-    gap: 1.2rem;
-  }
-
-  .btn {
-    width: 85%;
-    font-size: 1rem;
-  }
-
-  .hero {
-    font-size: 1.5rem;
-    padding: 18px;
-  }
-
-  .breadcrumbs {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-}
-
-/* للجوالات */
+/* ================== Responsive for Small Screens ================== */
 @media (max-width: 768px) {
 
-  /* ترتيب الهيدر بشكل عمودي */
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
+  /* الجسم كامل بدون فراغ أبيض تحت */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
   }
 
-  /* الروابط تنزل سطر سطر */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== الهيدر ===== */
+  .nav-container {
+    flex-direction: column;     /* يخلي الشعار فوق واللينكات تحت */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0.75rem 1rem;
+  }
+
   .nav-menu {
-    flex-wrap: wrap;
-    width: 100%;
+    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
+    gap: 0.75rem;
     justify-content: center;
-    gap: 0.7rem;
   }
 
   .nav-menu a {
-    padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
   }
 
+  /* ===== الـ Breadcrumbs ===== */
+  .breadcrumbs {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* ===== محتوى الداشبورد ===== */
   .wrap {
-    width: 95%;
-    margin: 20px auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 16px 24px;
+    margin: 20px auto 0;
   }
 
   .hero {
-    width: 100%;
     font-size: 1.3rem;
     padding: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
-  /* تكبير الأزرار للجوال */
   .btn {
     width: 100%;
-    font-size: 1rem;
     padding: 14px;
+    font-size: 1rem;
   }
 
-  /* تحسين الفوتر */
+  /* ===== الفوتر ===== */
+  .footer {
+    margin-top: auto;           /* يلصقه أسفل الشاشة لو المحتوى قصير */
+  }
+
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr; /* يخلي عناصر الفوتر تحت بعض في الجوال */
     text-align: center;
+    row-gap: 10px;
   }
 
   .footer-left,
@@ -343,20 +337,6 @@ body.dark-theme .hero-section {
     text-align: center;
     white-space: normal;
   }
-}
-
-/* لجعل الفوتر تحت حتى لو المحتوى قصير */
-html, body {
-  min-height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-footer {
-  margin-top: auto;
 }
 
   </style>
@@ -443,6 +423,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
