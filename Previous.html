@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Previous Services Requests</title>
+
+<style>
+/* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ================== Navigation Bar ================== */
+.navbar {
+  background-color: #4CAF50;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+}
+.nav-container {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+}
+.logo h1 { color: white; font-size: 1.8rem; }
+.nav-menu { display: flex; list-style: none; gap: 2rem; }
+.nav-menu a {
+  color: white; text-decoration: none; padding: 0.5rem 1rem;
+  border-radius: 4px; transition: background-color 0.3s;
+}
+.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
+
+
+/* ------- Breadcrumbs (نفس باقي الصفحات) ------- */
+.breadcrumbs {
+  padding: 10px 40px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.breadcrumbs a {
+  text-decoration: none;
+  color: #3498db;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+.breadcrumbs span {
+  color: #778c8d;
+}
+
+/* ------- العنوان  ------- */
+.prev-title {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.8rem;
+  padding: 20px;
+  border-radius: 15px;
+  width: 450px;
+  max-width: 90%;
+  margin: 40px auto;
+  text-align: center;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+/* ------- شكل الصفحة ------- */
+body {
+  margin: 0;
+  background: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+.wrap {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ------- القائمة ------- */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+}
+.item {
+  margin: 10px 0;
+  padding: 12px;
+  background: #edf1f5;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn {
+  background: #7e7e80;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ------- الفوتر (نفس كود الداشبورد تمامًا) ------- */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+}
+
+/* اليسار */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* صندوق السوشال */
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+
+/* الوسط */
+.footer-copy {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* اليمين */
+.footer-desc {
+  text-align: right;
+  white-space: nowrap;
+  opacity: .85;
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+  }
+}
+/* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+}
+/* يعالج اللون الأبيض حول المحتوى */
+/* الثيم الفاتح (العادي) */
+
+
+
+/* الثيم الغامق */
+body.dark-theme {
+    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
+    color: #f9f9f9;
+}
+
+
+/* خلي الكروت والبوكسات تصير داكنة بزيادة */
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
+}
+
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; /* غامق وواضح فوق الأبيض */
+}
+/* النافبار في الثيم الغامق */
+/* Dark navbar */
+body.dark-theme .navbar {
+  background-color: #111827;
+}
+
+/* الفوتر في الثيم الغامق */
+/* Dark footer */
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+
+/* روابط النافبار في الثيم الغامق */
+/* Navbar links in dark theme */
+body.dark-theme .nav-menu a {
+  color: #f9f9f9;
+}
+
+/* الهيرو سيكشن في الثيم الغامق (مثال) */
+/* Hero section in dark theme (example) */
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+.navbar img { border-radius: 8px; }
+
+/* ================== Responsive for Small Screens (phones/tablets) ================== */
+@media (max-width: 768px) {
+
+  /* الجسم كامل بدون فراغ أبيض تحت */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
+  .nav-container {
+    flex-direction: column;     /* الشعار فوق، الروابط تحت */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* ===== الـ Breadcrumbs ===== */
+  .breadcrumbs {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* ===== الفوتر ===== */
+  .footer {
+    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
+    text-align: center;
+    row-gap: 10px;
+  }
+
+  .footer-left,
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+    white-space: normal;
+  }
+}
+@media (max-width: 768px) {
+
+  .breadcrumbs {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
+  }
+  
+  .breadcrumbs a {
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 768px) {
+    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
+        margin-top: 0 !important;
+        padding-top: 6px !important;
+    }
+}
+
+/* ==== Responsive layout for this page only ==== */
+@media (max-width: 768px) {
+
+  .prev-title {
+    font-size: 1.3rem;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  .wrap {
+    padding: 0 10px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .item span {
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+<!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+
+        <div style="display:flex; flex-direction:column; align-items:flex-start;">
+          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
+          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="hompage.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+          <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+  <a href="homepage.html">Home</a> &gt;
+  <a href="dashboard.html">Customer Dashboard</a> &gt;
+  <span>Previous Service Requests</span>
+</div>
+
+<!-- CONTENT -->
+<div class="wrap">
+  <h1 class="prev-title">previous services request</h1>
+
+  <div class="card">
+    <div class="item">
+      <span>nursery service</span>
+      <a class="btn" href="details2.html">details</a>
+    </div>
+
+    <div class="item">
+      <span>bus delivery</span>
+      <a class="btn" href="details.html">details</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+
+    <!-- اليسار: اللوقو + الحسابات -->
+    <div class="footer-left">
+
+      <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+
+      <div class="footer-socials">
+        <div class="icon-box">
+          <img src="insta.png" class="social-icon">
+          <span>@LittleStepsKSA</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="snap.png" class="social-icon">
+          <span>@LittleSteps</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="x.png" class="social-icon">
+          <span>@LittleStepsNursery</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- الوسط: كوبي رايت -->
+    <div class="footer-copy">
+      ©️ 2025 Little Steps. All rights reserved.
+    </div>
+
+    <!-- اليمين: وصف -->
+    <div class="footer-desc">
+      Nurturing happy little minds.
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
