@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Request a Service</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+ /* Reset CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ================== Navigation Bar ================== */
+.navbar {
+  background-color: #4CAF50;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+}
+.nav-container {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+}
+.logo h1 { color: white; font-size: 1.8rem; }
+.nav-menu { display: flex; list-style: none; gap: 2rem; }
+.nav-menu a {
+  color: white; text-decoration: none; padding: 0.5rem 1rem;
+  border-radius: 4px; transition: background-color 0.3s;
+}
+.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
+
+
+
+/* ---- Breadcrumbs ---- */
+.breadcrumbs {
+  padding: 10px 40px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.breadcrumbs a {
+  text-decoration: none;
+  color: #3498db;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+.breadcrumbs span {
+  color: #7f8c8d;
+}
+
+/* ---- Page ---- */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+h1 {
+    width: 90%;
+    margin: 25px auto;
+    font-size: 28px;
+}
+
+/* ---- Form ---- */
+form {
+    background:white;
+    width:600px;
+    margin: 0 auto;
+    border-top:4px solid #4CAF50;
+    padding:25px;
+    border-radius:15px;
+}
+label {
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+input,select,textarea {
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    margin-bottom:15px;
+}
+button {
+    background:#4CAF50;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+button:hover { background:#3d933f }
+
+/* ---- Optional options (game / nursery / bus) ---- */
+.options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:15px;
+}
+.options label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:#eef6ee;
+  border:1px solid #d2e8d2;
+  border-radius:999px;
+  padding:6px 12px;
+  color:#2c3e50;
+  font-size:14px;
+}
+.options input{
+  margin:0;
+}
+
+/* ---- Request list ---- */
+#requestList {
+    width:600px;
+    background:white;
+    margin:25px auto;
+    padding:15px;
+    border-left:5px solid #4CAF50;
+    border-radius:10px;
+}
+/* make long description wrap like a paragraph */
+#requestList p{
+    word-wrap: break-word;
+    white-space: normal;
+    line-height:1.4;
+}
+
+/* ---- Footer (same as dashboard) ---- */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+}
+
+/* left */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* social box */
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+
+/* center */
+.footer-copy {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* right */
+.footer-desc {
+  text-align: right;
+  white-space: nowrap;
+  opacity: .85;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+  }
+}
+/* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+}
+/* يعالج اللون الأبيض حول المحتوى */
+/* الثيم الفاتح (العادي) */
+
+
+
+/* الثيم الغامق */
+body.dark-theme {
+    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
+    color: #f9f9f9;
+}
+
+
+/* خلي الكروت والبوكسات تصير داكنة بزيادة */
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
+}
+
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; /* غامق وواضح فوق الأبيض */
+}
+/* النافبار في الثيم الغامق */
+/* Dark navbar */
+body.dark-theme .navbar {
+  background-color: #111827;
+}
+
+/* الفوتر في الثيم الغامق */
+/* Dark footer */
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+
+/* روابط النافبار في الثيم الغامق */
+/* Navbar links in dark theme */
+body.dark-theme .nav-menu a {
+  color: #f9f9f9;
+}
+
+/* الهيرو سيكشن في الثيم الغامق (مثال) */
+/* Hero section in dark theme (example) */
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+.navbar img { border-radius: 8px; }
+
+</style>
+</head>
+
+<body>
+<!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+
+        <div style="display:flex; flex-direction:column; align-items:flex-start;">
+          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
+          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="hompage.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+          <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+<!-- ---- BREADCRUMBS ---- -->
+<div class="breadcrumbs">
+  <a href="homepage.html">Home</a> &gt;
+  <a href="dashboard.html">Customer Dashboard</a> &gt;
+  <span>Request a Service</span>
+</div>
+
+<h1>Request a Service </h1>
+
+<!-- ---- FORM (with optional options) ---- -->
+<form id="requestForm" onsubmit="return submitRequest();">
+
+  <label>Name of service</label>
+  <select id="serviceSelect">
+      <option value="">-- select --</option>
+      <option value="Nursery">Nursery</option>
+      <option value="Bus Service">Bus Service</option>
+      <option value="Games">Games</option>
+  </select>
+
+  <label>Name of customer</label>
+  <input id="customerName" type="text" placeholder="Full name">
+
+  <label>Date</label>
+  <input id="dueDate" type="date">
+
+  <label>Description</label>
+  <textarea id="requestDesc" rows="4" placeholder="Write description here..."></textarea>
+
+  <!-- Game type -->
+  <label>Game type</label>
+  <div class="options">
+    <label><input type="checkbox" value="Creative play"> Creative play</label>
+    <label><input type="checkbox" value="STEM puzzles"> STEM puzzles</label>
+    <label><input type="checkbox" value="Social games"> Social games</label>
+  </div>
+
+  <!-- Nursery services -->
+  <label>Nursery services</label>
+  <div class="options">
+    <label><input type="checkbox" value="1 hour"> 1 hour</label>
+    <label><input type="checkbox" value="4 hours"> 4 hours</label>
+    <label><input type="checkbox" value="6 hours"> 6 hours</label>
+  </div>
+
+  <!-- Bus direction -->
+  <label>Bus direction</label>
+  <div class="options">
+    <label><input type="checkbox" value="Drop-off"> Drop-off</label>
+    <label><input type="checkbox" value="Pick-up"> Pick-up</label>
+    <label><input type="checkbox" value="Both"> Both</label>
+  </div>
+
+  <button type="submit">Add</button>
+</form>
+
+<div id="requestList"></div>
+
+<!-- ---- FOOTER (dashboard footer) ---- -->
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div class="footer-left">
+      <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+
+      <div class="footer-socials">
+        <div class="icon-box">
+          <img src="insta.png" class="social-icon">
+          <span>@LittleStepsKSA</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="snap.png" class="social-icon">
+          <span>@LittleSteps</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="x.png" class="social-icon">
+          <span>@LittleStepsNursery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copy">
+      ©️ 2025 Little Steps. All rights reserved.
+    </div>
+
+    <div class="footer-desc">
+      Nurturing happy little minds.
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+// ======== helper: get checked values from one options group ========
+function getCheckedValues(container){
+    var values = [];
+    var inputs = container.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++){
+        if (inputs[i].checked){
+            values.push(inputs[i].value);
+        }
+    }
+    return values;
+}
+
+// ======== REQUEST PAGE LOGIC ========
+// Web 1 level validation + confirm + display request
+
+function submitRequest(){
+
+    var service = document.getElementById("serviceSelect");
+    var name    = document.getElementById("customerName");
+    var date    = document.getElementById("dueDate");
+    var desc    = document.getElementById("requestDesc");
+    var list    = document.getElementById("requestList");
+
+    // reset borders
+    service.style.borderColor = "";
+    name.style.borderColor    = "";
+    date.style.borderColor    = "";
+    desc.style.borderColor    = "";
+
+    var errors ="";
+
+    // 1- Validate service
+    if(service.value === ""){
+        errors += "- No service selected.\n";
+        service.style.borderColor="red";
+    }
+// 2- Validate full name (simple check)
+    var full = name.value.trim();
+    if(full === "" || full.indexOf(" ")===-1){
+        errors += "- Name must be full name.\n";
+        name.style.borderColor="red";
+    }
+    if(/[0-9?!@]/.test(full)){
+        errors += "- Name has numbers or symbols ( ? ! @ ).\n";
+        name.style.borderColor="red";
+    }
+
+    // 3- Validate date (not very soon)
+    if(date.value === ""){
+        errors += "- Date is empty.\n";
+        date.style.borderColor="red";
+    } else{
+        var today  = new Date();
+        var chosen = new Date(date.value);
+        if(chosen <= today){
+            errors += "- Due date is very soon.\n";
+            date.style.borderColor="red";
+        }
+    }
+
+    // 4- Validate description length
+    if(desc.value.trim().length < 100){
+        errors += "- Description is less than 100 characters.\n";
+        desc.style.borderColor="red";
+    }
+
+    // ===== collect optional selections =====
+    var groups = document.getElementsByClassName("options");
+    var gameSelected    = getCheckedValues(groups[0]); // Game type
+    var nurserySelected = getCheckedValues(groups[1]); // Nursery services
+    var busSelected     = getCheckedValues(groups[2]); // Bus direction
+
+    // ===== validate that type matches service and exactly one selected =====
+    if(service.value !== ""){
+        if(service.value === "Games"){
+            if(gameSelected.length === 0){
+                errors += "- Please select one game type for Games service.\n";
+            }
+            if(gameSelected.length > 1){
+                errors += "- Please select only one game type.\n";
+            }
+            if(nurserySelected.length > 0 || busSelected.length > 0){
+                errors += "- Selected options must match Games service only.\n";
+            }
+        }
+        if(service.value === "Nursery"){
+            if(nurserySelected.length === 0){
+                errors += "- Please select one nursery service (hours).\n";
+            }
+            if(nurserySelected.length > 1){
+                errors += "- Please select only one nursery service.\n";
+            }
+            if(gameSelected.length > 0 || busSelected.length > 0){
+                errors += "- Selected options must match Nursery service only.\n";
+            }
+        }
+        if(service.value === "Bus Service"){
+            if(busSelected.length === 0){
+                errors += "- Please select one bus direction.\n";
+            }
+            if(busSelected.length > 1){
+                errors += "- Please select only one bus direction.\n";
+            }
+            if(gameSelected.length > 0 || nurserySelected.length > 0){
+                errors += "- Selected options must match Bus Service only.\n";
+            }
+        }
+    }
+
+    // Show errors if any
+    if(errors !== ""){
+        alert("Please fix the following:\n\n" + errors);
+        return false;
+    }
+
+    // ===== build extra text for display =====
+    var extraHtml = "";
+    if(gameSelected.length > 0){
+        extraHtml += "<br><strong>Game type:</strong> " + gameSelected.join(", ");
+    }
+    if(nurserySelected.length > 0){
+        extraHtml += "<br><strong>Nursery services:</strong> " + nurserySelected.join(", ");
+    }
+    if(busSelected.length > 0){
+        extraHtml += "<br><strong>Bus direction:</strong> " + busSelected.join(", ");
+    }
+
+    // If valid → ask user
+    var stay = confirm(
+      "Your request was sent.\n\n" +
+      "Press OK to stay on this page.\n" +
+      "Press Cancel to go to Customer Dashboard."
+    );
+
+    if(stay){
+        list.innerHTML +=
+        "<p>" +
+        "<strong>Service:</strong> " + service.value + "<br>" +
+        "<strong>Name:</strong> " + full + "<br>" +
+        "<strong>Due date:</strong> " + date.value + "<br>" +
+        "<strong>Description:</strong> " + desc.value +
+        extraHtml +
+        "<hr>" +
+        "</p>";
+
+        // Reset form inputs
+        service.value="";
+        name.value="";
+        date.value="";
+        desc.value="";
+
+        // Uncheck all checkboxes in the three groups
+var allChecks = document.querySelectorAll(".options input[type='checkbox']");
+        for (var i = 0; i < allChecks.length; i++){
+            allChecks[i].checked = false;
+        }
+
+    } else {
+        // go to the correct dashboard file
+        window.location.href="dashboard.html";
+    }
+
+    return false; // prevent real submit
+}
+</script>
+
+</body>
+</html>

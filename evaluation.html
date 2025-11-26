@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Rate the Service</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+/* Navigation Bar */
+.navbar {
+    background-color: #4CAF50;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  padding: 10px 40px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.breadcrumbs a {
+  text-decoration: none;
+  color: #3498db;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+.breadcrumbs span {
+  color: #7f8c8d;
+}
+
+/* ==== Base ==== */
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f8f9fa;color:#333}
+
+/* ==== Title ==== */
+.title{text-align:center;margin:30px 0 20px;color:#2c3e50;font-size:1.6rem;font-weight:bold}
+
+/* ==== Card/Form ==== */
+main{max-width:500px;margin:0 auto 50px;padding:0 1rem}
+.card{
+  background:#fff;border:1px solid #edf1f4;border-top:5px solid #4CAF50;
+  border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:22px;
+}
+label{display:block;margin:10px 0 6px;font-weight:700;color:#2c3e50}
+select,textarea{
+  width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:15px;background:#fff
+}
+textarea{resize:vertical;min-height:90px}
+
+/* ==== Rating stars ==== */
+.rating{display:flex;flex-direction:row-reverse;justify-content:center;gap:6px;margin:6px 0 10px}
+.rating input{display:none}
+.rating label{font-size:40px;color:#ccc;cursor:pointer;line-height:1}
+.rating input:checked ~ label{color:#f5b301}
+.rating label:hover,
+.rating label:hover ~ label{color:#ffcc00}
+
+/* ==== Button ==== */
+button{
+  background:#4CAF50;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:10px 20px;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+  width:100%;
+}
+button:hover{filter:brightness(.95)}
+
+/* Footer */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+
+.footer-copy {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.footer-desc {
+  text-align: right;
+  white-space: nowrap;
+  opacity: .85;
+}
+
+/* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+}
+/* يعالج اللون الأبيض حول المحتوى */
+/* الثيم الفاتح (العادي) */
+
+
+
+/* الثيم الغامق */
+body.dark-theme {
+    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
+    color: #f9f9f9;
+}
+
+
+/* خلي الكروت والبوكسات تصير داكنة بزيادة */
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
+}
+
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; /* غامق وواضح فوق الأبيض */
+}
+/* النافبار في الثيم الغامق */
+/* Dark navbar */
+body.dark-theme .navbar {
+  background-color: #111827;
+}
+
+/* الفوتر في الثيم الغامق */
+/* Dark footer */
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+
+/* روابط النافبار في الثيم الغامق */
+/* Navbar links in dark theme */
+body.dark-theme .nav-menu a {
+  color: #f9f9f9;
+}
+
+/* الهيرو سيكشن في الثيم الغامق (مثال) */
+/* Hero section in dark theme (example) */
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+.navbar img { border-radius: 8px; }
+
+</style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div style="display:flex; flex-direction:column; align-items:flex-start;">
+      <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px; object-fit:contain;">
+      <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="homepage.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+      <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+  <a href="homepage.html">Home</a> &gt;
+  <a href="dashboard.html">Customer Dashboard</a> &gt;
+  <span>Rate Service</span>
+</div>
+
+  <!-- Title -->
+  <h1 class="title">rate the service</h1>
+
+  <!-- Card/Form -->
+  <main>
+    <form class="card" action="dashboard.html" method="get" onsubmit="return validateEvaluation();">
+      <div>
+        <label for="service-name">service name</label>
+        <select id="service-name" name="service">
+          <option value="" selected disabled>-- select --</option>
+          <option>nursery services</option>
+          <option>bus delivery</option>
+          <option>interactive games</option>
+        </select>
+      </div>
+
+      <div>
+        <label>rate</label>
+        <div class="rating" id="rating-box">
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5" title="5 stars">★</label>
+
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4" title="4 stars">★</label>
+
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3" title="3 stars">★</label>
+
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2" title="2 stars">★</label>
+
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1" title="1 star">★</label>
+        </div>
+      </div>
+
+      <div>
+        <label for="feedback">give us your feedback</label>
+        <textarea id="feedback" name="feedback" rows="5" placeholder="write your feedback..."></textarea>
+      </div>
+
+      <div>
+        <button type="submit">submit</button>
+      </div>
+    </form>
+  </main>
+
+  
+<footer class="footer">
+  <div class="footer-grid">
+
+    <!-- اليسار: اللوقو + الحسابات -->
+    <div class="footer-left">
+
+      <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+
+      <div class="footer-socials">
+        <div class="icon-box">
+          <img src="insta.png" class="social-icon">
+          <span>@LittleStepsKSA</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="snap.png" class="social-icon">
+          <span>@LittleSteps</span>
+        </div>
+
+        <div class="icon-box">
+          <img src="x.png" class="social-icon">
+          <span>@LittleStepsNursery</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- الوسط: كوبي رايت -->
+    <div class="footer-copy">
+      ©️ 2025 Little Steps. All rights reserved.
+    </div>
+
+    <!-- اليمين: وصف -->
+    <div class="footer-desc">
+      Nurturing happy little minds.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+// Simple Web1 validation for evaluation page
+function validateEvaluation() {
+  var service   = document.getElementById("service-name");
+  var feedback  = document.getElementById("feedback");
+  var ratingBox = document.getElementById("rating-box");
+  var ratings   = document.getElementsByName("rating");
+
+  // reset styles
+  service.style.borderColor  = "";
+  feedback.style.borderColor = "";
+  ratingBox.style.outline    = "none";
+
+  var errors = "";
+
+  // 1) Check service selected
+  if (service.value === "") {
+    errors += "- Please select a service.\n";
+    service.style.borderColor = "red";
+  }
+
+  // 2) Your rating + feedback logic 
+  var rateValue = "";
+  for (var i = 0; i < ratings.length; i++) {
+    if (ratings[i].checked) {
+      rateValue = ratings[i].value;
+      break;
+    }
+  }
+  if (rateValue === "") {
+    errors += "- Please select a rating.\n";
+    ratingBox.style.outline = "2px solid red";
+  }
+
+  // 3) Check feedback not empty
+  if (feedback.value.trim() === "") {
+    errors += "- Please write your feedback.\n";
+    feedback.style.borderColor = "red";
+  }
+
+  // If there are errors, stop submit
+  if (errors !== "") {
+    alert("Please fix the following:\n\n" + errors);
+    return false; // stop form
+  }
+
+  // If valid → check rating and show message
+  if (parseInt(rateValue, 10) >= 4) {
+    alert("Thank you for your positive feedback!");
+  } else {
+    alert("We are sorry for your experience. We will work to improve our services.");
+  }
+
+  // Then transfer to dashboard (no need to store review)
+window.location.href = "dashboard.html";
+  return false; // prevent default submit
+}
+</script>
+
+</body>
+</html>
