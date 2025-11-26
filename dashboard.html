@@ -257,53 +257,81 @@ body.dark-theme .hero-section {
 }
 .navbar img { border-radius: 8px; }
 
-/* ====== موبايل وتابلت (تخلي الداشبورد يرتب نفسه بالشاشات الصغيرة) ====== */
+/* ================= Responsive Layout ================= */
+
+/* للأجهزة المتوسطة مثل التابلت */
+@media (max-width: 992px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .nav-menu {
+    gap: 1.2rem;
+  }
+
+  .btn {
+    width: 85%;
+    font-size: 1rem;
+  }
+
+  .hero {
+    font-size: 1.5rem;
+    padding: 18px;
+  }
+
+  .breadcrumbs {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+/* للجوالات */
 @media (max-width: 768px) {
 
-  /* الهيدر */
+  /* ترتيب الهيدر بشكل عمودي */
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.6rem;
-    padding: 0 1rem 0.8rem;
   }
 
-  header .nav-menu {
+  /* الروابط تنزل سطر سطر */
+  .nav-menu {
     flex-wrap: wrap;
-    justify-content: center;
     width: 100%;
+    justify-content: center;
     gap: 0.7rem;
   }
 
-  header .nav-menu a {
+  .nav-menu a {
     padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
   }
 
-  /* العنوان والكروت في صفحة الداشبورد */
   .wrap {
-    max-width: 100%;
-    margin: 24px auto;
-    padding: 0 12px;
+    width: 95%;
+    margin: 20px auto;
   }
 
   .hero {
+    width: 100%;
     font-size: 1.3rem;
     padding: 14px;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
-  .stack .btn {
+  /* تكبير الأزرار للجوال */
+  .btn {
     width: 100%;
-    font-size: 0.95rem;
-    padding: 12px;
+    font-size: 1rem;
+    padding: 14px;
   }
 
-  /* الفوتر */
+  /* تحسين الفوتر */
   .footer-grid {
     grid-template-columns: 1fr;
-    text-align: center;
     gap: 10px;
+    text-align: center;
   }
 
   .footer-left,
@@ -313,7 +341,22 @@ body.dark-theme .hero-section {
 
   .footer-desc {
     text-align: center;
+    white-space: normal;
   }
+}
+
+/* لجعل الفوتر تحت حتى لو المحتوى قصير */
+html, body {
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
 }
 
   </style>
@@ -400,6 +443,7 @@ body.dark-theme .hero-section {
 
 </body>
 </html>
+
 
 
 
