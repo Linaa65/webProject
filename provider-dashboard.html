@@ -12,63 +12,70 @@
   width: 100%;
 }
 
+/* الهيدر بالضبط مثل صفحة RATE */
 .nav-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .logo-box {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
 }
 
 .logo-box img {
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   object-fit: contain;
 }
 
 .logo-box span {
   color: white;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
+  text-align: center;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 1.3rem;
+  gap: 1.5rem;
+  margin-top: 4px;
 }
 
 .nav-menu a {
   color: white;
   text-decoration: none;
-  padding: 6px 12px;
+  padding: 8px 14px;
   font-size: 16px;
   border-radius: 6px;
 }
 
 .nav-menu a.active,
 .nav-menu a:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.25);
 }
 
 @media (max-width: 768px) {
-  .nav-container {
-    gap: 8px;
+  .logo-box img {
+    width: 60px;
+    height: 60px;
   }
 
   .logo-box span {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .nav-menu {
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  .nav-menu a {
+    font-size: 15px;
   }
 }
 
@@ -98,7 +105,7 @@
 </nav>
 
 <div class="breadcrumbs">
-  <a href="index.html">Hom</a> > <span>provider-dashboard</span>
+  <a href="index.html">Home</a> > <span>provider-dashboard</span>
 </div>
 
 <h2>Service Provider Dashboard</h2>
@@ -174,5 +181,6 @@
 
 </body>
 </html>
+
 
 
