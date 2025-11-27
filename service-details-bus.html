@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bus Delivery Service</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial, sans-serif;background:#f8f9fa;color:#333;line-height:1.6}
+.container{max-width:800px;margin:40px auto;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,.1);overflow:hidden}
+.header{background:#4CAF50;padding:15px;color:#fff;text-align:center;font-size:22px;position:relative}
+
+/* 🔙 زر الرجوع الأبيض */
+.top-back-box{position:absolute;top:12px;left:15px}
+.back-btn{
+  width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;position:relative;
+}
+.back-btn::before{
+  content:"";border:solid white;border-width:0 3px 3px 0;display:inline-block;padding:6px;transform:rotate(135deg);transition:0.2s;
+}
+.back-btn:hover{
+  background:#4CAF50;border-radius:50%;border:2px solid #4CAF50;
+}
+.back-btn:hover::before{border-color:white;}
+
+
+/* Image box */
+.image-box{
+  width:10 em;
+  height:10 em;
+  object-fit:cover;
+  background:transparent;
+  background-position:center;
+
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  color:#555;
+}
+
+.content{padding:20px}
+label{font-weight:bold}
+select{width:100%;padding:10px;margin:10px 0;border-radius:6px;border:1px solid #ccc}
+.price{color:#e74c3c;font-size:20px;font-weight:bold;margin:15px 0}
+.btn-box{display:flex;justify-content:space-between;align-items:center;margin-top:15px}
+.btn{background:#4CAF50;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:bold}
+.btn:hover{background:#43a047}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    Bus Delivery Service
+    <div class="top-back-box">
+      <a class="back-btn" href="services.html" title="Back"></a>
+    </div>
+  </div>
+
+  <div class="image-box"  > 
+   <img src="b.png" alt="Bus Delivery Service" width="260" height="260">
+
+  </div>
+
+  <div class="content">
+    <p>Safe transportation for children with GPS tracking and professional drivers.</p>
+
+    <label>Choose plan:</label>
+    <select>
+      <option>One-Way </option>
+      <option>Return </option>
+      <option>Round Trip </option>
+    </select>
+
+    <div class="btn-box">
+      <div class="price">1000 SAR / Month</div>
+      <a class="btn" href="service-booked.html">Book</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
