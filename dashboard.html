@@ -485,9 +485,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // This script reads the saved theme and applies it without needing a button
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // Read saved theme from localStorage
+    const savedTheme = localStorage.getItem("theme");
+
+    // If user selected dark mode before, apply it
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-theme");
+    }
+});
 </script>
 </body>
 </html>
+
 
 
 
