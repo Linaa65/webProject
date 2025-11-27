@@ -7,71 +7,74 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
- 
-    /* ====== FIX FOR YOUR HEADER (CLEAN + SIMPLE) ====== */
+    /* ========== HEADER CORRECT STYLE LIKE THE OLD PAGE ========== */
 
 .navbar {
   background-color: #4CAF50;
-  padding: 15px 0;
+  padding: 1.2rem 0;
   width: 100%;
 }
 
 .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;   /* هذا يخلي اللوقو فوق – المنيو تحت (نفس اللي كان عاجبك) */
+  flex-direction: column;        /* يخلي اللوقو فوق والروابط تحت */
   align-items: center;
   gap: 10px;
 }
 
-/* تعديل اللوقو بس شوي فوق ويصير أنظف */
-.logo-box {
+/* Logo + title */
+.nav-container > div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
-.logo-box img {
+.nav-container img {
   width: 55px;
   height: 55px;
   object-fit: contain;
 }
 
-.logo-box span {
+.nav-container span {
   color: white;
   font-size: 26px;
   font-weight: bold;
-  margin-top: -4px;   /* يرفع Little Steps شوي */
 }
 
-/* المنيو نفسها بدون خراب */
+/* Nav menu horizontal */
 .nav-menu {
-  list-style: none;
   display: flex;
-  flex-direction: column; /* عمودي نفس اللي كنتِ تبينه */
-  gap: 12px;
-  margin-top: 8px;
+  list-style: none;
+  gap: 1.5rem;
+  margin-top: 4px;
 }
 
 .nav-menu a {
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .nav-menu a.active {
   background: rgba(255,255,255,0.25);
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 6px 14px;
+  border-radius: 8px;
 }
 
-/* موبايل */
-@media (max-width: 480px) {
-  .logo-box span {
-    font-size: 22px;
+/* Mobile */
+@media (max-width: 600px) {
+  .nav-menu {
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
   }
+
   .nav-menu a {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -105,7 +108,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Hme</a> &gt;
+    <a href="homepage.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -183,6 +186,7 @@
 
 </body>
 </html>
+
 
 
 
