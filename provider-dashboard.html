@@ -9,23 +9,20 @@
 
     @media (max-width: 600px) {
 
-  /* الهيدر كامل */
-  .navbar {
-    padding-bottom: 1.5rem;
-  }
-
+  /* الهيدر ثابت مثل ما تبينه */
   .nav-container {
-    flex-direction: column;
+    flex-direction: row !important;
+    justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    padding: 0 15px;
   }
 
-  /* اللوقو */
+  /* اللوقو + الاسم – يظل نفس الشكل الأصلي */
   .logo-box {
-    display: flex;
-    flex-direction: row;
+    display: flex !important;
+    flex-direction: row !important;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
 
   .logo-box img {
@@ -34,43 +31,37 @@
   }
 
   .logo-box span {
-    color: white;
     font-size: 20px !important;
     font-weight: bold;
+    color: white;
   }
 
-  /* ============ القائمة ============ */
-
-  /* نخلي المينيو تنقسم لصفين */
+  /* القائمة */
   .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex !important;
+    flex-wrap: wrap;   /* ← يسمح تصير صفّين */
     justify-content: center;
-    width: 100%;
-    max-width: 350px; /* نفس عرض البنت تقريباً */
     row-gap: 8px;
     column-gap: 25px;
-    margin-top: 10px;
+    width: 100%;
+    max-width: 330px;
   }
 
-  /* العنصر 1 و 2 و 3 فوق */
+  /* أول ثلاث عناصر في الصف الأول */
   .nav-menu li:nth-child(-n+3) {
     order: 1;
   }
 
-  /* العنصر 4 و 5 تحت */
+  /* آخر عنصرين في الصف الثاني */
   .nav-menu li:nth-child(n+4) {
     order: 2;
   }
 
   .nav-menu li a {
-    color: white;
     font-size: 15px;
-    font-weight: 500;
-    padding: 5px 0;
+    color: white;
   }
 }
-
 
   </style>
 </head>
@@ -176,6 +167,7 @@
 
 </body>
 </html>
+
 
 
 
