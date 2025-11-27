@@ -8,38 +8,46 @@
   <style>
 @media (max-width: 600px) {
 
-  /* نخلي المينيو تتحول لصفين ويصغر عرض العناصر */
+  /* أولاً: نخلي nav-container يصير صف واحد فقط */
+  .nav-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+
+  /* ثانياً: نخلي القائمة تطلع تحت اللوقو */
   .nav-menu {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 15px !important;
-    margin-top: 15px !important;
+    width: 100%;
+    max-width: 330px;
+    gap: 12px 25px !important;
   }
 
-  /* أهم سطرين: يمنعون العناصر من أخذ عرض كامل */
+  /* نصغّر عرض كل عنصر */
   .nav-menu li {
-    display: inline-block !important;
     width: auto !important;
+    display: inline-block !important;
   }
 
-  /* أول ثلاث روابط فوق */
+  /* أول 3 روابط في الصف الأول */
   .nav-menu li:nth-child(-n+3) {
     order: 1 !important;
   }
 
-  /* آخر رابطين تحت */
+  /* آخر رابطين في الصف الثاني */
   .nav-menu li:nth-child(n+4) {
     order: 2 !important;
   }
 
+  /* شكل الخط */
   .nav-menu li a {
     font-size: 15px !important;
     color: white !important;
     text-align: center !important;
   }
 }
-
 
   </style>
 </head>
@@ -67,7 +75,7 @@
   </header>
 
   <div class="breadcrumbs">
-    <a href="homepage.html">ome</a> &gt;
+    <a href="homepage.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -145,6 +153,7 @@
 
 </body>
 </html>
+
 
 
 
