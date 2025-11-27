@@ -12,6 +12,103 @@
             box-sizing: border-box;
         }
 
+/* ================== Navigation Bar ================== */
+.navbar {
+  background-color: #4CAF50;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+}
+.nav-container {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+}
+.logo h1 { color: white; font-size: 1.8rem; }
+.nav-menu { display: flex; list-style: none; gap: 2rem; }
+.nav-menu a {
+  color: white; text-decoration: none; padding: 0.5rem 1rem;
+  border-radius: 4px; transition: background-color 0.3s;
+}
+.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
+
+
+/* ================= Breadcrumbs (مثل شغل البنات) ================= */
+.breadcrumbs {
+  padding: 10px 40px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  color: #778c8d;
+}
+
+/* ================= Base Reset ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ================= Page Content ================= */
+.wrap {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.hero {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.8rem;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.btn {
+  display: block;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.btn--green { background: #7657c9; }
+.btn--blue  { background: #4c8bbd; }
+.btn--orange{ background: #dca54c; }
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
         
         /* Loyalty Header */
         .loyalty-header {
@@ -909,4 +1006,5 @@ body.dark-theme .hero-section {
 </body>
 
 </html>
+
 
