@@ -6,80 +6,160 @@
   <title>Service Provider Dashboard</title>
 
   <style>
-.navbar {
-  background-color: #4CAF50;
-  padding: 1rem 0;
-  width: 100%;
-}
+    .navbar {
+      background-color: #4CAF50;
+      padding: 1rem 0;
+      width: 100%;
+    }
 
-/* الهيدر بالضبط مثل صفحة RATE */
-.nav-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
+    .nav-container {
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
 
-.logo-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .logo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.logo-box img {
-  width: 55px;
-  height: 55px;
-  object-fit: contain;
-}
+    .logo-box img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+    }
 
-.logo-box span {
-  color: white;
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-}
+    .logo-box span {
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+    }
 
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-  margin-top: 4px;
-}
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin-top: 4px;
+      padding: 0;
+    }
 
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 14px;
-  font-size: 16px;
-  border-radius: 6px;
-}
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      font-size: 16px;
+      border-radius: 6px;
+    }
 
-.nav-menu a.active,
-.nav-menu a:hover {
-  background-color: rgba(255,255,255,0.25);
-}
+    .nav-menu a.active,
+    .nav-menu a:hover {
+      background-color: rgba(255,255,255,0.25);
+    }
 
-@media (max-width: 768px) {
-  .logo-box img {
-    width: 60px;
-    height: 60px;
-  }
+    @media (max-width: 768px) {
+      .logo-box img {
+        width: 60px;
+        height: 60px;
+      }
 
-  .logo-box span {
-    font-size: 24px;
-  }
+      .logo-box span {
+        font-size: 24px;
+      }
 
-  .nav-menu {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+      .nav-menu {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
 
-  .nav-menu a {
-    font-size: 15px;
-  }
-}
+      .nav-menu a {
+        font-size: 15px;
+      }
+    }
 
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+    }
 
+    .breadcrumbs {
+      max-width: 900px;
+      margin: 20px auto;
+      font-size: 16px;
+    }
+
+    h2 {
+      max-width: 900px;
+      margin: 20px auto;
+      font-size: 28px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    section img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 12px 0;
+    }
+
+    footer {
+      background: #f2f2f2;
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    .footer-grid {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .icon-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .social-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-copy,
+    .footer-desc {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #555;
+    }
   </style>
 </head>
 
@@ -89,7 +169,7 @@
   <div class="nav-container">
 
     <div class="logo-box">
-      <img src="logo.png" alt="Logo">
+      <img src="logo.png">
       <span>Little Steps</span>
     </div>
 
@@ -105,7 +185,7 @@
 </nav>
 
 <div class="breadcrumbs">
-  <a href="index.html">Home</a> > <span>provider-dashboard</span>
+  <a href="index.html">Home</a> > provider-dashboard
 </div>
 
 <h2>Service Provider Dashboard</h2>
@@ -133,7 +213,6 @@
     <p>Creative games and art sessions for children.</p>
     <p>Price: 80 SAR</p>
   </div>
-
 </section>
 
 <section>
@@ -149,27 +228,15 @@
   <div id="addedServices"></div>
 </section>
 
-<footer class="footer">
+<footer>
   <div class="footer-grid">
 
     <div class="footer-left">
       <img src="logo.png" class="footer-logo">
-
       <div class="footer-socials">
-        <div class="icon-box">
-          <img src="insta.png" class="social-icon">
-          <span>@LittleStepsKSA</span>
-        </div>
-
-        <div class="icon-box">
-          <img src="snap.png" class="social-icon">
-          <span>@LittleSteps</span>
-        </div>
-
-        <div class="icon-box">
-          <img src="x.png" class="social-icon">
-          <span>@LittleStepsNursery</span>
-        </div>
+        <div class="icon-box"><img src="insta.png" class="social-icon"><span>@LittleStepsKSA</span></div>
+        <div class="icon-box"><img src="snap.png" class="social-icon"><span>@LittleSteps</span></div>
+        <div class="icon-box"><img src="x.png" class="social-icon"><span>@LittleStepsNursery</span></div>
       </div>
     </div>
 
@@ -181,6 +248,3 @@
 
 </body>
 </html>
-
-
-
