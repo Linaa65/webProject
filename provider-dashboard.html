@@ -6,29 +6,24 @@
   <title>Service Provider Dashboard</title>
   <link rel="stylesheet" href="style.css">
 
-  <style> 
-/* ===== FORCE MOBILE HEADER STYLE ON ALL PAGES ===== */
-@media (max-width: 768px) {
+<style> 
 
-  .navbar {
-    padding: 12px 0 !important;
-  }
+@media (max-width: 768px) {
 
   .nav-container {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
+    padding: 12px 16px !important;
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 16px !important;
   }
 
   .nav-container > div:first-child {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
   }
 
   .nav-menu {
@@ -37,135 +32,120 @@
     flex-wrap: wrap !important;
     justify-content: center !important;
     gap: 12px !important;
-    width: 100% !important;
   }
 
   .nav-menu li a {
-    color: white !important;
     font-size: 14px !important;
     padding: 6px 10px !important;
-    border-radius: 6px !important;
-    white-space: nowrap !important;
-  }
+    white-space: nowrap;
+  }
 }
 
 </style>
-
 </head>
+
 <body>
 
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
 
-        <div style="display:flex; flex-direction:column; align-items:flex-start;">
-          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
-          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
-        </div>
+<header>
+  <nav class="navbar">
+    <div class="nav-container">
 
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
-          <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
-        </ul>
-
+      <div style="display:flex; flex-direction:row; align-items:center; gap:8px;">
+        <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px; object-fit:contain;">
+        <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
       </div>
-    </nav>
-  </header>
 
-  <div class="breadcrumbs">
-    <a href="index.html">home</a> &gt;
-    <span>provider-dashboard</span>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+        <li><a href="dashboard.html">Customer Dashboard</a></li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+<div class="breadcrumbs">
+  <a href="index.html">home</a> &gt;
+  <span>provider-dashboard</span>
+</div>
+
+
+<h2>Service Provider Dashboard</h2>
+
+<section>
+  <h3>Current Nursery Services</h3>
+
+  <div>
+    <h4>Nursery Care</h4>
+    <img src="care.png" alt="Nursery Care Service" width="200">
+    <p>Full-time child care with professional caregivers.</p>
+    <p>Price: 200 SAR</p>
   </div>
 
-  <h2>Service Provider Dashboard</h2>
+  <div>
+    <h4>Transportation</h4>
+    <img src="b.png" alt="Transportation Service" width="200">
+    <p>Safe pick-up and drop-off bus service.</p>
+    <p>Price: 100 SAR</p>
+  </div>
 
-  <section>
-    <h3>Current Nursery Services</h3>
+  <div>
+    <h4>Fun Activities</h4>
+    <img src="g.png" alt="Fun Activities Service" width="200">
+    <p>Creative games and art sessions for children.</p>
+    <p>Price: 80 SAR</p>
+  </div>
+</section>
 
-    <div>
-      <h4>Nursery Care</h4>
-      <img src="care.png" alt="Nursery Care Service" width="200">
-      <p>Full-time child care with professional caregivers.</p>
-      <p>Price: 200 SAR</p>
-    </div>
+<section>
+  <h3>Quick Actions</h3>
+  <ul>
+    <li><a href="addservice.html">Add New Service</a></li>
+    <li><a href="managestaff.html">Manage Staff Members</a></li>
+  </ul>
+</section>
 
-    <div>
-      <h4>Transportation</h4>
-      <img src="b.png" alt="Transportation Service" width="200">
-      <p>Safe pick-up and drop-off bus service.</p>
-      <p>Price: 100 SAR</p>
-    </div>
+<section>
+  <h3>Added Services</h3>
+  <div id="addedServices"></div>
+</section>
 
-    <div>
-      <h4>Fun Activities</h4>
-      <img src="g.png" alt="Fun Activities Service" width="200">
-      <p>Creative games and art sessions for children.</p>
-      <p>Price: 80 SAR</p>
-    </div>
-  </section>
+<footer class="footer">
+  <div class="footer-grid">
 
-  <section>
-    <h3>Quick Actions</h3>
-    <ul>
-      <li><a href="addservice.html">Add New Service</a></li>
-      <li><a href="managestaff.html">Manage Staff Members</a></li>
-    </ul>
-  </section>
+    <div class="footer-left">
+      <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
 
-  <section>
-    <h3>Added Services</h3>
-    <div id="addedServices"></div>
-  </section>
+      <div class="footer-socials">
+        <div class="icon-box">
+          <img src="insta.png" class="social-icon" alt="Instagram Icon">
+          <span>@LittleStepsKSA</span>
+        </div>
 
-  <footer class="footer">
-    <div class="footer-grid">
+        <div class="icon-box">
+          <img src="snap.png" class="social-icon" alt="Snapchat Icon">
+          <span>@LittleSteps</span>
+        </div>
 
-      <div class="footer-left">
-        <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
-
-        <div class="footer-socials">
-          <div class="icon-box">
-            <img src="insta.png" class="social-icon" alt="Instagram Icon">
-            <span>@LittleStepsKSA</span>
-          </div>
-
-          <div class="icon-box">
-            <img src="snap.png" class="social-icon" alt="Snapchat Icon">
-            <span>@LittleSteps</span>
-          </div>
-
-          <div class="icon-box">
-            <img src="x.png" class="social-icon" alt="Twitter X Icon">
-            <span>@LittleStepsNursery</span>
-          </div>
+        <div class="icon-box">
+          <img src="x.png" class="social-icon" alt="Twitter X Icon">
+          <span>@LittleStepsNursery</span>
         </div>
       </div>
-
-      <div class="footer-copy">© 2025 Little Steps. All rights reserved.</div>
-      <div class="footer-desc">Nurturing happy little minds.</div>
-
     </div>
-  </footer>
 
-  <script src="provider-dashboard.js" ></script>
+    <div class="footer-copy">© 2025 Little Steps. All rights reserved.</div>
+    <div class="footer-desc">Nurturing happy little minds.</div>
+
+  </div>
+</footer>
+
+<script src="provider-dashboard.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
