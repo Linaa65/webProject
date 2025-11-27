@@ -7,84 +7,73 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-   
-    /* ====== الهيدر نفس الصورة بالضبط ====== */
 
-.navbar {
-    background-color: #4CAF50;
-    padding: 1rem 0;
-    width: 100%;
-}
+    /* ======= إصلاح الهيدر ليصير بالضبط مثل الشكل اللي تبينه ======= */
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-
-    display: flex;
-    justify-content: start;      /* كل شي يبدأ من اليسار */
-    align-items: center;
-    gap: 20px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 25px !important;
 }
 
-/* اللوقو + كلمة Little Steps */
 .logo-box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
 }
 
 .logo-box img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+    width: 55px !important;
+    height: 55px !important;
+    object-fit: contain !important;
+    margin-bottom: 4px !important;
 }
 
 .logo-box span {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
+    color: white !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
 }
 
-/* الروابط تصير هورزنتل صف واحد */
+/* الروابط هورزنتل صف واحد */
 .nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1.7rem !important;
     list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin-left: 30px; /* تبعد شوي من اللوقو */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.nav-menu li {
+    display: inline-block !important;
 }
 
 .nav-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: 0.2s;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 1rem !important;
+    padding: 6px 10px !important;
+    border-radius: 6px !important;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
-    background-color: rgba(255,255,255,0.25);
-}
-
-
-/* ===== الجوال — يخلي نفس الشكل بدون انهيار ===== */
+/* للجوال */
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-left: 0;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     .logo-box {
-        align-items: center;
+        align-items: center !important;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 1rem !important;
     }
 }
 
@@ -118,7 +107,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Hme</a> &gt;
+    <a href="homepage.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -196,6 +185,7 @@
 
 </body>
 </html>
+
 
 
 
