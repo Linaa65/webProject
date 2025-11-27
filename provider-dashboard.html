@@ -7,64 +7,65 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-    /* Navbar */
+ 
+    /* ========== FIX NAVBAR LAYOUT ========== */
 .navbar {
-  background-color: #4CAF50;
+  background-color: #4CAF50 !important;
   padding: 1rem 0;
   width: 100%;
 }
 
-/* الحاوية */
 .nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* صندوق اللوقو */
+/* logo left */
 .logo-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
 }
 
-/* صورة اللوقو */
 .logo-box img {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
+  width: 45px !important;
+  height: 45px !important;
+  object-fit: contain !important;
 }
 
-/* نص Little Steps */
 .logo-box span {
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
+  color: white !important;
+  font-size: 22px !important;
+  font-weight: bold !important;
 }
 
-/* قائمة الروابط */
+/* links horizontal */
 .nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
+  display: flex !important;
+  flex-direction: row !important;
+  list-style: none !important;
+  gap: 2rem !important;
 }
 
-/* الروابط */
+.nav-menu li {
+  display: inline-block !important;
+}
+
 .nav-menu a {
-  color: white;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: 0.2s;
+  color: white !important;
+  text-decoration: none !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
 }
 
-/* active */
 .nav-menu a.active,
 .nav-menu a:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.2) !important;
 }
 
 
@@ -99,7 +100,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">He</a> &gt;
+    <a href="homepage.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -177,6 +178,7 @@
 
 </body>
 </html>
+
 
 
 
