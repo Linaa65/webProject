@@ -77,6 +77,41 @@
     }
 }
 
+    /* ===== FINAL NAVBAR FIX ===== */
+.nav-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px !important;
+}
+
+.nav-container > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.nav-container img {
+    width: 55px !important;
+    height: 55px !important;
+    object-fit: contain !important;
+    margin-bottom: 6px !important;
+}
+
+.nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;   /* يمنعهم ينزلون سطر ثاني */
+    justify-content: center !important;
+    gap: 1.6rem !important;
+}
+
+.nav-menu a {
+    font-size: 1.05rem !important;
+    white-space: nowrap !important; /* يمنع تكسير الكلمات */
+}
+
+
   </style>
 </head>
 <body>
@@ -91,7 +126,7 @@
       </div>
 
       <ul class="nav-menu">
-        <li><a href="homepage.html">Home</a></li>
+        <li><a href="homepage.html">Hme</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
@@ -185,6 +220,7 @@
 
 </body>
 </html>
+
 
 
 
