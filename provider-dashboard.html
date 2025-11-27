@@ -6,20 +6,6 @@
   <title>Service Provider Dashboard</title>
 
   <style>
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
-  color: #333;
-}
-
-/* NAVBAR */
 .navbar {
   background-color: #4CAF50;
   padding: 1rem 0;
@@ -29,7 +15,6 @@ body {
 .nav-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 12px;
 }
@@ -38,7 +23,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .logo-box img {
@@ -63,129 +48,18 @@ body {
   color: white;
   text-decoration: none;
   padding: 6px 12px;
-  border-radius: 6px;
   font-size: 16px;
+  border-radius: 6px;
 }
 
 .nav-menu a.active,
 .nav-menu a:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255,255,255,0.2);
 }
 
-/* Breadcrumbs */
-.breadcrumbs {
-  padding: 10px 20px;
-  background: #ecf0f1;
-  border-bottom: 1px solid #ddd;
-  font-size: 0.95rem;
-}
-
-.breadcrumbs a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-/* Page title */
-h2 {
-  text-align: center;
-  margin: 25px 0 10px;
-  font-size: 1.8rem;
-  color: #2c3e50;
-}
-
-/* Sections */
-section {
-  width: 90%;
-  max-width: 700px;
-  margin: 25px auto;
-  background: white;
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-}
-
-section h3 {
-  margin-bottom: 12px;
-}
-
-section div {
-  margin-bottom: 25px;
-}
-
-section img {
-  width: 100%;
-  border-radius: 12px;
-  margin: 10px 0;
-}
-
-/* Footer */
-.footer {
-  background: #2c3e50;
-  color: white;
-  padding: 20px 0;
-  font-size: 14px;
-}
-
-.footer-grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 25px;
-  padding: 0 20px;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.footer-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 15px;
-}
-
-.icon-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 13px;
-}
-
-.social-icon {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  margin-bottom: 4px;
-}
-
-.footer-copy {
-  text-align: center;
-}
-
-.footer-desc {
-  text-align: right;
-  opacity: .85;
-}
-
-/* Mobile */
 @media (max-width: 768px) {
-
-  .navbar {
-    padding: 14px 0;
-  }
-
   .nav-container {
-    gap: 10px;
+    gap: 8px;
   }
 
   .logo-box span {
@@ -196,21 +70,8 @@ section img {
     flex-wrap: wrap;
     gap: 10px;
   }
-
-  section {
-    padding: 15px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    row-gap: 12px;
-  }
-
-  .footer-desc {
-    text-align: center;
-  }
 }
+
 
   </style>
 </head>
@@ -313,3 +174,4 @@ section img {
 
 </body>
 </html>
+
