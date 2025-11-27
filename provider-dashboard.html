@@ -7,36 +7,37 @@
   <link rel="stylesheet" href="style.css">
 
   <style> 
+/* هيدر الجوال فقط */
 @media (max-width: 768px) {
+
   .nav-container {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
     width: 100% !important;
-    padding: 10px 15px !important;
-  }
-
-  .nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 15px !important;
-    width: auto !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-  }
-
-  .nav-menu li a {
-    padding: 5px 8px !important;
-    font-size: 15px !important;
-    white-space: nowrap !important;
+    padding: 12px 15px !important;
   }
 
   .nav-container > div:first-child {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
+  }
+
+  .nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 14px !important;
+    flex-wrap: wrap;
+    justify-content: center !important;
+  }
+
+  .nav-menu li a {
+    font-size: 15px !important;
+    padding: 5px 8px !important;
+    white-space: nowrap !important;
   }
 }
 
@@ -145,6 +146,7 @@
 
 </body>
 </html>
+
 
 
 
