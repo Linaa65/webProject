@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Staff Members</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div style="display:flex; flex-direction:column; align-items:flex-start;">
+          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px; object-fit:contain;">
+          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="homepage.html" >Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+          <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="breadcrumbs">
+        <a href= "homepage.html">provider-dashboard</a> &gt; <span>manage-staff</span>
+    </div>
+
+
+  <h2>Manage Staff Members</h2>
+
+  <!-- Section 1 -->
+  <section>
+    <h3>Add New Staff Member</h3>
+    <form id="addStaffForm">
+      <label>Name:</label><br>
+      <input type="text" id="staffName"><br><br>
+
+      <label>Photo:</label><br>
+      <input type="file" id="staffPhoto" accept="image/*"><br><br>
+
+      <label>Date of Birth:</label><br>
+      <input type="date" id="staffDob"><br><br>
+
+      <label>Email:</label><br>
+      <input type="email" id="staffEmail"><br><br>
+
+      <label>Skills:</label><br>
+      <input type="text" id="staffSkills"><br><br>
+
+      <label>Area of Expertise:</label><br>
+      <input type="text" id="staffExpertise"><br><br>
+
+      <label>Education:</label><br>
+      <input type="text" id="staffEducation"><br><br>
+
+      <button type="submit">Add Staff</button>
+    </form>
+  </section>
+
+  <!-- Section 2 -->
+  <section>
+    <h3>Delete Staff Members</h3>
+    <form id="deleteForm">
+      <div>
+        <img src="teacher.png" alt="Teacher Photo" width="80">
+        <input type="checkbox" class="memberCheck" value="Teacher Sara"> Teacher Sara
+      </div><br>
+
+      <div>
+        <img src="driver.png" alt="Driver Photo" width="80">
+        <input type="checkbox" class="memberCheck" value="Driver Khalid"> Driver Khalid
+      </div><br>
+
+      <div>
+        <img src="assistant.png" alt="Assistant Photo" width="80">
+        <input type="checkbox" class="memberCheck" value="Assistant Rawan"> Assistant Rawan
+      </div><br>
+
+      <button type="submit">Delete Selected</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-left">
+        <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+
+        <div class="footer-socials">
+          <div class="icon-box">
+            <img src="insta.png" class="social-icon" alt="Instagram icon">
+            <span>@LittleStepsKSA</span>
+          </div>
+
+          <div class="icon-box">
+            <img src="snap.png" class="social-icon" alt="Snapchat icon">
+            <span>@LittleSteps</span>
+          </div>
+
+          <div class="icon-box">
+            <img src="x.png" class="social-icon" alt="X (Twitter) icon">
+            <span>@LittleStepsNursery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-copy">
+        © 2025 Little Steps. All rights reserved.
+      </div>
+
+      <div class="footer-desc">
+        Nurturing happy little minds.
+      </div>
+    </div>
+  </footer>
+
+
+
+<script>
+
+let members = [
+  { name: "Teacher Sara" },
+  { name: "Driver Khalid" },
+  { name: "Assistant Rawan" }
+];
+
+/* ========== ADD STAFF MEMBER ========== */
+document.getElementById("addStaffForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("staffName").value.trim();
+  const photo = document.getElementById("staffPhoto").value;
+  const dob = document.getElementById("staffDob").value;
+  const email = document.getElementById("staffEmail").value.trim();
+  const skills = document.getElementById("staffSkills").value.trim();
+  const expertise = document.getElementById("staffExpertise").value.trim();
+  const education = document.getElementById("staffEducation").value.trim();
+
+  // There are no empty fields
+  if(name === "" || photo === "" || dob === "" || email === "" || skills === "" || expertise === "" || education === ""){
+    alert("Please fill all fields");
+    return;
+  }
+
+  // Name can't start with numbers
+  if(!isNaN(name.charAt(0))){
+    alert("Name cannot start with a number");
+    return;
+  }
+
+  members.push({name: name});
+
+  alert("✅ New member added successfully: " + name);
+  this.reset();
+});
+
+document.getElementById("deleteForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const checked = document.querySelectorAll(".memberCheck:checked");
+
+  if(checked.length === 0){
+    alert("Please select at least one offer");
+    return;
+  }
+
+  const confirmDelete = confirm("Are you sure you want to delete selected members?");
+  if(!confirmDelete) return;
+
+  checked.forEach(box => {
+
+    
+    const staffDiv = box.parentElement;
+    staffDiv.remove();
+
+    
+    members = members.filter(member => member.name !== box.value);
+
+  });
+
+  alert("✅ Selected members deleted");
+});
+
+</script>
+<script src="homepage.js"></script>
+</body>
+</html>
