@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-    /* الهيدر أخضر */
+    /* Navbar */
 .navbar {
   background-color: #4CAF50;
   padding: 1rem 0;
   width: 100%;
 }
 
-/* يحتوي اللوقو والروابط */
+/* الحاوية */
 .nav-container {
   display: flex;
   align-items: center;
@@ -24,100 +24,74 @@
   padding: 0 20px;
 }
 
-/* اللوقو والنص */
+/* صندوق اللوقو */
 .logo-box {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+/* صورة اللوقو */
 .logo-box img {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   object-fit: contain;
 }
 
+/* نص Little Steps */
 .logo-box span {
   color: white;
   font-size: 22px;
   font-weight: bold;
 }
 
-/* الروابط */
+/* قائمة الروابط */
 .nav-menu {
   display: flex;
-  gap: 20px;
   list-style: none;
+  gap: 2rem;
 }
 
+/* الروابط */
 .nav-menu a {
   color: white;
   text-decoration: none;
-  font-size: 17px;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 6px;
+  transition: 0.2s;
 }
 
-.nav-menu a.active {
-  background-color: rgba(255,255,255,0.25);
+/* active */
+.nav-menu a.active,
+.nav-menu a:hover {
+  background-color: rgba(255,255,255,0.2);
 }
 
-/* ===== نسخة الجوال ===== */
-@media(max-width:600px){
-
-  .nav-container {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-
-  /* نخلي الروابط صفين زي صفحة البنت */
-  .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .nav-menu li {
-    width: auto;
-  }
-
-  /* أول 3 روابط فوق */
-  .nav-menu li:nth-child(-n+3){
-    order: 1;
-  }
-
-  /* آخر رابطين تحت */
-  .nav-menu li:nth-child(n+4){
-    order: 2;
-  }
-
-}
 
   </style>
 </head>
 <body>
 
 <header>
-  <nav class="navbar">
-    <div class="nav-container">
+<nav class="navbar">
+  <div class="nav-container">
 
-      <div class="logo-box">
-        <img src="logo.png" alt="Little Steps Logo">
-        <span>Little Steps</span>
-      </div>
-
-      <ul class="nav-menu">
-        <li><a href="homepage.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a class="active" href="provider-dashboard.html">Provider Dashboard</a></li>
-        <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
-      </ul>
-
+    <div class="logo-box">
+      <img src="logo.png" alt="Little Steps Logo">
+      <span>Little Steps</span>
     </div>
-  </nav>
+
+    <ul class="nav-menu">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+      <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+    </ul>
+
+  </div>
+</nav>
+
 </header>
 
 
@@ -125,7 +99,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">He</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -203,6 +177,7 @@
 
 </body>
 </html>
+
 
 
 
