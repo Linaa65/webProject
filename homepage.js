@@ -1,3 +1,41 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("themeToggle");
+
+  // نقرأ الثيم المحفوظ من قبل (dark أو light)
+  // Read previously saved theme (dark or light)
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+  } else {
+    document.body.classList.remove("dark-theme");
+  }
+
+  // لو الزر موجود (في الهوم بيج فقط)
+  // If the button exists (only on homepage)
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.body.classList.toggle("dark-theme");
+
+      // نخزّن الاختيار في المتصفح
+      // Save the choice in the browser
+      if (isDark) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }
+
+  // هنا تحت خلي بقية كودك (الساعة + backToTop)
+  // Keep the rest of your homepage JS (clock + backToTop) below this
+});
+
+
+
+
+
+
 // نتأكد إن العناصر جاهزة قبل تشغيل الكود
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -58,3 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
