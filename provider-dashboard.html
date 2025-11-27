@@ -9,74 +9,75 @@
 
     @media (max-width: 600px) {
 
-  /* أولاً: نخلي nav-container يصير صف واحد فقط */
-  .nav-container {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 15px !important;
+  /* اللوقو يبقى فوق */
+  .logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 15px;
+    margin-top: 10px;
   }
 
-  /* ثانياً: نخلي القائمة تطلع تحت اللوقو */
+  /* المينيو تحت اللوقو على صفين */
   .nav-menu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    width: 100%;
-    max-width: 330px;
-    gap: 12px 25px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 25px;
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
   }
 
-  /* نصغّر عرض كل عنصر */
   .nav-menu li {
-    width: auto !important;
-    display: inline-block !important;
+    display: inline-block;
   }
 
-  /* أول 3 روابط في الصف الأول */
+  /* أول ثلاثة فوق */
   .nav-menu li:nth-child(-n+3) {
-    order: 1 !important;
+    order: 1;
   }
 
-  /* آخر رابطين في الصف الثاني */
+  /* آخر اثنين تحت */
   .nav-menu li:nth-child(n+4) {
-    order: 2 !important;
+    order: 2;
   }
 
-  /* شكل الخط */
   .nav-menu li a {
-    font-size: 15px !important;
-    color: white !important;
-    text-align: center !important;
+    font-size: 15px;
+    color: white;
+    text-align: center;
   }
 }
+
 
   </style>
 </head>
 <body>
 
   <header>
-    <nav class="navbar">
-      <div class="nav-container">
+  <nav class="navbar">
 
-        <div style="display:flex; flex-direction:column; align-items:flex-start;">
-          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
-          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
-        </div>
+  
+    <div class="logo-box">
+      <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
+      <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+    </div>
 
-        <ul class="nav-menu">
-          <li><a href="homepage.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
-          <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
-        </ul>
+    <ul class="nav-menu">
+      <li><a href="homepage.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+      <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+    </ul>
 
-      </div>
-    </nav>
-  </header>
+  </nav>
+</header>
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">me</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -154,6 +155,7 @@
 
 </body>
 </html>
+
 
 
 
