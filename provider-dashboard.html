@@ -8,27 +8,38 @@
   <style>
 @media (max-width: 600px) {
 
+  /* نخلي المينيو تتحول لصفين ويصغر عرض العناصر */
   .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 25px;
-    margin-top: 15px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    margin-top: 15px !important;
   }
 
+  /* أهم سطرين: يمنعون العناصر من أخذ عرض كامل */
+  .nav-menu li {
+    display: inline-block !important;
+    width: auto !important;
+  }
+
+  /* أول ثلاث روابط فوق */
   .nav-menu li:nth-child(-n+3) {
-    order: 1;
+    order: 1 !important;
   }
 
+  /* آخر رابطين تحت */
   .nav-menu li:nth-child(n+4) {
-    order: 2;
+    order: 2 !important;
   }
 
   .nav-menu li a {
-    font-size: 15px;
-    color: white;
+    font-size: 15px !important;
+    color: white !important;
+    text-align: center !important;
   }
 }
+
 
   </style>
 </head>
@@ -56,7 +67,7 @@
   </header>
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">ome</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -134,6 +145,7 @@
 
 </body>
 </html>
+
 
 
 
