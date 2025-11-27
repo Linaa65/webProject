@@ -7,65 +7,74 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
- 
-    /* ========== FIX NAVBAR LAYOUT ========== */
+    /* ====== NAVBAR FINAL FIX ====== */
+
 .navbar {
-  background-color: #4CAF50 !important;
-  padding: 1rem 0;
+  background-color: #4CAF50;
+  padding: 15px 0;
   width: 100%;
 }
 
 .nav-container {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+
+  display: flex;
+  align-items: center;     /* يخليهم بنفس الخط */
+  justify-content: space-between; /* اللوقو يسار – المنيو يمين */
 }
 
-/* logo left */
+/* اللوقو + الاسم */
 .logo-box {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
+  display: flex;
+  align-items: center;  /* يخلي اللوقو والاسم بنفس المستوى */
+  gap: 12px;
 }
 
 .logo-box img {
-  width: 45px !important;
-  height: 45px !important;
-  object-fit: contain !important;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .logo-box span {
-  color: white !important;
-  font-size: 22px !important;
-  font-weight: bold !important;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/* links horizontal */
+/* قائمة الروابط */
 .nav-menu {
-  display: flex !important;
-  flex-direction: row !important;
-  list-style: none !important;
-  gap: 2rem !important;
-}
-
-.nav-menu li {
-  display: inline-block !important;
+  list-style: none;
+  display: flex;
+  gap: 25px;   /* المسافة بين الآيتمز */
 }
 
 .nav-menu a {
-  color: white !important;
-  text-decoration: none !important;
-  padding: 6px 12px !important;
-  border-radius: 6px !important;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
 
-.nav-menu a.active,
-.nav-menu a:hover {
-  background-color: rgba(255,255,255,0.2) !important;
+.nav-menu a.active {
+  background: rgba(255,255,255,0.25);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
 }
 
 
@@ -74,25 +83,24 @@
 <body>
 
 <header>
-<nav class="navbar">
-  <div class="nav-container">
+  <nav class="navbar">
+    <div class="nav-container">
 
-    <div class="logo-box">
-      <img src="logo.png" alt="Little Steps Logo">
-      <span>Little Steps</span>
+      <div class="logo-box">
+        <img src="logo.png" alt="Little Steps Logo">
+        <span>Little Steps</span>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+        <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+      </ul>
+
     </div>
-
-    <ul class="nav-menu">
-      <li><a href="homepage.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
-      <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
-    </ul>
-
-  </div>
-</nav>
-
+  </nav>
 </header>
 
 
@@ -100,7 +108,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">Hme</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -178,6 +186,7 @@
 
 </body>
 </html>
+
 
 
 
