@@ -7,75 +7,85 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-    /* ========== HEADER CORRECT STYLE LIKE THE OLD PAGE ========== */
+   
+    /* ====== الهيدر نفس الصورة بالضبط ====== */
 
 .navbar {
-  background-color: #4CAF50;
-  padding: 1.2rem 0;
-  width: 100%;
+    background-color: #4CAF50;
+    padding: 1rem 0;
+    width: 100%;
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;        /* يخلي اللوقو فوق والروابط تحت */
-  align-items: center;
-  gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    display: flex;
+    justify-content: start;      /* كل شي يبدأ من اليسار */
+    align-items: center;
+    gap: 20px;
 }
 
-/* Logo + title */
-.nav-container > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
+/* اللوقو + كلمة Little Steps */
+.logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.nav-container img {
-  width: 55px;
-  height: 55px;
-  object-fit: contain;
+.logo-box img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
-.nav-container span {
-  color: white;
-  font-size: 26px;
-  font-weight: bold;
+.logo-box span {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-/* Nav menu horizontal */
+/* الروابط تصير هورزنتل صف واحد */
 .nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-  margin-top: 4px;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-left: 30px; /* تبعد شوي من اللوقو */
 }
 
 .nav-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.2s;
 }
 
+.nav-menu a:hover,
 .nav-menu a.active {
-  background: rgba(255,255,255,0.25);
-  padding: 6px 14px;
-  border-radius: 8px;
+    background-color: rgba(255,255,255,0.25);
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .nav-menu {
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
 
-  .nav-menu a {
-    font-size: 16px;
-  }
+/* ===== الجوال — يخلي نفس الشكل بدون انهيار ===== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-left: 0;
+    }
+
+    .logo-box {
+        align-items: center;
+    }
 }
 
   </style>
@@ -108,7 +118,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">Hme</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -186,6 +196,7 @@
 
 </body>
 </html>
+
 
 
 
