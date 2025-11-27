@@ -7,60 +7,28 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
+   
     @media (max-width: 600px) {
 
-  /* نخلي الهيدر الأساسي سطر مستقل */
-  .nav-container {
-    flex-direction: row !important;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 20px;
-    width: 100%;
-  }
-
-  /* اللوقو */
-  .logo-box {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .logo-box img {
-    width: 42px !important;
-    height: 42px !important;
-  }
-
-  .logo-box span {
-    font-size: 20px !important;
-    font-weight: bold;
-    color: white;
-  }
-
-  /* المينيو يكون سطر ثاني لحاله */
   .nav-menu {
-    margin-top: 15px;
-    width: 100%;
-    display: flex !important;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    row-gap: 10px;
-    column-gap: 25px;
+    gap: 12px 25px;
+    margin-top: 15px;
   }
 
-  /* أول ثلاث عناصر في الصف الأول */
   .nav-menu li:nth-child(-n+3) {
     order: 1;
   }
 
-  /* آخر عنصرين في الصف الثاني */
   .nav-menu li:nth-child(n+4) {
     order: 2;
   }
 
   .nav-menu li a {
-    font-size: 15px !important;
-    color: white !important;
+    font-size: 15px;
+    color: white;
   }
 }
 
@@ -91,7 +59,7 @@
   </header>
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">Hoe</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -169,6 +137,7 @@
 
 </body>
 </html>
+
 
 
 
