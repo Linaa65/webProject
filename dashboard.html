@@ -457,49 +457,12 @@ footer {
 
   </div>
 </footer>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
-  const themeToggle = document.getElementById("themeToggle");
-  const backToTopBtn = document.getElementById("backToTop");
-  const clock = document.getElementById("clock");
-
-  /* ========== 1) تطبيق الثيم المحفوظ ========== */
-  const savedTheme = localStorage.getItem("theme"); // "dark" أو "light"
-
-  if (savedTheme === "dark") {
-    body.classList.add("dark-theme");
-  } else {
-    body.classList.remove("dark-theme"); // نخليه لايت كافتراضي
-  }
-
-  /* ========== 2) الزر حق الدارك مود في الهوم بيج فقط ========== */
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const isDark = body.classList.toggle("dark-theme");
-
-      if (isDark) {
-        localStorage.setItem("theme", "dark");
-      } else {
-        localStorage.setItem("theme", "light");
-      }
-    });
-  }
-
-  // This script reads the saved theme and applies it without needing a button
-document.addEventListener("DOMContentLoaded", function () {
-    
-    // Read saved theme from localStorage
-    const savedTheme = localStorage.getItem("theme");
-
-    // If user selected dark mode before, apply it
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-theme");
-    }
-});
-</script>
+  
+  <!-- ربط ملف الجافاسكربت الخاص بالهوم بيج -->
+  <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
