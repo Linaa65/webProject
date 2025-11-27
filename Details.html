@@ -389,6 +389,36 @@ body.dark-theme .hero-section {
     <div class="footer-desc">Nurturing happy little minds.</div>
   </div>
 </footer>
+<script>
+   
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const themeToggle = document.getElementById("themeToggle");
+  const backToTopBtn = document.getElementById("backToTop");
+  const clock = document.getElementById("clock");
 
+  /* ========== 1) تطبيق الثيم المحفوظ ========== */
+  const savedTheme = localStorage.getItem("theme"); // "dark" أو "light"
+
+  if (savedTheme === "dark") {
+    body.classList.add("dark-theme");
+  } else {
+    body.classList.remove("dark-theme"); // نخليه لايت كافتراضي
+  }
+
+  /* ========== 2) الزر حق الدارك مود في الهوم بيج فقط ========== */
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = body.classList.toggle("dark-theme");
+
+      if (isDark) {
+        localStorage.setItem("theme", "dark");
+      } else {
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }    
+</script>
 </body>
 </html>
+
