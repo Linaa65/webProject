@@ -1,24 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const themeToggle = document.getElementById("themeToggle");
+// homepage.js
 
-  // نقرأ الثيم المحفوظ من قبل (dark أو light)
-  // Read previously saved theme (dark or light)
-  const savedTheme = localStorage.getItem("theme");
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const themeToggle = document.getElementById("themeToggle");
+  const backToTopBtn = document.getElementById("backToTop");
+  const clock = document.getElementById("clock");
+
+  /* ========== 1) تطبيق الثيم المحفوظ ========== */
+  const savedTheme = localStorage.getItem("theme"); // "dark" أو "light"
 
   if (savedTheme === "dark") {
-    document.body.classList.add("dark-theme");
+    body.classList.add("dark-theme");
   } else {
-    document.body.classList.remove("dark-theme");
+    body.classList.remove("dark-theme"); // نخليه لايت كافتراضي
   }
 
-  // لو الزر موجود (في الهوم بيج فقط)
-  // If the button exists (only on homepage)
+  /* ========== 2) الزر حق الدارك مود في الهوم بيج فقط ========== */
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-      const isDark = document.body.classList.toggle("dark-theme");
+      const isDark = body.classList.toggle("dark-theme");
 
-      // نخزّن الاختيار في المتصفح
-      // Save the choice in the browser
       if (isDark) {
         localStorage.setItem("theme", "dark");
       } else {
@@ -27,73 +28,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // هنا تحت خلي بقية كودك (الساعة + backToTop)
-  // Keep the rest of your homepage JS (clock + backToTop) below this
-});
-
-
-
-
-
-
-// نتأكد إن العناصر جاهزة قبل تشغيل الكود
-document.addEventListener("DOMContentLoaded", () => {
-
-  // ===== 1) Back to Top Button =====
-  const backToTopBtn = document.getElementById("backToTop");
-
-  // إظهار/إخفاء الزر حسب مستوى السكروول
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.style.display = "block";
-    } else {
-      backToTopBtn.style.display = "none";
-    }
-  });
-
-  // عند الضغط يرجع لأعلى الصفحة بسلاسة
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+  /* ========== 3) زر Back to Top ========== */
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
     });
-  });
 
-
-
-  // ===== 2) Real-time Clock في الفوتر =====
-  const clockSpan = document.getElementById("clock");
-
-  function updateClock() {
-    const now = new Date();
-    clockSpan.textContent = now.toLocaleTimeString(); // مثال: 10:25:30 PM
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 
-  // نحدّث الساعة الآن، وبعدها كل ثانية
-  updateClock();
-  setInterval(updateClock, 1000);
-
-
-
-  // ===== 3) Theme Switcher (Light / Dark) =====
-  const themeToggleBtn = document.getElementById("themeToggle");
-
-  // نطبّق آخر ثيم محفوظ في localStorage (لو المستخدم اختار قبل)
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-theme");
-  }
-
-  themeToggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
-
-    // نحفظ اختيار المستخدم
-    if (document.body.classList.contains("dark-theme")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
+  /* ========== 4) الساعة في الفوتر ========== */
+  if (clock) {
+    function updateClock() {
+      const now = new Date();
+      const options = {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      };
+      clock.textContent = now.toLocaleTimeString("en-US", options);
     }
-  });
-
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
 });
-
