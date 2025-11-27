@@ -489,16 +489,8 @@ body.dark-theme .hero-section {
         gap: 1.5rem;
     }
 }
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .nav-menu {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
+
+
     .services-offer-container {
         grid-template-columns: 1fr;
     }
@@ -850,3 +842,4 @@ ul a:hover {
     margin: 20px auto 0 !important;
   }
 }
+
