@@ -7,28 +7,50 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-  @media (max-width: 600px) {
+    /* تصحيح الهيدر على الجوال */
+@media (max-width: 600px) {
 
-  .logo-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    margin-top: 15px;
-    margin-bottom: 10px;
+  .navbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-direction: row !important;   /* أهم سطر */
   }
 
+  .nav-container {
+    display: flex !important;
+    flex-direction: row !important;   /* عشان كل شي يصير جنب بعض */
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100%;
+  }
+
+  /* اللوقو يسار */
+  .nav-container img {
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 10px !important;
+  }
+
+  /* النص بجانب اللوقو */
+  .nav-container span {
+    font-size: 22px !important;
+    font-weight: bold !important;
+    color: white !important;
+    margin-left: 5px !important;
+  }
+
+  /* القائمة صفّين */
   .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 25px;
-    list-style: none;
-    padding: 0;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    width: 100%;
   }
 
   .nav-menu li {
-    display: inline-block;
+    width: auto !important;
   }
 
   .nav-menu li:nth-child(-n+3) {
@@ -37,11 +59,6 @@
 
   .nav-menu li:nth-child(n+4) {
     order: 2;
-  }
-
-  .nav-menu li a {
-    font-size: 15px;
-    color: white;
   }
 }
 
@@ -150,6 +167,7 @@
 
 </body>
 </html>
+
 
 
 
