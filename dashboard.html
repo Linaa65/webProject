@@ -444,11 +444,28 @@ body.dark-theme .hero-section {
     </div>
 
     <div class="footer-copy">©️ 2025 Little Steps. All rights reserved.</div>
-
+ <span id="clock" style="display:block; margin-top:5px; font-size:14px;"></span>
     <div class="footer-desc">Nurturing happy little minds.</div>
 
   </div>
 </footer>
+  
+<script>
+  
+  // ===== 2) Real-time Clock في الفوتر =====
+  const clockSpan = document.getElementById("clock");
 
+  function updateClock() {
+    const now = new Date();
+    clockSpan.textContent = now.toLocaleTimeString(); // مثال: 10:25:30 PM
+  }
+
+  // نحدّث الساعة الآن، وبعدها كل ثانية
+  updateClock();
+  setInterval(updateClock, 1000);
+
+
+</script>
 </body>
 </html>
+
