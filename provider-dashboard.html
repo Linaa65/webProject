@@ -6,87 +6,126 @@
   <title>Service Provider Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <style>
-@media (max-width: 600px) {
 
-  /* إجبار الهيدر يرجع أفقي */
-  .navbar,
+    /* الهيدر أخضر */
+.navbar {
+  background-color: #4CAF50;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+/* يحتوي اللوقو والروابط */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* اللوقو والنص */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-box span {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* الروابط */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+.nav-menu a.active {
+  background-color: rgba(255,255,255,0.25);
+}
+
+/* ===== نسخة الجوال ===== */
+@media(max-width:600px){
+
   .nav-container {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
   }
 
-  /* إصلاح اللوقو والاسم */
-  .nav-container > div {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  .nav-container img {
-    width: 35px !important;
-    height: 35px !important;
-  }
-
-  .nav-container span {
-    font-size: 20px !important;
-    color: white !important;
-  }
-
-  /* القائمة صفّين */
+  /* نخلي الروابط صفين زي صفحة البنت */
   .nav-menu {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 10px !important;
-    justify-content: center !important;
-    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
   }
 
   .nav-menu li {
-    width: auto !important;
+    width: auto;
   }
 
-  .nav-menu li:nth-child(-n+3) {
-    order: 1 !important;
+  /* أول 3 روابط فوق */
+  .nav-menu li:nth-child(-n+3){
+    order: 1;
   }
 
-  .nav-menu li:nth-child(n+4) {
-    order: 2 !important;
+  /* آخر رابطين تحت */
+  .nav-menu li:nth-child(n+4){
+    order: 2;
   }
+
 }
-
 
   </style>
 </head>
 <body>
 
 
-  <header>
+<header>
   <nav class="navbar">
+    <div class="nav-container">
 
-    <div class="logo-box">
-      <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
-      <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+      <div class="logo-box">
+        <img src="logo.png" alt="Little Steps Logo">
+        <span>Little Steps</span>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+        <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+      </ul>
+
     </div>
-
-    <ul class="nav-menu">
-      <li><a href="homepage.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
-      <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
-    </ul>
-
   </nav>
 </header>
 
 
 
+
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">Hme</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -164,6 +203,7 @@
 
 </body>
 </html>
+
 
 
 
