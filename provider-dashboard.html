@@ -7,54 +7,67 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-
     @media (max-width: 600px) {
 
-  /* الهيدر */
-  .nav-container {
-    flex-direction: row !important;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
+  /* الهيدر كامل */
+  .navbar {
+    padding-bottom: 1.5rem;
   }
 
-  /* اللوقو + الاسم */
-  .logo-box {
-    display: flex !important;
-    flex-direction: row !important;
+  .nav-container {
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  /* اللوقو */
+  .logo-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
   }
 
   .logo-box img {
-    width: 40px !important;
-    height: 40px !important;
+    width: 42px !important;
+    height: 42px !important;
   }
 
   .logo-box span {
+    color: white;
     font-size: 20px !important;
     font-weight: bold;
   }
 
-  /* المينيو تصير صف واحد تحت الهيدر */
+  /* ============ القائمة ============ */
+
+  /* نخلي المينيو تنقسم لصفين */
   .nav-menu {
-    width: 100%;
-    display: flex !important;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    width: 100%;
+    max-width: 350px; /* نفس عرض البنت تقريباً */
+    row-gap: 8px;
+    column-gap: 25px;
     margin-top: 10px;
   }
 
-  .nav-menu li a {
-    font-size: 14px;
-    padding: 5px 0;
+  /* العنصر 1 و 2 و 3 فوق */
+  .nav-menu li:nth-child(-n+3) {
+    order: 1;
   }
 
-  /* نخلي الحاوية كلها ستايل كأنها منطقتين فوق بعض */
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0;
+  /* العنصر 4 و 5 تحت */
+  .nav-menu li:nth-child(n+4) {
+    order: 2;
+  }
+
+  .nav-menu li a {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 0;
   }
 }
 
@@ -85,7 +98,7 @@
   </header>
 
   <div class="breadcrumbs">
-    <a href="homepage.html">ome</a> &gt;
+    <a href="homepage.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -163,6 +176,7 @@
 
 </body>
 </html>
+
 
 
 
