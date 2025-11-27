@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-    /* ====== NAVBAR FINAL FIX ====== */
+ 
+    /* ====== FIX FOR YOUR HEADER (CLEAN + SIMPLE) ====== */
 
 .navbar {
   background-color: #4CAF50;
@@ -16,67 +17,63 @@
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-
   display: flex;
-  align-items: center;     /* يخليهم بنفس الخط */
-  justify-content: space-between; /* اللوقو يسار – المنيو يمين */
+  flex-direction: column;   /* هذا يخلي اللوقو فوق – المنيو تحت (نفس اللي كان عاجبك) */
+  align-items: center;
+  gap: 10px;
 }
 
-/* اللوقو + الاسم */
+/* تعديل اللوقو بس شوي فوق ويصير أنظف */
 .logo-box {
   display: flex;
-  align-items: center;  /* يخلي اللوقو والاسم بنفس المستوى */
-  gap: 12px;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .logo-box img {
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   object-fit: contain;
 }
 
 .logo-box span {
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
+  margin-top: -4px;   /* يرفع Little Steps شوي */
 }
 
-/* قائمة الروابط */
+/* المنيو نفسها بدون خراب */
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 25px;   /* المسافة بين الآيتمز */
+  flex-direction: column; /* عمودي نفس اللي كنتِ تبينه */
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .nav-menu a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .nav-menu a.active {
   background: rgba(255,255,255,0.25);
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 15px;
+/* موبايل */
+@media (max-width: 480px) {
+  .logo-box span {
+    font-size: 22px;
   }
-
-  .nav-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+  .nav-menu a {
+    font-size: 18px;
   }
 }
-
 
   </style>
 </head>
@@ -186,6 +183,7 @@
 
 </body>
 </html>
+
 
 
 
