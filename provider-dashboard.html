@@ -4,57 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Service Provider Dashboard</title>
-  <link rel="stylesheet" href="style.css">
 
-<style> 
-@media (max-width: 768px) {
+  <style>
 
-  .nav-container {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 12px 16px !important;
-    width: 100% !important;
-  }
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #ffffff;
+    }
 
-  .logo-box {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 2px !important;
-  }
+    .navbar {
+      background-color: #4CAF50;
+      padding: 1rem 0;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-  .logo-box span {
-    font-size: 18px !important;
-  }
+    .nav-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
 
-  .nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 12px !important;
-  }
+    .logo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
 
-  .nav-menu li a {
-    font-size: 14px !important;
-    padding: 6px 10px !important;
-    white-space: nowrap;
-  }
-}
-</style>
+    .logo-box img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+
+    .logo-box span {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .nav-menu a.active {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .breadcrumbs {
+      padding: 10px 20px;
+      background: #ecf0f1;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .breadcrumbs a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 25px;
+      color: #2c3e50;
+      font-size: 28px;
+    }
+
+    section {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    section img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<header>
   <nav class="navbar">
     <div class="nav-container">
 
       <div class="logo-box">
-        <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px; object-fit:contain;">
-        <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        <img src="logo.png" alt="logo">
+        <span>Little<br>Steps</span>
       </div>
 
       <ul class="nav-menu">
@@ -67,85 +134,43 @@
 
     </div>
   </nav>
-</header>
 
-<div class="breadcrumbs">
-  <a href="index.html">Home</a> &gt;
-  <span>provider-dashboard</span>
-</div>
+  <div class="breadcrumbs">
+    <a href="index.html">home</a> &gt;
+    <span>provider-dashboard</span>
+  </div>
 
-<h2>Service Provider Dashboard</h2>
+  <h2>Service Provider Dashboard</h2>
 
-<section>
-  <h3>Current Nursery Services</h3>
-
-  <div>
+  <section>
+    <h3>Current Nursery Services</h3>
     <h4>Nursery Care</h4>
-    <img src="care.png" alt="Nursery Care Service" width="200">
+    <img src="care.png">
     <p>Full-time child care with professional caregivers.</p>
     <p>Price: 200 SAR</p>
-  </div>
 
-  <div>
     <h4>Transportation</h4>
-    <img src="b.png" alt="Transportation Service" width="200">
+    <img src="b.png">
     <p>Safe pick-up and drop-off bus service.</p>
     <p>Price: 100 SAR</p>
-  </div>
 
-  <div>
     <h4>Fun Activities</h4>
-    <img src="g.png" alt="Fun Activities Service" width="200">
+    <img src="g.png">
     <p>Creative games and art sessions for children.</p>
     <p>Price: 80 SAR</p>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h3>Quick Actions</h3>
-  <ul>
-    <li><a href="addservice.html">Add New Service</a></li>
-    <li><a href="managestaff.html">Manage Staff Members</a></li>
-  </ul>
-</section>
+  <section>
+    <h3>Quick Actions</h3>
+    <ul>
+      <li><a href="addservice.html">Add New Service</a></li>
+      <li><a href="managestaff.html">Manage Staff Members</a></li>
+    </ul>
+  </section>
 
-<section>
-  <h3>Added Services</h3>
-  <div id="addedServices"></div>
-</section>
-
-<footer class="footer">
-  <div class="footer-grid">
-
-    <div class="footer-left">
-      <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
-
-      <div class="footer-socials">
-        <div class="icon-box">
-          <img src="insta.png" class="social-icon">
-          <span>@LittleStepsKSA</span>
-        </div>
-
-        <div class="icon-box">
-          <img src="snap.png" class="social-icon">
-          <span>@LittleSteps</span>
-        </div>
-
-        <div class="icon-box">
-          <img src="x.png" class="social-icon">
-          <span>@LittleStepsNursery</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-copy">© 2025 Little Steps. All rights reserved.</div>
-    <div class="footer-desc">Nurturing happy little minds.</div>
-
-  </div>
-</footer>
-
-<script src="provider-dashboard.js"></script>
+  <footer class="footer">
+    © 2025 Little Steps — Nurturing happy little minds.
+  </footer>
 
 </body>
 </html>
-
