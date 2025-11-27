@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 
 <style> 
-
 @media (max-width: 768px) {
 
   .nav-container {
@@ -19,11 +18,15 @@
     width: 100% !important;
   }
 
-  .nav-container > div:first-child {
+  .logo-box {
     display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+  }
+
+  .logo-box span {
+    font-size: 18px !important;
   }
 
   .nav-menu {
@@ -40,30 +43,10 @@
     white-space: nowrap;
   }
 }
- .logo-box{
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
- }
-  @media (max-width: 768px) {
-
-  .logo-box {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 2px !important;
-  }
-
-  .logo-box span {
-    font-size: 18px !important;
-  }
-}
-
 </style>
 </head>
 
 <body>
-
 
 <header>
   <nav class="navbar">
@@ -86,12 +69,10 @@
   </nav>
 </header>
 
-
 <div class="breadcrumbs">
   <a href="index.html">home</a> &gt;
   <span>provider-dashboard</span>
 </div>
-
 
 <h2>Service Provider Dashboard</h2>
 
@@ -141,17 +122,17 @@
 
       <div class="footer-socials">
         <div class="icon-box">
-          <img src="insta.png" class="social-icon" alt="Instagram Icon">
+          <img src="insta.png" class="social-icon">
           <span>@LittleStepsKSA</span>
         </div>
 
         <div class="icon-box">
-          <img src="snap.png" class="social-icon" alt="Snapchat Icon">
+          <img src="snap.png" class="social-icon">
           <span>@LittleSteps</span>
         </div>
 
         <div class="icon-box">
-          <img src="x.png" class="social-icon" alt="Twitter X Icon">
+          <img src="x.png" class="social-icon">
           <span>@LittleStepsNursery</span>
         </div>
       </div>
@@ -167,7 +148,3 @@
 
 </body>
 </html>
-
-
-
-
