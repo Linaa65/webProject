@@ -7,39 +7,34 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
-    @media (max-width: 600px) {
+  @media (max-width: 600px) {
 
-  /* اللوقو يبقى فوق */
   .logo-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
   }
 
-  /* المينيو تحت اللوقو على صفين */
   .nav-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px 25px;
-    padding: 0;
-    margin: 0 auto;
     list-style: none;
+    padding: 0;
   }
 
   .nav-menu li {
     display: inline-block;
   }
 
-  /* أول ثلاثة فوق */
   .nav-menu li:nth-child(-n+3) {
     order: 1;
   }
 
-  /* آخر اثنين تحت */
   .nav-menu li:nth-child(n+4) {
     order: 2;
   }
@@ -47,19 +42,16 @@
   .nav-menu li a {
     font-size: 15px;
     color: white;
-    text-align: center;
   }
 }
-
 
   </style>
 </head>
 <body>
 
-  <header>
+ <header>
   <nav class="navbar">
 
-  
     <div class="logo-box">
       <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
       <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
@@ -76,8 +68,9 @@
   </nav>
 </header>
 
+
   <div class="breadcrumbs">
-    <a href="homepage.html">me</a> &gt;
+    <a href="homepage.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -155,6 +148,7 @@
 
 </body>
 </html>
+
 
 
 
