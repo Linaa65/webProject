@@ -575,31 +575,29 @@ body.dark-theme .hero-section {
     </div>
   </div>
 </div>
-<script src="homepage.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const nurseryPlan    = document.getElementById('nurseryPlan');
-  const nurseryPrice   = document.getElementById('nurseryPrice');
-  const nurseryBookBtn = document.getElementById('nurseryBookBtn');
+  const gamesType    = document.getElementById('gamesType');
+  const gamesPrice   = document.getElementById('gamesPrice');
+  const gamesBookBtn = document.getElementById('gamesBookBtn');
 
-  function updateNurseryPrice() {
-    const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
-    const price = selectedOption.getAttribute('data-price');
-    nurseryPrice.textContent = price + ' SAR / Month';
+  function updateGamesPrice(){
+    const opt   = gamesType.options[gamesType.selectedIndex];
+    const price = opt.getAttribute('data-price');
+    gamesPrice.textContent = price + ' SAR / Month';
   }
 
-  updateNurseryPrice();
+  updateGamesPrice();
+  gamesType.addEventListener('change', updateGamesPrice);
 
-  nurseryPlan.addEventListener('change', updateNurseryPrice);
-
-  nurseryBookBtn.addEventListener('click', function(e){
+  gamesBookBtn.addEventListener('click', function(e){
     e.preventDefault();
-    const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
-    const plan  = selectedOption.value;
-    const price = selectedOption.getAttribute('data-price');
+    const opt   = gamesType.options[gamesType.selectedIndex];
+    const plan  = opt.value;
+    const price = opt.getAttribute('data-price');
 
     const url = 'Request-service.html'
-      + '?service=' + encodeURIComponent('Nursery Service')
+      + '?service=' + encodeURIComponent('Interactive Games Service')
       + '&plan='   + encodeURIComponent(plan)
       + '&price='  + encodeURIComponent(price);
 
@@ -608,7 +606,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<!-- نفس ملف الجافاسكربت اللي يستخدمه الهوم بيج للدارك مود -->
+<script src="homepage.js"></script>
 </body>
 </html>
+
 
 
