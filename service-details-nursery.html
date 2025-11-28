@@ -70,9 +70,12 @@ body{
   width:100%;
   height:260px;
   background:transparent;
+  text-align:center;
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:18px;
+  color:#555;
 }
 .image-box img{
   max-width:100%;
@@ -131,49 +134,49 @@ select{
   </div>
 
   <div class="image-box">
-    <!-- تأكدي إن اسم الصورة نفس الموجود في المشروع -->
-    <img src="bus.png" alt="Nursery Service Image">
+    <!-- مهم: خليه مسار نسبي مو من C:\ -->
+    <img src="bus.png" alt="Nursery Service Image" width="260" height="260">
   </div>
 
   <div class="content">
     <p>Safe and educational childcare service for kids.</p>
 
-    <label for="planSelect">Nursery duration:</label>
-    <!-- المنيو اللي تغيّر السعر -->
+    <label for="planSelect">Choose plan:</label>
+    <!-- نفس المنيو حقك بس أعطيناه id -->
     <select id="planSelect">
-      <option value="1">1 hour</option>
-      <option value="4">4 hours</option>
-      <option value="6">6 hours</option>
+      <option>Hourly</option>
+      <option>4 Hours</option>
+      <option>6 Hours</option>
     </select>
 
-    <!-- السعر يتغيّر هنا -->
-    <div id="price" class="price">80 SAR / 1 hour</div>
+    <!-- حطينا له id عشان يتغير -->
+    <div id="price" class="price">80 SAR / hour</div>
 
     <div class="btn-box">
-      <!-- زر Book يوديك على صفحة Request-service -->
+      <!-- Book يروح لصفحة Request-service -->
       <a class="btn" href="Request-service.html">Book</a>
     </div>
   </div>
 </div>
 
-<!-- سكربت تغيير السعر حسب الخيار -->
+<!-- سكربت بسيط يغير السعر حسب الخيار -->
 <script>
   const planSelect = document.getElementById('planSelect');
   const priceDiv   = document.getElementById('price');
 
-  // الأسعار لكل خيار – غيّريها براحتك
+  // الأسعار لكل خيار (قدريها زي ما تبغين)
   const prices = {
-    "1": "80 SAR / 1 hour",
-    "4": "250 SAR / 4 hours",
-    "6": "320 SAR / 6 hours"
+    'Hourly'  : '80 SAR / hour',
+    '4 Hours' : '250 SAR / 4 hours',
+    '6 Hours' : '320 SAR / 6 hours'
   };
 
   function updatePrice() {
-    const key = planSelect.value;
-    priceDiv.textContent = prices[key];
+    const text = planSelect.options[planSelect.selectedIndex].text;
+    priceDiv.textContent = prices[text];
   }
 
-  // أول تحميل للصفحة + كل ما تغيّر الخيار
+  // أول ما تفتح الصفحة + كل ما تغير المنيو
   updatePrice();
   planSelect.addEventListener('change', updatePrice);
 </script>
