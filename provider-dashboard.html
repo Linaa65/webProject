@@ -2,164 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Service Provider Dashboard</title>
   <link rel="stylesheet" href="style.css">
-  <style>
+  <style> 
+  
+  /* ========= HEADER (FINAL WORKING VERSION) ========= */
 
-    
-    /* ================== Body ================== */
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #ffffff;
-    color: #222222;
+.navbar {
+  background-color: #4CAF50;
+  padding: 1.2rem 0;
+  width: 100%;
 }
-/* يعالج اللون الأبيض حول المحتوى */
-/* الثيم الفاتح (العادي) */
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* الشعار */
+.logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo-box img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.logo-box span {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* الروابط */
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 1.8rem;
+  list-style: none;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.nav-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 4px 8px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background-color: rgba(255,255,255,0.25);
+  border-radius: 6px;
+}
 
 
+/* ========= BREADCRUMBS ========= */
+.breadcrumbs {
+  padding: 10px 40px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+}
 
-/* الثيم الغامق */
+.breadcrumbs a { color: #3498db; text-decoration: none; }
+.breadcrumbs span { color: #778c8d; }
+
+
+/* ========= FOOTER ========= */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.footer-left { display: flex; align-items: center; gap: 20px; }
+.footer-logo { width: 60px; height: 60px; border-radius: 8px; }
+
+.footer-socials { display: flex; gap: 20px; }
+.icon-box { display: flex; flex-direction: column; align-items: center; }
+.social-icon { width: 25px; height: 25px; }
+
+
+/* ========= DARK MODE ========= */
+
 body.dark-theme {
-    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
-    color: #f9f9f9;
-}
-
-
-/* خلي الكروت والبوكسات تصير داكنة بزيادة */
-body.dark-theme .offer-card,
-body.dark-theme .offers-sidebar,
-body.dark-theme section,
-body.dark-theme .hero-section,
-body.dark-theme .footer,
-body.dark-theme .navbar,
-body.dark-theme .breadcrumbs {
-    background-color: #1c1c1d !important;
-    border-color: #333 !important;
-}
-
-body.dark-theme .review-card h4,
-body.dark-theme .review-card p,
-body.dark-theme .review-card .service-name {
-    color: #222222 !important; /* غامق وواضح فوق الأبيض */
-}
-/* النافبار في الثيم الغامق */
-/* Dark navbar */
-body.dark-theme .navbar {
-  background-color: #111827;
-}
-
-/* الفوتر في الثيم الغامق */
-/* Dark footer */
-body.dark-theme .footer {
   background-color: #111827;
   color: #f9f9f9;
 }
 
-/* روابط النافبار في الثيم الغامق */
-/* Navbar links in dark theme */
+body.dark-theme .navbar,
+body.dark-theme .footer,
+body.dark-theme .breadcrumbs {
+  background-color: #111827 !important;
+}
+
 body.dark-theme .nav-menu a {
   color: #f9f9f9;
 }
 
-/* الهيرو سيكشن في الثيم الغامق (مثال) */
-/* Hero section in dark theme (example) */
-body.dark-theme .hero-section {
-  background-color: #111827;
-  color: #f9f9f9;
-}
+/* ========= MOBILE FIX ========= */
 
-    /* ================== Responsive for Small Screens (phones/tablets) ================== */
 @media (max-width: 768px) {
-
-  /* الجسم كامل بدون فراغ أبيض تحت */
-  html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
-  .nav-container {
-    flex-direction: column;     /* الشعار فوق، الروابط تحت */
-    align-items: flex-start;
-    gap: 8px;
-    padding: 0.75rem 1rem;
-  }
-
   .nav-menu {
-    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .nav-menu a {
+    gap: 1rem;
     font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  /* ===== الـ Breadcrumbs ===== */
-  .breadcrumbs {
-    max-width: 100%;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-  }
-
-  /* ===== الفوتر ===== */
-  .footer {
-    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
-    text-align: center;
-    row-gap: 10px;
-  }
-
-  .footer-left,
-  .footer-socials {
-    justify-content: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-    white-space: normal;
   }
 }
-@media (max-width: 768px) {
 
-  .breadcrumbs {
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
-  }
   
-  .breadcrumbs a {
-    display: inline-block;
-    margin-bottom: 4px;
-  }
-}
-@media (max-width: 768px) {
-    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
-        margin-top: 0 !important;
-        padding-top: 6px !important;
-    }
-}
-
-
+  
   </style>
 </head>
+
 <body>
 
 <header>
@@ -175,7 +157,7 @@ body.dark-theme .hero-section {
         <li><a href="homepage.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+        <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
         <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
       </ul>
 
@@ -183,117 +165,58 @@ body.dark-theme .hero-section {
   </nav>
 </header>
 
+<div class="breadcrumbs">
+  <a href="homepage.html">Home</a> > <span>provider-dashboard</span>
+</div>
 
+<h2>Service Provider Dashboard</h2>
 
+<section>
+  <h3>Current Nursery Services</h3>
 
-
-  <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
-    <span>provider-dashboard</span>
+  <div>
+    <h4>Nursery Care</h4>
+    <img src="care.png" width="200">
+    <p>Full-time child care with professional caregivers.</p>
+    <p>Price: 200 SAR</p>
   </div>
 
-  <h2>Service Provider Dashboard</h2>
+  <div>
+    <h4>Transportation</h4>
+    <img src="b.png" width="200">
+    <p>Safe pick-up and drop-off bus service.</p>
+    <p>Price: 100 SAR</p>
+  </div>
 
-  <section>
-    <h3>Current Nursery Services</h3>
+  <div>
+    <h4>Fun Activities</h4>
+    <img src="g.png" width="200">
+    <p>Creative games and art sessions for children.</p>
+    <p>Price: 80 SAR</p>
+  </div>
+</section>
 
-    <div>
-      <h4>Nursery Care</h4>
-      <img src="care.png" alt="Nursery Care Service" width="200">
-      <p>Full-time child care with professional caregivers.</p>
-      <p>Price: 200 SAR</p>
-    </div>
+<footer class="footer">
+  <div class="footer-grid">
 
-    <div>
-      <h4>Transportation</h4>
-      <img src="b.png" alt="Transportation Service" width="200">
-      <p>Safe pick-up and drop-off bus service.</p>
-      <p>Price: 100 SAR</p>
-    </div>
+    <div class="footer-left">
+      <img src="logo.png" class="footer-logo">
 
-    <div>
-      <h4>Fun Activities</h4>
-      <img src="g.png" alt="Fun Activities Service" width="200">
-      <p>Creative games and art sessions for children.</p>
-      <p>Price: 80 SAR</p>
-    </div>
-  </section>
-
-  <section>
-    <h3>Quick Actions</h3>
-    <ul>
-      <li><a href="addservice.html">Add New Service</a></li>
-      <li><a href="managestaff.html">Manage Staff Members</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Added Services</h3>
-    <div id="addedServices"></div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-grid">
-
-      <div class="footer-left">
-        <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
-
-        <div class="footer-socials">
-          <div class="icon-box">
-            <img src="insta.png" class="social-icon" alt="Instagram Icon">
-            <span>@LittleStepsKSA</span>
-          </div>
-
-          <div class="icon-box">
-            <img src="snap.png" class="social-icon" alt="Snapchat Icon">
-            <span>@LittleSteps</span>
-          </div>
-
-          <div class="icon-box">
-            <img src="x.png" class="social-icon" alt="Twitter X Icon">
-            <span>@LittleStepsNursery</span>
-          </div>
-        </div>
+      <div class="footer-socials">
+        <div class="icon-box"><img src="insta.png" class="social-icon"><span>@LittleStepsKSA</span></div>
+        <div class="icon-box"><img src="snap.png" class="social-icon"><span>@LittleSteps</span></div>
+        <div class="icon-box"><img src="x.png" class="social-icon"><span>@LittleStepsNursery</span></div>
       </div>
-
-      <div class="footer-copy">© 2025 Little Steps. All rights reserved.</div>
-      <div class="footer-desc">Nurturing happy little minds.</div>
-
     </div>
-  </footer>
 
-  <script src="provider-dashboard.js" ></script>
+    <div class="footer-copy">© 2025 Little Steps</div>
+    <div class="footer-desc">Nurturing happy little minds.</div>
+
+  </div>
+</footer>
+
+<script src="provider-dashboard.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
