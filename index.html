@@ -436,7 +436,18 @@ body.dark-theme .hero-section {
   background-color: #111827;
   color: #f9f9f9;
 }
-  
+  /* يضبط توزيع الخدمات + العروض جنب بعض في الشاشات الكبيرة */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;  /* مهم عشان يلفون لو ما فيه مساحة */
+}
+
   </style>
 
 
