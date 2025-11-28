@@ -585,6 +585,45 @@ body.dark-theme .hero-section {
     margin: 20px auto 0;
   }
 }
+     /* ===== الهيدر يصبح مرتب على الجوال ===== */
+@media (max-width: 768px) {
+
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  /* اللوقو بالنص */
+  .nav-container > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+  }
+
+  /* الروابط تلتفّ تحت بعض */
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* زر الثيم يجي على سطر لوحده */
+  #themeToggle {
+    align-self: center !important;
+    margin-top: 6px !important;
+    margin-left: 0 !important;
+  }
+}
+
 
   </style>
 
