@@ -47,31 +47,18 @@
   }
 
     /* ================== Navigation Bar ================== */
-@media (max-width: 768px) {
 
-  /* --- اللوقو top-left --- */
-  .nav-container {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-    padding: 0.75rem 1rem !important;
-  }
+    @media (max-width: 768px) {
 
-  .nav-container > div:first-child {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-
-  /* --- الروابط هورزنتل --- */
+  /* نخلي القائمة نفسها فليكس هورزنتل */
   .nav-menu {
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;   /* عشان one فوق و two تحت */
     gap: 10px !important;
-    padding-left: 0 !important;
     width: 100% !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
   }
 
   .nav-menu li {
@@ -79,27 +66,26 @@
     white-space: nowrap !important;
   }
 
-  .nav-menu a {
-    color: white !important;
-    display: inline-block !important;
-    padding: 6px 12px !important;
+  /* --- one على صف واحد --- */
+  .nav-menu li.one {
+    flex: 0 0 calc(33.33% - 10px) !important; 
     text-align: center !important;
   }
 
-
-  /* --- ترتيب one فوق --- */
-  .nav-menu li.one {
-    order: 1 !important;
-    flex: 0 0 auto !important;
-  }
-
-  /* --- ترتيب two تحت one --- */
+  /* --- two على صف ثاني --- */
   .nav-menu li.two {
-    order: 2 !important;
-    flex: 0 0 auto !important;
+    flex: 0 0 calc(50% - 10px) !important;
+    text-align: center !important;
   }
 
+  /* الروابط تبقى بيضاء */
+  .nav-menu a {
+    color: white !important;
+    display: block !important;
+    padding: 6px 10px !important;
+  }
 }
+
 
   </style>
 
@@ -200,6 +186,7 @@
 
 </body>
 </html>
+
 
 
 
