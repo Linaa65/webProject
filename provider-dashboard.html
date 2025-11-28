@@ -111,6 +111,47 @@
     white-space: nowrap !important; /* يمنع تكسير الكلمات */
 }
 
+    /* ===== PERFECT MOBILE NAV ===== */
+.nav-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.nav-container > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.nav-container img {
+    width: 55px !important;
+    height: 55px !important;
+    object-fit: contain !important;
+    margin-bottom: 5px !important;
+}
+
+/* الروابط صف واحد + قابل للسكرول */
+.nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    gap: 1.5rem !important;
+    padding-bottom: 5px;
+    scrollbar-width: none; /* يخفي السكرول */
+}
+
+.nav-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-menu a {
+    font-size: 1rem !important;
+    white-space: nowrap !important;
+}
+
 
   </style>
 </head>
@@ -220,6 +261,7 @@
 
 </body>
 </html>
+
 
 
 
