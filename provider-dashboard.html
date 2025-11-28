@@ -26,6 +26,7 @@
     color: #fff !important;
   }
 
+    
   body.dark-theme section div {
     background-color: #1f2937 !important;
     border-color: #374151 !important;
@@ -50,39 +51,43 @@
 
     @media (max-width: 768px) {
 
-  /* نخلي القائمة نفسها فليكس هورزنتل */
-  .nav-menu {
+  /* الهيدر: اللوقو توب ليفت (خليه زي ما هو لو شغال معك) */
+  .nav-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  .nav-container > div:first-child {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important;   /* عشان one فوق و two تحت */
-    gap: 10px !important;
-    width: 100% !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* ============ الروابط بنظام GRID ============ */
+  .nav-menu {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 في الصف الأول */
+    column-gap: 10px !important;
+    row-gap: 10px !important;
     padding-left: 0 !important;
     margin: 0 !important;
+    width: 100% !important;
+    justify-items: center;
   }
 
   .nav-menu li {
     list-style: none !important;
-    white-space: nowrap !important;
+    white-space: nowrap;
   }
 
-  /* --- one على صف واحد --- */
-  .nav-menu li.one {
-    flex: 0 0 calc(33.33% - 10px) !important; 
-    text-align: center !important;
-  }
-
-  /* --- two على صف ثاني --- */
-  .nav-menu li.two {
-   flex: 0 0 calc(33.33% - 10px) !important; 
-    text-align: center !important;
-  }
-
-  /* الروابط تبقى بيضاء */
   .nav-menu a {
     color: white !important;
     display: block !important;
-    padding: 6px 10px !important;
+    padding: 6px 4px !important;
+    text-align: center !important;
   }
 }
 
@@ -186,6 +191,7 @@
 
 </body>
 </html>
+
 
 
 
