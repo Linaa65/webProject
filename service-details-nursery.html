@@ -32,7 +32,7 @@ body{
   position:relative;
 }
 
-/* Back Button (circle with arrow) */
+/* Back Button */
 .top-back-box{
   position:absolute;
   top:12px;
@@ -134,7 +134,7 @@ select{
 
     <label for="nurseryPlan">Choose plan:</label>
     <select id="nurseryPlan">
-      <!-- حطي الأسعار اللي تبغيها في data-price -->
+      <!-- حطي الأسعار اللي تبغيها هنا -->
       <option value="Hourly"  data-price="800">Hourly</option>
       <option value="4 Hours" data-price="3000">4 Hours</option>
       <option value="6 Hours" data-price="4000">6 Hours</option>
@@ -148,37 +148,38 @@ select{
 </div>
 
 <script>
-// عناصر الصفحة
-const nurseryPlan    = document.getElementById('nurseryPlan');
-const nurseryPrice   = document.getElementById('nurseryPrice');
-const nurseryBookBtn = document.getElementById('nurseryBookBtn');
+document.addEventListener('DOMContentLoaded', function () {
+  const nurseryPlan    = document.getElementById('nurseryPlan');
+  const nurseryPrice   = document.getElementById('nurseryPrice');
+  const nurseryBookBtn = document.getElementById('nurseryBookBtn');
 
-// دالة تحديث السعر
-function updateNurseryPrice() {
-  const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
-  const price = selectedOption.getAttribute('data-price');
-  nurseryPrice.textContent = price + ' SAR / Month';
-}
+  // دالة تغيير السعر
+  function updateNurseryPrice() {
+    const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
+    const price = selectedOption.getAttribute('data-price');
+    nurseryPrice.textContent = price + ' SAR / Month';
+  }
 
-// أول مرة
-updateNurseryPrice();
+  // أول تحميل للصفحة
+  updateNurseryPrice();
 
-// لما يتغير الخيار
-nurseryPlan.addEventListener('change', updateNurseryPrice);
+  // لما يتغير الاختيار
+  nurseryPlan.addEventListener('change', updateNurseryPrice);
 
-// زر Book يفتح صفحة Request-service مع البيانات في الـ URL
-nurseryBookBtn.addEventListener('click', function(e){
-  e.preventDefault();
-  const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
-  const plan  = selectedOption.value;
-  const price = selectedOption.getAttribute('data-price');
+  // زر Book يفتح Request-service.html مع البيانات
+  nurseryBookBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
+    const plan  = selectedOption.value;
+    const price = selectedOption.getAttribute('data-price');
 
-  const url = 'Request-service.html'
-    + '?service=' + encodeURIComponent('Nursery Service')
-    + '&plan='   + encodeURIComponent(plan)
-    + '&price='  + encodeURIComponent(price);
+    const url = 'Request-service.html'
+      + '?service=' + encodeURIComponent('Nursery Service')
+      + '&plan='   + encodeURIComponent(plan)
+      + '&price='  + encodeURIComponent(price);
 
-  window.location.href = url;
+    window.location.href = url;
+  });
 });
 </script>
 
