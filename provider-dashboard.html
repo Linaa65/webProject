@@ -137,6 +137,21 @@ body.dark-theme .nav-menu a {
   }
 }
 
+    .theme-btn {
+  background: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+body.dark-theme .theme-btn {
+  background: #333;
+  color: white;
+}
+
   
   
   </style>
@@ -154,12 +169,15 @@ body.dark-theme .nav-menu a {
       </div>
 
       <ul class="nav-menu">
-        <li><a href="homepage.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
-        <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
-      </ul>
+  <li><a href="homepage.html">Home</a></li>
+  <li><a href="services.html">Services</a></li>
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+  <li><a href="customer-dashboard.html">Customer Dashboard</a></li>
+</ul>
+
+<button id="themeToggle" class="theme-btn">🌙</button>
+
 
     </div>
   </nav>
@@ -219,4 +237,5 @@ body.dark-theme .nav-menu a {
 
 </body>
 </html>
+
 
