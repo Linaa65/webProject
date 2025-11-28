@@ -48,48 +48,41 @@
   }
 
     /* ================== Navigation Bar ================== */
+@media (max-width: 768px) {
 
-    @media (max-width: 768px) {
-
-  /* الهيدر: اللوقو توب ليفت (خليه زي ما هو لو شغال معك) */
-  .nav-container {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-    padding: 0.75rem 1rem !important;
-  }
-
-  .nav-container > div:first-child {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  /* ============ الروابط بنظام GRID ============ */
   .nav-menu {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 في الصف الأول */
-    column-gap: 10px !important;
-    row-gap: 10px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
     padding-left: 0 !important;
     margin: 0 !important;
     width: 100% !important;
-    justify-items: center;
   }
 
   .nav-menu li {
     list-style: none !important;
-    white-space: nowrap;
+    white-space: nowrap !important;
+  }
+
+  /* أول 3 عناصر جنب بعض */
+  .nav-menu li:nth-child(-n+3) {
+    flex: 0 0 33.33% !important;
+    text-align: center !important;
+  }
+
+  /* العنصر 4 و 5 جنب بعض تحتهم */
+  .nav-menu li:nth-child(n+4) {
+    flex: 0 0 50% !important;
+    text-align: center !important;
   }
 
   .nav-menu a {
     color: white !important;
     display: block !important;
-    padding: 6px 4px !important;
-    text-align: center !important;
+    padding: 6px 10px !important;
   }
 }
+
 
 
   </style>
@@ -191,6 +184,7 @@
 
 </body>
 </html>
+
 
 
 
