@@ -132,16 +132,16 @@ select{
   <div class="content">
     <p>Safe and educational childcare service for kids.</p>
 
-    <label for="nurseryPlan">Choose plan:</label>
+    <label for="nurseryPlan">Nursery services:</label>
     <select id="nurseryPlan">
-      <!-- حطي الأسعار اللي تبغيها هنا -->
-      <option value="Hourly"  data-price="800">Hourly</option>
-      <option value="4 Hours" data-price="3000">4 Hours</option>
-      <option value="6 Hours" data-price="4000">6 Hours</option>
+      <!-- عدّلي الأسعار في data-price على كيفك -->
+      <option value="1 hour"  data-price="200">1 hour</option>
+      <option value="4 hours" data-price="1200">4 hours</option>
+      <option value="6 hours" data-price="1800">6 hours</option>
     </select>
 
     <div class="btn-box">
-      <div class="price" id="nurseryPrice">800 SAR / Month</div>
+      <div class="price" id="nurseryPrice">200 SAR / Month</div>
       <a class="btn" href="#" id="nurseryBookBtn">Book</a>
     </div>
   </div>
@@ -153,20 +153,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const nurseryPrice   = document.getElementById('nurseryPrice');
   const nurseryBookBtn = document.getElementById('nurseryBookBtn');
 
-  // دالة تغيير السعر
   function updateNurseryPrice() {
     const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
     const price = selectedOption.getAttribute('data-price');
     nurseryPrice.textContent = price + ' SAR / Month';
   }
 
-  // أول تحميل للصفحة
   updateNurseryPrice();
 
-  // لما يتغير الاختيار
   nurseryPlan.addEventListener('change', updateNurseryPrice);
 
-  // زر Book يفتح Request-service.html مع البيانات
   nurseryBookBtn.addEventListener('click', function(e){
     e.preventDefault();
     const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
