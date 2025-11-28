@@ -8,131 +8,61 @@
 
   <style>
 
-  /* ========== DARK MODE (يشتغل تلقائي من الهوم بيج) ========== */
-
-  body.dark-theme {
-    background-color: #111827;
-    color: #f9f9f9;
-  }
-
-  body.dark-theme .navbar,
-  body.dark-theme .footer,
-  body.dark-theme .breadcrumbs {
-    background-color: #111827 !important;
-  }
-
-  body.dark-theme .nav-menu a {
-    color: #0B1220 !important;
-  }
-
-  body.dark-theme input,
-  body.dark-theme textarea {
-    background-color: #1f2937;
-    color: #fff;
-    border: 1px solid #444;
-  }
-
-  body.dark-theme button {
-    background-color: #374151 !important;
-    color: white !important;
-  }
-
-  /* ========== FORCE MOBILE HEADER (مطابق لكل الصفحات) ========== */
-
-  @media (max-width: 768px) {
-
-    .navbar {
-      padding: 12px 0 !important;
-    }
-
-    .nav-container {
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: center !important;
-      justify-content: space-between !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      padding: 0 16px !important;
-    }
-
-    .nav-container > div:first-child {
-      display: flex !important;
-      flex-direction: row !important;
-      align-items: center !important;
-      gap: 10px !important;
-    }
-
-    .nav-menu {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      gap: 12px !important;
-      width: 100% !important;
-    }
-
-    .nav-menu li a {
-      color: white !important;
-      font-size: 14px !important;
-      padding: 6px 10px !important;
-      border-radius: 6px !important;
-      white-space: nowrap !important;
-    }
-  }
-/* ===== DARK MODE PERFECT PURE DARK GRAY ===== */
-
-/* خلفية الصفحة */
+ /* ===== BACKGROUND (BLUE-ish DARK) ===== */
 body.dark-theme {
-    background-color: #121212 !important; 
+    background-color: #0d1117 !important; /* كحلي غامق */
     color: #e5e5e5 !important;
 }
 
-/* الهيدر */
+/* ===== NAVBAR & HEADER ===== */
 body.dark-theme .navbar {
-    background-color: #121212 !important;
+    background-color: #0d1117 !important;
 }
 
-/* الروابط */
 body.dark-theme .nav-menu a {
     color: #f1f1f1 !important;
 }
 
-/* البريديكرمب */
+/* ===== BREADCRUMBS ===== */
 body.dark-theme .breadcrumbs {
-    background-color: #121212 !important;
-    color: #bfbfbf !important;
+    background-color: #0d1117 !important;
+    color: #cfcfcf !important;
 }
 
-body.dark-theme .breadcrumbs a {
-    color: #9ecbff !important; /* نفس درجة الهوم بيج */
+/* ===== BOXES / CARDS / SECTIONS ===== */
+body.dark-theme section,
+body.dark-theme .card,
+body.dark-theme .service-box,
+body.dark-theme .sort-box,
+body.dark-theme .offer-card,
+body.dark-theme .container,
+body.dark-theme form,
+body.dark-theme div.box {
+    background-color: #1f1f1f !important; /* رمادي غامق */
+    border-color: #333 !important;
+    color: #eee !important;
 }
 
-/* النصوص */
+/* ===== INPUT / TEXTAREA ===== */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background-color: #1f1f1f !important; 
+    color: white !important;
+    border: 1px solid #444 !important;
+}
+
+/* ===== HEADERS & TEXT ===== */
 body.dark-theme h1,
 body.dark-theme h2,
 body.dark-theme h3,
 body.dark-theme h4,
+body.dark-theme h5,
 body.dark-theme p,
 body.dark-theme label,
-body.dark-theme span {
-    color: #f1f1f1 !important;
-}
-
-/* الصناديق */
-body.dark-theme section,
-body.dark-theme div,
-body.dark-theme form {
-    background-color: #181818 !important; /* نفس ستايل الهوم بيج */
-    color: #f1f1f1 !important;
-}
-
-/* الحواف */
-body.dark-theme input,
-body.dark-theme textarea,
-body.dark-theme select {
-    background-color: #121212 !important;
-    color: #ffffff !important;
-    border-color: #333 !important;
+body.dark-theme span,
+body.dark-theme a {
+    color: #e5e5e5 !important;
 }
 
 
@@ -239,6 +169,7 @@ body.dark-theme select {
 
 </body>
 </html>
+
 
 
 
