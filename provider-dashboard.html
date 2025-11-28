@@ -111,36 +111,51 @@
     white-space: nowrap !important; /* يمنع تكسير الكلمات */
 }
 
-    /* ===== PERFECT MOBILE NAV ===== */
-.nav-container {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px !important;
-}
+ /* ======================================================
+      LITTLE STEPS PERFECT MOBILE HEADER (FINAL VERSION)
+   ====================================================== */
 
-.nav-container > div {
+.nav-container {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem 0;
+    gap: 12px;
 }
 
-.nav-container img {
-    width: 55px !important;
-    height: 55px !important;
-    object-fit: contain !important;
-    margin-bottom: 5px !important;
+/* اللوقو بالنص */
+.nav-logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
-/* الروابط صف واحد + قابل للسكرول */
+.nav-logo-box img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain;
+}
+
+.nav-logo-box span {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* الروابط صف واحد، بدون كسر، بدون خروج */
 .nav-menu {
     display: flex !important;
     flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center;
+    gap: 1.8rem;
     flex-wrap: nowrap !important;
-    overflow-x: auto !important;
     white-space: nowrap !important;
-    gap: 1.5rem !important;
-    padding-bottom: 5px;
-    scrollbar-width: none; /* يخفي السكرول */
+    overflow-x: auto;     /* يسمح بالسكرول لو ما يكفي العرض */
+    padding: 6px 0;
+    width: 100%;
 }
 
 .nav-menu::-webkit-scrollbar {
@@ -148,10 +163,12 @@
 }
 
 .nav-menu a {
-    font-size: 1rem !important;
-    white-space: nowrap !important;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
 }
-
+ 
+    
 
   </style>
 </head>
@@ -167,7 +184,7 @@
       </div>
 
       <ul class="nav-menu">
-        <li><a href="homepage.html">Hme</a></li>
+        <li><a href="homepage.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
@@ -183,7 +200,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">ome</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -261,6 +278,7 @@
 
 </body>
 </html>
+
 
 
 
