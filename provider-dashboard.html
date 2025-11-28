@@ -4,325 +4,173 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Service Provider Dashboard</title>
-  <link rel="stylesheet" href="style.css">
 
   <style>
 
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #ffffff;
+    }
 
-    
+    .navbar {
+      background-color: #4CAF50;
+      padding: 1rem 0;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-  /* ================= DARK MODE ================= */
-  body.dark-theme {
-    background-color: #111827;
-    color: #ffffff !important;
-  }
+    .nav-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
 
-  body.dark-theme .navbar {
-    background-color: #0d1220 !important;
-  }
+    .logo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
 
-  body.dark-theme .breadcrumbs {
-    background-color: #0d1220 !important;
-    color: #fff !important;
-  }
+    .logo-box img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
 
-    
-  body.dark-theme section div {
-    background-color: #1f2937 !important;
-    border-color: #374151 !important;
-  }
+    .logo-box span {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.1;
+    }
 
-  body.dark-theme h2,
-  body.dark-theme h3,
-  body.dark-theme h4 {
-    color: #fff !important;
-  }
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+    }
 
-  body.dark-theme .footer {
-    background-color: #111827 !important;
-    color: #ddd !important;
-  }
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
 
-  body.dark-theme a {
-    color: #4aa8ff !important;
-  }
+    .nav-menu a.active {
+      background-color: rgba(255,255,255,0.2);
+    }
 
-    /* header*/
+    .breadcrumbs {
+      padding: 10px 20px;
+      background: #ecf0f1;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #ddd;
+    }
 
+    .breadcrumbs a {
+      color: #3498db;
+      text-decoration: none;
+    }
 
-    
+    h2 {
+      text-align: center;
+      margin-top: 25px;
+      color: #2c3e50;
+      font-size: 28px;
+    }
 
-/* Reset CSS */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    section {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+    }
 
-/* ================== Navigation Bar ================== */
-.navbar {
-  background-color: #4CAF50;
-  padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 100%;
-}
-.nav-container {
-  display: flex; justify-content: space-between; align-items: center;
-  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-}
-.logo h1 { color: white; font-size: 1.8rem; }
-.nav-menu { display: flex; list-style: none; gap: 2rem; }
-.nav-menu a {
-  color: white; text-decoration: none; padding: 0.5rem 1rem;
-  border-radius: 4px; transition: background-color 0.3s;
-}
-.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
+    section img {
+      width: 100%;
+      border-radius: 12px;
+    }
 
-
-    /* ================== Navigation Bar ================== */
-
-    /* ================== Responsive for Small Screens (phones/tablets) ================== */
-@media (max-width: 768px) {
-
-  /* الجسم كامل بدون فراغ أبيض تحت */
-  html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
-  .nav-container {
-    flex-direction: column;     /* الشعار فوق، الروابط تحت */
-    align-items: flex-start;
-    gap: 8px;
-    padding: 0.75rem 1rem;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .nav-menu a {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  /* ===== الـ Breadcrumbs ===== */
-  .breadcrumbs {
-    max-width: 100%;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-  }
-
-  /* ===== الفوتر ===== */
-  .footer {
-    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
-    text-align: center;
-    row-gap: 10px;
-  }
-
-  .footer-left,
-  .footer-socials {
-    justify-content: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-    white-space: normal;
-  }
-}
-@media (max-width: 768px) {
-
-  .breadcrumbs {
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
-  }
-  
-  .breadcrumbs a {
-    display: inline-block;
-    margin-bottom: 4px;
-  }
-}
-@media (max-width: 768px) {
-    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
-        margin-top: 0 !important;
-        padding-top: 6px !important;
-    }
-}
-
-@media (max-width: 768px) {
-
-  /* نخلي الروابط بس تشتغل هورزنتل بغصب */
-  .nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    width: 100% !important;
-    justify-content: center !important;
-    gap: 20px !important;
-  }
-
-  /* نلغي تأثير الأب على اللست */
-  .nav-container .nav-menu li {
-    display: inline-flex !important;
-    width: auto !important;
-  }
-
-  /* الروابط */
-  .nav-menu a {
-    color: white !important;
-    font-size: 17px !important;
-    font-weight: 600 !important;
-    text-decoration: none !important;
-    padding: 6px 10px !important;
-  }
-}
-
+    .footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
 
   </style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-theme");
-      }
-    });
-  </script>
 
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
 
-
-<!-- Header -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-
-        <div style="display:flex; flex-direction:column; align-items:flex-start;">
-          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
-          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
-        </div>
-
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
-          <li><a href="dashboard.html">Customer Dashboard</a></li>
-        </ul>
-
+      <div class="logo-box">
+        <img src="logo.png" alt="logo">
+        <span>Little<br>Steps</span>
       </div>
-    </nav>
-  </header>
 
-<!-- Breadcrumb -->
-<div class="breadcrumbs">
-  <a href="index.html">Home</a> > <span>provider-dashboard</span>
-</div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="provider-dashboard.html" class="active">Provider Dashboard</a></li>
+        <li><a href="dashboard.html">Customer Dashboard</a></li>
+      </ul>
 
+    </div>
+  </nav>
 
-<h2>Service Provider Dashboard</h2>
+  <div class="breadcrumbs">
+    <a href="index.html">home</a> &gt;
+    <span>provider-dashboard</span>
+  </div>
 
-<section>
-  <h3>Current Nursery Services</h3>
+  <h2>Service Provider Dashboard</h2>
 
-  <div>
+  <section>
+    <h3>Current Nursery Services</h3>
     <h4>Nursery Care</h4>
-    <img src="care.png" width="200">
+    <img src="care.png">
     <p>Full-time child care with professional caregivers.</p>
     <p>Price: 200 SAR</p>
-  </div>
 
-  <div>
     <h4>Transportation</h4>
-    <img src="b.png" width="200">
+    <img src="b.png">
     <p>Safe pick-up and drop-off bus service.</p>
     <p>Price: 100 SAR</p>
-  </div>
 
-  <div>
     <h4>Fun Activities</h4>
-    <img src="g.png" width="200">
-    <p>Creative games and art sessions.</p>
+    <img src="g.png">
+    <p>Creative games and art sessions for children.</p>
     <p>Price: 80 SAR</p>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h3>Quick Actions</h3>
-  <ul>
-    <li><a href="addservice.html">Add New Service</a></li>
-    <li><a href="managestaff.html">Manage Staff Members</a></li>
-  </ul>
-</section>
+  <section>
+    <h3>Quick Actions</h3>
+    <ul>
+      <li><a href="addservice.html">Add New Service</a></li>
+      <li><a href="managestaff.html">Manage Staff Members</a></li>
+    </ul>
+  </section>
 
-<section>
-  <h3>Added Services</h3>
-  <div id="addedServices"></div>
-</section>
-
-<footer class="footer">
-  <div class="footer-grid">
-
-    <div class="footer-left">
-      <img src="logo.png" class="footer-logo">
-      <div class="footer-socials">
-        <div class="icon-box"><img src="insta.png" class="social-icon"><span>@LittleStepsKSA</span></div>
-        <div class="icon-box"><img src="snap.png" class="social-icon"><span>@LittleSteps</span></div>
-        <div class="icon-box"><img src="x.png" class="social-icon"><span>@LittleStepsNursery</span></div>
-      </div>
-    </div>
-
-    <div class="footer-copy">© 2025 Little Steps</div>
-    <div class="footer-desc">Nurturing happy little minds.</div>
-
-  </div>
-</footer>
+  <footer class="footer">
+    © 2025 Little Steps — Nurturing happy little minds.
+  </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
