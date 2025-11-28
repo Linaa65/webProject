@@ -79,23 +79,54 @@
       white-space: nowrap !important;
     }
   }
-/* ================= REAL DARK HEADER FIX ================= */
+/* ===== PERFECT DARK MODE FIX (Matching Homepage) ===== */
+
+/* الخلفية العامة */
+body.dark-theme {
+    background-color: #0B1220 !important;
+    color: #ffffff !important;
+}
+
+/* الهيدر */
 body.dark-theme .navbar {
     background-color: #0B1220 !important;
 }
 
-body.dark-theme {
-    background-color: #0B1220 !important;
-}
-
-body.dark-theme .breadcrumbs {
-    background-color: #0B1220 !important;
-    color: #fff !important;
-}
-
+/* الروابط */
 body.dark-theme .nav-menu a {
     color: #ffffff !important;
 }
+
+/* اسم الصفحة (breadcrumbs) */
+body.dark-theme .breadcrumbs {
+    background-color: #0B1220 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .breadcrumbs a {
+    color: #7db3ff !important; /* نفس لون الهوم بيج */
+}
+
+/* العناوين */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme p,
+body.dark-theme label,
+body.dark-theme span {
+    color: #ffffff !important;
+}
+
+/* الكروت أو البوكسات */
+body.dark-theme section,
+body.dark-theme div,
+body.dark-theme form,
+body.dark-theme .card {
+    background-color: #111827 !important; 
+    color: #ffffff !important;
+}
+
 
   </style>
 
@@ -200,6 +231,7 @@ body.dark-theme .nav-menu a {
 
 </body>
 </html>
+
 
 
 
