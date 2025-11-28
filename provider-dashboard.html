@@ -50,60 +50,61 @@
     /* ================== Navigation Bar ================== */
 @media (max-width: 768px) {
 
-  /* اللوقو يسار فوق */
+  /* اللوقو */
   .nav-container {
-    flex-direction: column !important;
     align-items: flex-start !important;
-    width: 100% !important;
-    padding-left: 10px !important;
   }
 
-  /* ترتيب اللوقو */
-  .nav-container > div:first-child {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
-    margin-bottom: 15px !important;
-  }
-
-  /* نخلي الروابط تشتغل كشبكة */
+  /* نخلي القائمة هورزنتل */
   .nav-menu {
     display: flex !important;
+    flex-direction: row !important;
     flex-wrap: wrap !important;
     width: 100% !important;
     gap: 10px !important;
-    padding-left: 0 !important;
-    margin: 0 !important;
   }
 
-  /* IDs صف أول */
-  #one, #two, #three {
-    flex: 0 0 33.33% !important;
+  .nav-menu li {
     list-style: none !important;
-    text-align: center !important;
-    display: flex !important;
-    justify-content: center !important;
   }
 
-  /* IDs صف ثاني */
-  #four, #five {
-    flex: 0 0 50% !important;
-    list-style: none !important;
-    text-align: center !important;
-    display: flex !important;
-    justify-content: center !important;
+  /* #one */
+  #one {
+    display: inline-block !important;
+    margin-left: 0 !important;    /* أول واحد */
   }
 
-  /* الروابط نفسها */
+  /* #two */
+  #two {
+    display: inline-block !important;
+    margin-left: 25px !important; /* ندفّه شوي يمين/يسار */
+  }
+
+  /* #three */
+  #three {
+    display: inline-block !important;
+    margin-left: 25px !important;
+  }
+
+  /* صف ثاني */
+  #four {
+    display: inline-block !important;
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+  }
+
+  #five {
+    display: inline-block !important;
+    margin-left: 25px !important;
+    margin-top: 10px !important;
+  }
+
+  /* الروابط */
   .nav-menu a {
     color: white !important;
-    display: block !important;
-    width: 100% !important;
-    padding: 6px 4px !important;
+    display: inline-block !important;
   }
 }
-
 
   </style>
 
@@ -206,6 +207,7 @@
 
 </body>
 </html>
+
 
 
 
