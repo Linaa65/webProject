@@ -7,168 +7,156 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
+    
+    /* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+}
+/* يعالج اللون الأبيض حول المحتوى */
+/* الثيم الفاتح (العادي) */
 
-    /* ======= إصلاح الهيدر ليصير بالضبط مثل الشكل اللي تبينه ======= */
 
-.nav-container {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 25px !important;
+
+/* الثيم الغامق */
+body.dark-theme {
+    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
+    color: #f9f9f9;
 }
 
-.logo-box {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
+
+/* خلي الكروت والبوكسات تصير داكنة بزيادة */
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
 }
 
-.logo-box img {
-    width: 55px !important;
-    height: 55px !important;
-    object-fit: contain !important;
-    margin-bottom: 4px !important;
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; /* غامق وواضح فوق الأبيض */
+}
+/* النافبار في الثيم الغامق */
+/* Dark navbar */
+body.dark-theme .navbar {
+  background-color: #111827;
 }
 
-.logo-box span {
-    color: white !important;
-    font-size: 22px !important;
-    font-weight: bold !important;
+/* الفوتر في الثيم الغامق */
+/* Dark footer */
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #f9f9f9;
 }
 
-/* الروابط هورزنتل صف واحد */
-.nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 1.7rem !important;
-    list-style: none;
-    margin: 0 !important;
-    padding: 0 !important;
+/* روابط النافبار في الثيم الغامق */
+/* Navbar links in dark theme */
+body.dark-theme .nav-menu a {
+  color: #f9f9f9;
 }
 
-.nav-menu li {
-    display: inline-block !important;
+/* الهيرو سيكشن في الثيم الغامق (مثال) */
+/* Hero section in dark theme (example) */
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
 }
 
-.nav-menu a {
-    color: white !important;
-    text-decoration: none !important;
-    font-size: 1rem !important;
-    padding: 6px 10px !important;
-    border-radius: 6px !important;
-}
-
-/* للجوال */
+    /* ================== Responsive for Small Screens (phones/tablets) ================== */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
 
-    .logo-box {
-        align-items: center !important;
-    }
+  /* الجسم كامل بدون فراغ أبيض تحت */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
 
-    .nav-menu {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 1rem !important;
-    }
-}
-
-    /* ===== FINAL NAVBAR FIX ===== */
-.nav-container {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-    padding: 12px !important;
-}
-
-.nav-container > div {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-.nav-container img {
-    width: 55px !important;
-    height: 55px !important;
-    object-fit: contain !important;
-    margin-bottom: 6px !important;
-}
-
-.nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;   /* يمنعهم ينزلون سطر ثاني */
-    justify-content: center !important;
-    gap: 1.6rem !important;
-}
-
-.nav-menu a {
-    font-size: 1.05rem !important;
-    white-space: nowrap !important; /* يمنع تكسير الكلمات */
-}
-
- /* ======================================================
-      LITTLE STEPS PERFECT MOBILE HEADER (FINAL VERSION)
-   ====================================================== */
-
-.nav-container {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center;
-    align-items: center;
-    padding: 1.2rem 0;
-    gap: 12px;
-}
-
-/* اللوقو بالنص */
-.nav-logo-box {
+  body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
+  }
 
-.nav-logo-box img {
-    width: 60px !important;
-    height: 60px !important;
-    object-fit: contain;
-}
+  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
+  .nav-container {
+    flex-direction: column;     /* الشعار فوق، الروابط تحت */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0.75rem 1rem;
+  }
 
-.nav-logo-box span {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-}
+  .nav-menu {
+    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
+    gap: 0.75rem;
+    justify-content: center;
+  }
 
-/* الروابط صف واحد، بدون كسر، بدون خروج */
-.nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center;
-    gap: 1.8rem;
-    flex-wrap: nowrap !important;
-    white-space: nowrap !important;
-    overflow-x: auto;     /* يسمح بالسكرول لو ما يكفي العرض */
-    padding: 6px 0;
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* ===== الـ Breadcrumbs ===== */
+  .breadcrumbs {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* ===== الفوتر ===== */
+  .footer {
+    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
+    text-align: center;
+    row-gap: 10px;
+  }
+
+  .footer-left,
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+    white-space: normal;
+  }
+}
+@media (max-width: 768px) {
+
+  .breadcrumbs {
     width: 100%;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
+  }
+  
+  .breadcrumbs a {
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 768px) {
+    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
+        margin-top: 0 !important;
+        padding-top: 6px !important;
+    }
 }
 
-.nav-menu::-webkit-scrollbar {
-    display: none;
-}
-
-.nav-menu a {
-    font-size: 1rem;
-    color: white;
-    text-decoration: none;
-}
- 
-    
 
   </style>
 </head>
@@ -200,7 +188,7 @@
 
 
   <div class="breadcrumbs">
-    <a href="homepage.html">ome</a> &gt;
+    <a href="homepage.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -278,6 +266,7 @@
 
 </body>
 </html>
+
 
 
 
