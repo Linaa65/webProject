@@ -558,6 +558,33 @@ body.dark-theme .hero-section {
   grid-column: 1 / -1;
   justify-self: center;
 }
+/* ===== موبايل: نخلي كل شيء عمودي ويأخذ عرض الشاشة ===== */
+@media (max-width: 768px) {
+
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 24px;
+  }
+
+  .services-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .services-row > div {
+    width: 100% !important;
+    max-width: 340px;
+  }
+
+  .offers-sidebar {
+    width: 100% !important;
+    max-width: 340px;
+    margin: 20px auto 0;
+  }
+}
 
   </style>
 
