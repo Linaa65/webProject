@@ -50,56 +50,59 @@
     /* ================== Navigation Bar ================== */
 @media (max-width: 768px) {
 
-  /* اللوقو top left */
+  /* اللوقو يسار فوق */
   .nav-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 0.75rem 1rem;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    padding-left: 10px !important;
   }
 
+  /* ترتيب اللوقو */
   .nav-container > div:first-child {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 15px !important;
   }
 
-  /* الروابط: صف لكلاس one و صف لكلاس two */
+  /* نخلي الروابط تشتغل كشبكة */
   .nav-menu {
     display: flex !important;
     flex-wrap: wrap !important;
     width: 100% !important;
-    padding: 0 !important;
+    gap: 10px !important;
+    padding-left: 0 !important;
     margin: 0 !important;
   }
 
-  .nav-menu li {
-    list-style: none;
-    margin: 0;
-  }
-
-  /* أول ٣ جنب بعض */
-  .nav-menu li.one {
+  /* IDs صف أول */
+  #one, #two, #three {
     flex: 0 0 33.33% !important;
-    text-align: center;
+    list-style: none !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 
-  /* آخر ٢ جنب بعض تحتهم */
-  .nav-menu li.two {
+  /* IDs صف ثاني */
+  #four, #five {
     flex: 0 0 50% !important;
-    text-align: center;
+    list-style: none !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 
+  /* الروابط نفسها */
   .nav-menu a {
-    display: block;
-    color: #fff !important;
-    padding: 6px 4px;
-    font-size: 0.9rem;
+    color: white !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 6px 4px !important;
   }
 }
-
 
 
   </style>
@@ -126,11 +129,13 @@
       </div>
 
       <ul class="nav-menu">
-         <div> <li class = "one" ><a href="index.html">Home</a></li>
-          <li class = "one" ><a href="services.html" class="active">Services</a></li>
-          <li class = "one" ><a href="about.html">About Us</a></li>  <div>
-           <div> <li class = "two" ><a href="provider-dashboard.html">Provider Dashboard</a></li>
-          <li class = "two" ><a href="dashboard.html">Customer Dashboard</a></li> <div>
+        
+        <li id = "one" ><a href="index.html">Home</a></li>
+          <li id = "two" ><a href="services.html" class="active">Services</a></li>
+          <li id = "three" ><a href="about.html">About Us</a></li>  <div>
+          
+            <li id = "four" ><a href="provider-dashboard.html">Provider Dashboard</a></li>
+          <li id = "five" ><a href="dashboard.html">Customer Dashboard</a></li>
       </ul>
 
   </div>
@@ -201,6 +206,7 @@
 
 </body>
 </html>
+
 
 
 
