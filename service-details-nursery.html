@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Nursery Service</title>
 <style>
-/* Reset */
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Arial, sans-serif;
@@ -67,18 +66,13 @@ body{
 
 /* Image box */
 .image-box{
-  width:10 em;
-  height:10 em;
-  object-fit:cover;
-  background:transparent;
-  background-position:center;
-
+  width:100%;
   text-align:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
-  color:#555;
+  padding:20px 0;
+}
+.image-box img{
+  max-width:260px;
+  height:auto;
 }
 
 /* Content */
@@ -131,27 +125,62 @@ select{
     </div>
   </div>
 
-  <div class="image-box"  > 
-   <img src="C:\Users\96650\Desktop\webproject/bus.png" alt="Nursery Service Image" width="260" height="260">
-
+  <div class="image-box"> 
+    <img src="bus.png" alt="Nursery Service Image">
   </div>
 
   <div class="content">
     <p>Safe and educational childcare service for kids.</p>
 
-    <label>Choose plan:</label>
-    <select>
-      <option>Hourly</option>
-      <option>4 Hours</option>
-      <option>6 Hours</option>
+    <label for="nurseryPlan">Choose plan:</label>
+    <select id="nurseryPlan">
+      <!-- حطي الأسعار اللي تبغيها في data-price -->
+      <option value="Hourly"  data-price="800">Hourly</option>
+      <option value="4 Hours" data-price="3000">4 Hours</option>
+      <option value="6 Hours" data-price="4000">6 Hours</option>
     </select>
 
     <div class="btn-box">
-      <div class="price">4000 SAR / Month</div>
-      <a class="btn" href="service-booked.html">Book</a>
+      <div class="price" id="nurseryPrice">800 SAR / Month</div>
+      <a class="btn" href="#" id="nurseryBookBtn">Book</a>
     </div>
   </div>
 </div>
+
+<script>
+// عناصر الصفحة
+const nurseryPlan    = document.getElementById('nurseryPlan');
+const nurseryPrice   = document.getElementById('nurseryPrice');
+const nurseryBookBtn = document.getElementById('nurseryBookBtn');
+
+// دالة تحديث السعر
+function updateNurseryPrice() {
+  const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
+  const price = selectedOption.getAttribute('data-price');
+  nurseryPrice.textContent = price + ' SAR / Month';
+}
+
+// أول مرة
+updateNurseryPrice();
+
+// لما يتغير الخيار
+nurseryPlan.addEventListener('change', updateNurseryPrice);
+
+// زر Book يفتح صفحة Request-service مع البيانات في الـ URL
+nurseryBookBtn.addEventListener('click', function(e){
+  e.preventDefault();
+  const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
+  const plan  = selectedOption.value;
+  const price = selectedOption.getAttribute('data-price');
+
+  const url = 'Request-service.html'
+    + '?service=' + encodeURIComponent('Nursery Service')
+    + '&plan='   + encodeURIComponent(plan)
+    + '&price='  + encodeURIComponent(price);
+
+  window.location.href = url;
+});
+</script>
 
 </body>
 </html>
