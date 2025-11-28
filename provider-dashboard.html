@@ -49,32 +49,57 @@
     /* ================== Navigation Bar ================== */
 @media (max-width: 768px) {
 
-  .nav-menu {
+  /* --- اللوقو top-left --- */
+  .nav-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  .nav-container > div:first-child {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: flex-start !important;
     align-items: center !important;
+    gap: 8px !important;
+  }
+
+
+  /* --- الروابط هورزنتل --- */
+  .nav-menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
     gap: 10px !important;
-    flex-wrap: nowrap !important; /* صف واحد */
-    overflow-x: auto !important;  /* سكرول لو صار طويل */
     padding-left: 0 !important;
-    margin: 0 !important;
     width: 100% !important;
   }
 
   .nav-menu li {
     list-style: none !important;
-    white-space: nowrap !important; /* يمنع النزول لسطر جديد */
+    white-space: nowrap !important;
   }
 
   .nav-menu a {
     color: white !important;
-    padding: 6px 10px !important;
     display: inline-block !important;
+    padding: 6px 12px !important;
     text-align: center !important;
   }
-}
 
+
+  /* --- ترتيب one فوق --- */
+  .nav-menu li.one {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* --- ترتيب two تحت one --- */
+  .nav-menu li.two {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+  }
+
+}
 
   </style>
 
@@ -175,6 +200,7 @@
 
 </body>
 </html>
+
 
 
 
