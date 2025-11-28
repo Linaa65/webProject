@@ -5,11 +5,68 @@
 <title>Bus Delivery Service</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial, sans-serif;background:#f8f9fa;color:#333;line-height:1.6}
-.container{max-width:800px;margin:40px auto;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,.1);overflow:hidden}
-.header{background:#4CAF50;padding:15px;color:#fff;text-align:center;font-size:22px;position:relative}
+body{
+  font-family:Arial, sans-serif;
+  background:#f8f9fa;
+  color:#333;
+  line-height:1.6;
+}
 
-/* Back button */
+/* ============ Dark Theme ============ */
+body.dark-theme{
+  background:#111827;
+  color:#f9f9f9;
+}
+
+body.dark-theme .container{
+  background:#1f2937;
+  box-shadow:0 4px 15px rgba(0,0,0,.5);
+}
+
+body.dark-theme .header{
+  background:#111827;
+  border-bottom:1px solid #374151;
+}
+
+body.dark-theme select{
+  background:#111827;
+  color:#f9f9f9;
+  border-color:#4b5563;
+}
+
+body.dark-theme .price{
+  color:#f97373;
+}
+
+body.dark-theme .btn{
+  background:#2563eb;
+}
+
+body.dark-theme .btn:hover{
+  background:#1d4ed8;
+}
+
+/* Container */
+.container{
+  max-width:800px;
+  margin:40px auto;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+  overflow:hidden;
+}
+
+/* Header */
+.header{
+  background:#4CAF50;
+  padding:15px;
+  color:#fff;
+  text-align:center;
+  font-size:22px;
+  position:relative;
+}
+
+/* back button */
 .top-back-box{position:absolute;top:12px;left:15px}
 .back-btn{
   width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
@@ -61,7 +118,6 @@ select{width:100%;padding:10px;margin:10px 0;border-radius:6px;border:1px solid 
 
     <label for="busPlan">Bus direction:</label>
     <select id="busPlan">
-      <!-- عدّلي الأسعار على كيفك -->
       <option value="Drop-off" data-price="500">Drop-off</option>
       <option value="Pick-up"  data-price="500">Pick-up</option>
       <option value="Both"     data-price="900">Both</option>
@@ -74,6 +130,7 @@ select{width:100%;padding:10px;margin:10px 0;border-radius:6px;border:1px solid 
   </div>
 </div>
 <script src="homepage.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const busPlan    = document.getElementById('busPlan');
@@ -105,6 +162,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<!-- نفس سكربت الدارك مود المستخدم في الهوم بيج -->
 </body>
 </html>
-
