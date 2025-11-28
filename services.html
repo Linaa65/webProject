@@ -544,19 +544,22 @@ body.dark-theme .hero-section {
     <!-- Services Grid -->
     <section class="services-grid">
         <!-- Service 1 -->
-        <div class="service-item" onclick="window.location.href="Request-service.html">
-            <div class="service-image">
-                <img src="bus.png" alt="Nursery Service Image" width="260" height="260">
-            </div>
-            <div class="service-info">
-                <h3>Nursery Service</h3>
-                <p>Comprehensive child care in a safe and educational environment with professional staff and modern facilities.</p>
-                <div class="service-meta">
-                    <span class="price">4000 SAR / month</span>
-                    <a class="details-btn" href="service-details-nursery.html">Book</a>
-                </div>
-            </div>
+        <!-- Service 1 -->
+<div class="service-item" onclick="window.location.href='service-details-nursery.html'">
+    <div class="service-image">
+        <img src="bus.png" alt="Nursery Service Image" width="260" height="260">
+    </div>
+    <div class="service-info">
+        <h3>Nursery Service</h3>
+        <p>Comprehensive child care in a safe and educational environment with professional staff and modern facilities.</p>
+        <div class="service-meta">
+            <span class="price">4000 SAR / month</span>
+            <!-- خليه يروح لصفحة التفاصيل مو الريكوست -->
+            <a class="details-btn" href="service-details-nursery.html">View Details</a>
         </div>
+    </div>
+</div>
+
 
         <!-- Service 2 -->
         <div class="service-item" onclick="window.location.href='service-details-bus.html'">
@@ -630,6 +633,7 @@ body.dark-theme .hero-section {
 
 </body>
 </html>
+
 
 
 
