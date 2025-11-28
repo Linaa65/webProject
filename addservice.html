@@ -8,236 +8,111 @@
 
   <style>
 
+/* ==================== Light Mode ==================== */
 
-    /* ================= HEADER (نفس الهوم بيج) ================= */
+body {
+  background-color: #ffffff;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
 
+/* ===== Navbar ===== */
 .navbar {
-  background-color: #2c3e50 !important;
-  padding: 1.2rem 0;
-  width: 100%;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-/* اللوقو */
-.nav-container > div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.nav-container img {
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-/* الروابط */
-.nav-menu {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  background-color: #4CAF50;
+  padding: 1rem 0;
 }
 
 .nav-menu a {
-  color: white !important;
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: 0.2s;
+  color: white;
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
-  background-color: rgba(255,255,255,0.25) !important;
-}
-
-/* ================= BREADCRUMBS ================= */
-.breadcrumbs {
-  padding: 10px 40px;
-  background-color: #ecf0f1;
-  border-bottom: 1px solid #ddd;
-  font-size: 0.9rem;
-}
-
-.breadcrumbs a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-.breadcrumbs span {
-  color: #778c8d;
-}
-
-/* ================= FORM ================= */
-
+/* ===== Form Boxes ===== */
 form {
-  max-width: 600px;
-  margin: 40px auto;
+  background: #ffffff;
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-form label {
-  font-weight: bold;
-  color: #333;
-}
-
-form input,
-form textarea {
+input, textarea {
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
-  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  color: #222;
 }
 
-form button {
-  background-color: #2c3e50;
+/* زر إضافة الخدمة */
+button[type="button"] {
+  width: 100%;
+  padding: 14px;
+  background: #4CAF50;
   color: white;
   border: none;
-  padding: 12px 18px;
-  margin-top: 15px;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 10px;
   font-size: 16px;
-  transition: 0.2s;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-form button:hover {
-  opacity: 0.8;
-}
 
-/* ================= FOOTER ================= */
-
-.footer {
-  background: #2c3e50;
-  color: white;
-  padding: 20px 0;
-  font-size: 14px;
-}
-
-.footer-grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 25px;
-  padding: 0 20px;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 20px;
-}
-
-.icon-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.social-icon {
-  width: 25px;
-  height: 25px;
-}
-
-/* ================= DARK MODE ================= */
+/* ==================== DARK MODE ==================== */
 
 body.dark-theme {
-  background-color: #111827;
-  color: white !important;
+  background-color: #0f172a; /* الأزرق الغامق نفس الهوم */
+  color: white;
 }
 
+/* الهيدر يصير رمادي نفس درجة الهوم */
+body.dark-theme .navbar {
+  background-color: #1f2937 !important;  /* رمادي غامق */
+}
+
+/* الروابط */
+body.dark-theme .nav-menu a {
+  color: #f1f1f1 !important;
+}
+
+/* المربعات داخل الفورم */
 body.dark-theme form {
-  background-color: #1c1c1d !important;
-  border-color: #333 !important;
-  color: white !important;
+  background: #1c1c1d !important; /* نفس درجة الكروت */
+  border: 1px solid #333;
 }
 
-body.dark-theme form label {
-  color: #eee;
-}
-
+/* الحقول */
 body.dark-theme input,
 body.dark-theme textarea {
-  background-color: #2a2a2c;
-  color: white;
-  border-color: #555;
+  background: #2a2a2b !important;
+  border: 1px solid #444 !important;
+  color: #fff !important;
 }
 
-body.dark-theme button {
-  background-color: #111827;
-  color: white;
+/* زر إضافة الخدمة — مو أخضر بالدارك */
+body.dark-theme button[type="button"] {
+  background: #3b82f6; /* أزرق واضح */
+  color: #fff;
 }
 
-/* هيدر نفس الهوم بيج في الدارك */
-body.dark-theme .navbar {
-  background-color: #111827 !important;
+/* البريكدَمبز */
+body.dark-theme .breadcrumbs {
+  background: #1c1c1d !important;
+  border-color: #333 !important;
+  color: #ccc !important;
 }
 
-/* فوتر نفس الهوم بيج */
+body.dark-theme .breadcrumbs a {
+  color: #60a5fa !important; /* أزرق نفس الهوم بيج */
+}
+
+/* الفوتر */
 body.dark-theme .footer {
-  background-color: #111827 !important;
-}
-
-body.dark-theme .nav-menu a {
+  background: #1f2937 !important;
   color: white !important;
 }
 
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  form {
-    margin: 20px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .footer-left {
-    justify-content: center;
-  }
-}
 
   </style>
 
@@ -342,6 +217,7 @@ body.dark-theme .nav-menu a {
 
 </body>
 </html>
+
 
 
 
