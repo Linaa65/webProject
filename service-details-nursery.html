@@ -1,158 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Nursery Service</title>
-<style>
-/* Reset */
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Arial, sans-serif;
-  background:#f8f9fa;
-  color:#333;
-  line-height:1.6;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Steps - Services</title>
+
+  <style>
+/* ================= Base Reset ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #222222;
 }
 
-/* Container */
-.container{
-  max-width:800px;
-  margin:40px auto;
-  background:#fff;
-  border-radius:10px;
-  box-shadow:0 4px 15px rgba(0,0,0,.1);
-  overflow:hidden;
+/* ================== Navigation Bar ================== */
+.navbar {
+  background-color: #4CAF50;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+}
+.nav-container {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+}
+.logo h1 { color: white; font-size: 1.8rem; }
+.nav-menu { display: flex; list-style: none; gap: 2rem; }
+.nav-menu a {
+  color: white; text-decoration: none; padding: 0.5rem 1rem;
+  border-radius: 4px; transition: background-color 0.3s;
+}
+.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
+.navbar img { border-radius: 8px; }
+
+/* ================= Breadcrumbs ================= */
+.breadcrumbs {
+  padding: 10px 40px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.breadcrumbs a {
+  text-decoration: none;
+  color: #3498db;
+}
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs span { color: #778c8d; }
+
+/* ================= Sorting Section ================= */
+.sorting-section {
+  padding: 2rem; background-color: white; text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 2rem;
+  max-width: 1200px; margin-left:auto; margin-right:auto;
+}
+.sorting-section label { font-weight: bold; margin-right: 1rem; }
+.sorting-section select {
+  padding: 0.5rem 1rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;
 }
 
-/* Header */
-.header{
-  background:#4CAF50;
-  padding:15px;
-  color:#fff;
-  text-align:center;
-  font-size:22px;
-  position:relative;
+/* ================= Services Grid ================= */
+.services-grid {
+  max-width: 1200px; margin: 0 auto 2rem auto; padding: 2rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+}
+.service-item {
+  background: white; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+}
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.service-image {
+  height: 200px; overflow: hidden; background-color: #ddd;
+  display: flex; align-items: center; justify-content: center; color: #666;
+}
+.service-image img { width: 100%; height: 100%; object-fit: cover; }
+.service-info { padding: 1.5rem; }
+.service-info h3 { color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem; }
+.service-info p { color: #7f8c8d; margin-bottom: 1rem; line-height: 1.5; }
+
+.service-meta {
+  display: flex; flex-direction: column; gap: 0.6rem;
+  margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ecf0f1;
 }
 
-/* Back Button */
-.top-back-box{
-  position:absolute;
-  top:12px;
-  left:15px;
-}
-.back-btn{
-  width:36px;
-  height:36px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  border-radius:50%;
-  text-decoration:none;
-  border:2px solid #4CAF50;
-}
-.back-btn::before{
-  content:"";
-  border:solid #4CAF50;
-  border-width:0 3px 3px 0;
-  padding:6px;
-  transform:rotate(135deg);
-}
-.back-btn:hover{
-  background:#4CAF50;
-}
-.back-btn:hover::before{
-  border-color:#fff;
+.plan-select {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
 }
 
-/* Image box */
-.image-box{
-  text-align:center;
-  padding:20px;
-}
-.image-box img{
-  width:260px;
-  height:260px;
-  object-fit:cover;
-}
+.price { color: #e74c3c; font-weight: bold; font-size: 1.1rem; }
 
-/* Content */
-.content{
-  padding:20px;
+.details-btn {
+  background-color: #4CAF50; color: white; border: none; padding: 0.5rem 1rem;
+  border-radius: 4px; cursor: pointer; transition: background-color 0.3s;
+  text-decoration: none; display: inline-block; text-align:center;
 }
-label{
-  font-weight:bold;
+.details-btn:hover { background-color: #45a049; }
+
+/* ============ Dark Theme (نفس الهوم بيج) ============ */
+body.dark-theme {
+  background-color: #111827;
+  color: #f9f9f9;
 }
-select{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-  border-radius:6px;
-  border:1px solid #ccc;
+body.dark-theme .navbar,
+body.dark-theme .footer,
+body.dark-theme .breadcrumbs,
+body.dark-theme .sorting-section,
+body.dark-theme .service-item {
+  background-color: #1c1c1d !important;
+  color: #f9f9f9;
 }
-.price{
-  color:#e74c3c;
-  font-size:20px;
-  font-weight:bold;
-  margin:15px 0;
+body.dark-theme .nav-menu a { color:#f9f9f9; }
+body.dark-theme .footer { background-color:#111827; }
+
+/* ================= Footer ================= */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
 }
-.btn-box{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:15px;
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
 }
-.btn{
-  background:#4CAF50;
-  color:#fff;
-  padding:10px 18px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
-.btn:hover{
-  background:#43a047;
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
 }
-</style>
+.footer-socials {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+.social-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+.footer-copy { text-align: center; white-space: nowrap; }
+.footer-desc { text-align: right; white-space: nowrap; opacity: .85; }
+
+/* ============ Responsive ============ */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0.75rem 1rem;
+  }
+  .nav-menu {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+  }
+  .footer-left { justify-content: center; }
+  .footer-socials { justify-content: center; }
+  .footer-desc { text-align: center; white-space: normal; }
+}
+  </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div style="display:flex; flex-direction:column; align-items:flex-start;">
+                <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px; object-fit:contain;">
+                <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+                <li><a href="dashboard.html">Customer Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="container">
-
-  <div class="header">
-    Nursery Service
-    <div class="top-back-box">
-      <a class="back-btn" href="services.html" title="Back"></a>
+    <div class="breadcrumbs">
+        <a href="index.html">home</a> &gt; <span>services</span>
     </div>
-  </div>
 
-  <div class="image-box">
-    <img src="bus.png" alt="Nursery Service Image">
-  </div>
+    <!-- Sorting Section (شكل فقط) -->
+    <section class="sorting-section">
+        <label for="sort">Sort By:</label>
+        <select id="sort" name="sort">
+            <optgroup label="Price">
+                <option value="price-low">Low to High</option>
+                <option value="price-high">High to Low</option>
+            </optgroup>
+            <optgroup label="Name">
+                <option value="name-asc">A-Z</option>
+                <option value="name-desc">Z-A</option>
+            </optgroup>
+        </select>
+    </section>
 
-  <div class="content">
-    <p>Safe and educational childcare service for kids.</p>
+    <!-- Services Grid -->
+    <section class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-item">
+            <div class="service-image">
+                <img src="bus.png" alt="Nursery Service Image">
+            </div>
+            <div class="service-info">
+                <h3>Nursery Service</h3>
+                <p>Comprehensive child care in a safe and educational environment with professional staff and modern facilities.</p>
+                <div class="service-meta">
+                    <!-- المنيو اللي يغير السعر -->
+                    <select class="plan-select">
+                        <option value="4000 SAR / month">Monthly</option>
+                        <option value="1200 SAR / week">Weekly</option>
+                        <option value="80 SAR / hour">Hourly</option>
+                    </select>
 
-    <label>Choose plan:</label>
-    <select id="planSelect">
-      <option value="4000">Hourly</option>
-      <option value="4500">4 Hours</option>
-      <option value="5000">6 Hours</option>
-    </select>
+                    <span class="price">4000 SAR / month</span>
 
-    <div class="btn-box">
-      <div id="priceBox" class="price">4000 SAR / Month</div>
-      <a class="btn" href="service-booked.html">Book</a>
-    </div>
-  </div>
-</div>
+                    <!-- زر Book يودّي لصفحة Request-service -->
+                    <a class="details-btn" href="Request service.html">Book</a>
+                </div>
+            </div>
+        </div>
 
-<!-- ===== JavaScript لتغيير السعر ===== -->
-<script>
-document.getElementById("planSelect").addEventListener("change", function() {
-    const price = this.value;
-    document.getElementById("priceBox").textContent = price + " SAR / Month";
-});
-</script>
+        <!-- Service 2 -->
+        <div class="service-item">
+            <div class="service-image">
+                <img src="b.png" alt="Bus Delivery Service">
+            </div>
+            <div class="service-info">
+                <h3>Bus Delivery Service</h3>
+                <p>Safe and comfortable transportation service for children with trained drivers and GPS tracking.</p>
+                <div class="service-meta">
+                    <select class="plan-select">
+                        <option value="1000 SAR / month">Monthly</option>
+                        <option value="350 SAR / week">Weekly</option>
+                        <option value="40 SAR / trip">Per Trip</option>
+                    </select>
+
+                    <span class="price">1000 SAR / month</span>
+
+                    <a class="details-btn" href="Request-service.html">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-item">
+            <div class="service-image">
+                <img src="g.png" alt="Interactive Games Service">
+            </div>
+            <div class="service-info">
+                <h3>Interactive Games Service</h3>
+                <p>Educational and entertaining activities to develop children's creative and social skills.</p>
+                <div class="service-meta">
+                    <select class="plan-select">
+                        <option value="800 SAR / month">Monthly</option>
+                        <option value="300 SAR / week">Weekly</option>
+                        <option value="60 SAR / session">Per Session</option>
+                    </select>
+
+                    <span class="price">800 SAR / month</span>
+
+                    <a class="details-btn" href="Request-service.html">Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-left">
+          <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+
+          <div class="footer-socials">
+            <div class="icon-box">
+              <img src="insta.png" class="social-icon" alt="">
+              <span>@LittleStepsKSA</span>
+            </div>
+            <div class="icon-box">
+              <img src="snap.png" class="social-icon" alt="">
+              <span>@LittleSteps</span>
+            </div>
+            <div class="icon-box">
+              <img src="x.png" class="social-icon" alt="">
+              <span>@LittleStepsNursery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copy">©️ 2025 Little Steps.</div>
+        <div class="footer-desc">Nurturing happy little minds.</div>
+      </div>
+    </footer>
+
+    <!-- سكربت لتغيير السعر حسب المنيو -->
+    <script>
+      document.querySelectorAll('.service-item').forEach(function(card) {
+        const select = card.querySelector('.plan-select');
+        const priceSpan = card.querySelector('.price');
+
+        if (select && priceSpan) {
+          select.addEventListener('change', function () {
+            priceSpan.textContent = this.value;
+          });
+        }
+      });
+    </script>
+
+    <!-- لو عندك ملف services.js/homepage.js خليه بعدين عادي -->
+    <!-- <script src="services.js"></script>
+    <script src="homepage.js"></script> -->
 
 </body>
 </html>
