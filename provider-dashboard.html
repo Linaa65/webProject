@@ -159,14 +159,14 @@ body.dark-theme .nav-menu a {
     font-size: 0.9rem;
   }
 
-  /* ثلاثة فوق */
-  .nav-menu li:nth-child(-n+3) {
-    width: auto; /* ياخذ حجم الكلمة */
+  .nav-menu li.one {
+    flex: 0 0 calc(33.33% - 10px);
+    text-align: center;
   }
 
-  /* آخر اثنين تحت */
-  .nav-menu li:nth-child(n+4) {
-    width: auto;
+   .nav-menu li.two {
+    flex: 0 0 calc(50% - 10px);
+    text-align: center;
   }
 }
 
@@ -197,11 +197,11 @@ body.dark-theme .nav-menu a {
       </div>
 
       <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html" class="active">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
-          <li><a href="dashboard.html">Customer Dashboard</a></li>
+          <li class = "one" ><a href="index.html">Home</a></li>
+          <li class = "one" ><a href="services.html" class="active">Services</a></li>
+          <li class = "one" ><a href="about.html">About Us</a></li>
+          <li class = "two" ><a href="provider-dashboard.html">Provider Dashboard</a></li>
+          <li class = "two" ><a href="dashboard.html">Customer Dashboard</a></li>
       </ul>
 
   </div>
@@ -272,6 +272,7 @@ body.dark-theme .nav-menu a {
 
 </body>
 </html>
+
 
 
 
