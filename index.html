@@ -475,6 +475,81 @@ body.dark-theme .hero-section {
     margin: 20px auto 0;
   }
 }
+/* ===== إصلاح الهيدر + السهم + الخدمات في الموبايل ===== */
+@media (max-width: 768px) {
+
+  /* الهيدر يكون مرتب ومركّز */
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  /* صندوق اللوقو (أول div داخل الهيدر) نخليه يوسّط العناصر */
+  .nav-container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  #themeToggle {
+    align-self: center;
+  }
+
+  /* إصلاح شكل السهم ↑ عشان ما يتأثر بقانون "كل الأزرار 100%" */
+  #backToTop {
+    width: 40px;
+    height: 40px;
+    padding: 0;              /* مهم عشان يطلع دائري */
+    border-radius: 50%;
+    line-height: 40px;       /* يوسّط السهم داخل الزر */
+    text-align: center;
+  }
+
+  /* ترتيب المحتوى الرئيسي */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* كروت الخدمات تحت بعض */
+  .services-row {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .services-row > div {
+    width: 100% !important;
+    max-width: 340px;
+  }
+
+  /* الـ Offers box ياخذ عرض مناسب للجوال وينزل تحت */
+  .offers-sidebar {
+    width: 100% !important;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
 
   </style>
 
