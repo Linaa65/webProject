@@ -447,6 +447,34 @@ body.dark-theme .hero-section {
   justify-content: space-between;
   flex-wrap: wrap;  /* مهم عشان يلفون لو ما فيه مساحة */
 }
+/* ===== موبايل: نخلي كل شيء عمودي ويأخذ عرض الشاشة ===== */
+@media (max-width: 768px) {
+
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 24px;
+  }
+
+  /* كروت الخدمات تصير تحت بعض بدل 3 جنب بعض */
+  .services-row {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .services-row > div {
+    width: 100% !important;
+    max-width: 340px;
+  }
+
+  /* العروض (الـ aside) تصير تحت الخدمات وتأخذ عرض مناسب للجوال */
+  .offers-sidebar {
+    width: 100% !important;
+    max-width: 340px;
+    margin: 20px auto 0;
+  }
+}
 
   </style>
 
