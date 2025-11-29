@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Little Steps - Loyalty Program</title>
 
   <style>
-    /* ================== Reset ================== */
+    /* =============== Reset =============== */
     * {
       margin: 0;
       padding: 0;
@@ -14,18 +14,18 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Arial", sans-serif;
       background-color: #ffffff;
       color: #111827;
       line-height: 1.6;
     }
 
-    /* ================== NAVBAR ================== */
+    /* =============== Navbar (نفس الهوم بيج) =============== */
     .navbar {
       background-color: #4CAF50;
       padding: 1rem 0;
-      width: 100%;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 100%;
     }
 
     .nav-container {
@@ -46,12 +46,12 @@
     .nav-logo-box img {
       width: 35px;
       height: 35px;
-      border-radius: 8px;
       object-fit: contain;
+      border-radius: 8px;
     }
 
     .nav-logo-box span {
-      color: white;
+      color: #ffffff;
       font-size: 20px;
       font-weight: bold;
     }
@@ -63,11 +63,12 @@
     }
 
     .nav-menu a {
-      color: white;
+      color: #ffffff;
       text-decoration: none;
       padding: 0.5rem 1rem;
       border-radius: 4px;
-      transition: 0.3s;
+      transition: background-color 0.3s;
+      font-size: 0.95rem;
     }
 
     .nav-menu a:hover,
@@ -75,11 +76,12 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
 
+    /* زر الثيم موجود لملف js لكن مخفي */
     #themeToggle {
-      display: none !important;
+      display: none;
     }
 
-    /* ================== Breadcrumbs ================== */
+    /* =============== Breadcrumbs =============== */
     .breadcrumbs {
       padding: 10px 40px;
       background-color: #ecf0f1;
@@ -90,64 +92,88 @@
     }
 
     .breadcrumbs a {
-      color: #3498db;
       text-decoration: none;
+      color: #3498db;
     }
 
-    /* ================== Progress Section ================== */
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumbs span {
+      color: #7f8c8d;
+    }
+
+    /* =============== Progress Section (بوكس الرسم البياني) =============== */
     .progress-section {
       max-width: 700px;
       margin: 30px auto;
       padding: 30px 20px;
-      background-color: #fdf2ff;
+      background-color: #fdf2ff;          /* بينك مثل الهوم */
       border: 2px solid #ffd8e3;
       border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(255, 173, 202, 0.25);
       text-align: center;
-      box-shadow: 0 6px 12px rgba(255, 173, 202, 0.25);
+    }
+
+    .progress-section h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .progress-chart {
+      max-width: 550px;
+      margin: 0 auto;
     }
 
     .chart-container {
       display: flex;
       justify-content: center;
       align-items: flex-end;
+      height: 150px;               /* أصغر من قبل */
       gap: 3rem;
-      height: 150px;
+      margin-bottom: 10px;
       border-bottom: 2px solid #ddd;
       padding-bottom: 10px;
     }
 
     .chart-bar {
-      width: 60px;
-      height: 150px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
       align-items: center;
+      width: 60px;
+      height: 150px;
+      justify-content: flex-end;
     }
 
     .bar-fill {
       width: 100%;
-      border-radius: 6px;
+      border-radius: 6px 6px 0 0;
       height: 0;
       animation: grow 1s forwards;
     }
 
     .student-bar { --bar-height: 75%; }
     .average-bar { --bar-height: 60%; }
-    .top-bar     { --bar-height: 90%; }
+    .top-bar { --bar-height: 90%; }
 
     .student-bar .bar-fill {
       background: linear-gradient(to top, #2196F3, #64B5F6);
     }
+
     .average-bar .bar-fill {
       background: linear-gradient(to top, #FF9800, #FFB74D);
     }
+
     .top-bar .bar-fill {
       background: linear-gradient(to top, #E91E63, #F48FB1);
     }
 
-    @keyframes grow {
-      to { height: var(--bar-height); }
+    .chart-bar span {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 0.9rem;
     }
 
     .chart-labels {
@@ -158,86 +184,165 @@
     }
 
     .label {
-      font-weight: bold;
       width: 60px;
       text-align: center;
+      font-size: 0.85rem;
+      font-weight: bold;
     }
 
-    /* ================== Loyalty Program ================== */
+    @keyframes grow {
+      to { height: var(--bar-height); }
+    }
+
+    /* =============== Loyalty Program (النقاط + الجوائز) =============== */
     .loyalty-program {
-      padding: 50px 20px;
+      padding: 30px 20px 50px;
       background-color: #f3f4f6;
     }
 
     .loyalty-container {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
       max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
       gap: 2rem;
     }
 
     .points-section,
     .rewards-section {
       background-color: #fdf2ff;
-      padding: 20px;
       border-radius: 16px;
+      padding: 20px 20px 25px;
+      box-shadow: 0 6px 15px rgba(255, 173, 202, 0.25);
       border: 2px solid #ffd8e3;
-      box-shadow: 0 6px 12px rgba(255, 173, 202, 0.25);
+    }
+
+    .points-section h3,
+    .rewards-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .points-display {
+      margin: 1.5rem 0;
     }
 
     .points-circle {
       width: 140px;
       height: 140px;
-      margin: auto;
       border-radius: 50%;
       border: 10px solid #4CAF50;
-      background-color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin: 0 auto;
+      background-color: #ffffff;
     }
 
     .points-number {
       font-size: 2.3rem;
       font-weight: bold;
+      color: #111827;
+    }
+
+    .points-label {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .points-source {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .points-source h4 {
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .points-source ul {
+      list-style: none;
+    }
+
+    .points-source li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #ffe6f2;
+      color: #16a34a;
+    }
+
+    .points-source li span {
+      color: #111827;
     }
 
     .rewards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
+      gap: 1.2rem;
+      margin-top: 0.8rem;
     }
 
     .reward-card {
-      background-color: white;
-      padding: 1rem;
+      background-color: #ffffff;
       border-radius: 12px;
+      padding: 1.1rem 0.9rem;
       text-align: center;
       border: 2px solid #ffe3ef;
-      transition: 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
 
     .reward-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
       border-color: #4CAF50;
     }
 
-    .redeem-btn {
-      background-color: #e11d48;
-      color: white;
-      padding: 0.4rem 0;
-      border-radius: 999px;
-      width: 100%;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
+    .reward-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      display: block;
     }
 
-    /* ================== Footer ================== */
+    .reward-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #111827;
+    }
+
+    .reward-card p {
+      font-size: 0.9rem;
+      color: #e11d48;
+      font-weight: bold;
+      margin-bottom: 0.7rem;
+    }
+
+    .redeem-btn {
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      color: #ffffff;
+      border: none;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.9rem;
+      width: 100%;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+
+    .redeem-btn:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .redeem-btn:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    /* =============== Footer =============== */
     .footer {
-      background-color: #2c3e50;
+      background: #2c3e50;
       color: white;
       padding: 20px 0;
       font-size: 14px;
@@ -259,71 +364,175 @@
       gap: 20px;
     }
 
-    .social-icon {
-      width: 25px;
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
-    /* ================== DARK MODE ================== */
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .social-icon {
+      width: 25px;
+      height: 25px;
+      object-fit: cover;
+    }
+
+    .footer-copy {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .footer-desc {
+      text-align: right;
+      white-space: nowrap;
+      opacity: 0.85;
+    }
+
+    /* =============== Dark Theme (نفس ألوان الهوم تقريبًا) =============== */
     body.dark-theme {
       background-color: #111827;
-      color: white;
+      color: #f9f9f9;
     }
 
     body.dark-theme .navbar {
-      background-color: #000 !important;
+      background-color: #111827;
+    }
+
+    body.dark-theme .nav-menu a {
+      color: #f9f9f9;
     }
 
     body.dark-theme .breadcrumbs {
       background-color: #1c1c1d;
       border-color: #333;
+      color: #ddd;
+    }
+
+    body.dark-theme .breadcrumbs a {
+      color: #7cc7ff;
     }
 
     body.dark-theme .progress-section,
     body.dark-theme .points-section,
     body.dark-theme .rewards-section {
-      background-color: #fdf2ff !important;
-      color: #111827 !important;
+      background-color: #fdf2ff;
+      border-color: #ffd8e3;
+      color: #222;
     }
 
-    /* ================== MOBILE ================== */
+    body.dark-theme .reward-card {
+      background-color: #ffffff;
+      border-color: #ffe3ef;
+      color: #222;
+    }
+
+    body.dark-theme .points-circle {
+      background-color: #ffffff;
+    }
+
+    body.dark-theme .footer {
+      background-color: #111827;
+      color: #f9f9f9;
+    }
+
+    /* =============== Responsive =============== */
     @media (max-width: 768px) {
+      /* الهيدر سطرين مثل الهوم */
       .nav-container {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        padding: 0.7rem 1rem !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 0.5rem 1rem;
+        text-align: center;
       }
 
       .nav-logo-box {
-        flex-direction: row !important;
-        gap: 8px;
+        align-items: center !important;
       }
 
       .nav-menu {
-        flex-wrap: nowrap !important;
-        gap: 10px !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
       }
 
       .nav-menu a {
-        font-size: 0.85rem !important;
-        padding: 0.35rem 0.6rem !important;
+        font-size: 0.9rem;
+        padding: 0.35rem 0.75rem;
+      }
+
+      .breadcrumbs {
+        max-width: 100%;
+        padding: 8px 16px;
+        text-align: center;
       }
 
       .loyalty-container {
         grid-template-columns: 1fr;
       }
+
+      .loyalty-program {
+        padding: 20px 16px 40px;
+      }
+
+      .points-section,
+      .rewards-section {
+        padding: 18px 16px 22px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-left,
+      .footer-socials {
+        justify-content: center;
+      }
+
+      .footer-desc {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .progress-section {
+        max-width: 100%;
+        margin: 20px 12px;
+        padding: 22px 14px;
+      }
+
+      .chart-container {
+        gap: 2rem;
+      }
+
+      .chart-labels {
+        gap: 2rem;
+      }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- ================== HEADER ================== -->
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
       <div class="nav-container">
-
         <div class="nav-logo-box">
-          <img src="logo.png" alt="Little Steps Logo" />
+          <img src="logo.png" alt="Little Steps Logo">
           <span>Little Steps</span>
         </div>
 
@@ -335,20 +544,20 @@
           <li><a href="dashboard.html">Customer Dashboard</a></li>
         </ul>
 
-        <button id="themeToggle"></button>
+        <!-- زر الثيم مخفي لكن موجود عشان ملف JS ما يطيح -->
+        <button id="themeToggle">🌞 / 🌙</button>
       </div>
     </nav>
   </header>
 
-  <!-- ================== Breadcrumbs ================== -->
+  <!-- Breadcrumbs -->
   <div class="breadcrumbs">
-    <a href="homepage.html">home</a> > <span>loyalty program</span>
+    <a href="homepage.html">home</a> &gt; <span>loyalty program</span>
   </div>
 
-  <!-- ================== Progress Section ================== -->
+  <!-- Progress Section -->
   <section class="progress-section">
     <h2>Your Child's Progress Among Peers</h2>
-
     <div class="progress-chart">
       <div class="chart-container">
         <div class="chart-bar student-bar">
@@ -364,7 +573,6 @@
           <span>Top</span>
         </div>
       </div>
-
       <div class="chart-labels">
         <div class="label">75%</div>
         <div class="label">60%</div>
@@ -373,36 +581,34 @@
     </div>
   </section>
 
-  <!-- ================== Loyalty Program ================== -->
+  <!-- Loyalty Program -->
   <section class="loyalty-program">
     <div class="loyalty-container">
-
-      <!-- Points Section -->
+      <!-- Points -->
       <div class="points-section">
         <h3>Current Points</h3>
-
         <div class="points-display">
           <div class="points-circle">
             <span class="points-number">850</span>
             <span class="points-label">Points</span>
           </div>
         </div>
-
-        <h4>How to Earn Points:</h4>
-        <ul>
-          <li>Daily Attendance: +10</li>
-          <li>Activity Participation: +5</li>
-          <li>Task Completion: +15</li>
-          <li>Excellent Behavior: +20</li>
-          <li>Parent Involvement: +10</li>
-          <li>Special Achievements: +25</li>
-        </ul>
+        <div class="points-source">
+          <h4>How to Earn Points:</h4>
+          <ul>
+            <li><span>Daily Attendance:</span> +10 points</li>
+            <li><span>Activity Participation:</span> +5 points</li>
+            <li><span>Task Completion:</span> +15 points</li>
+            <li><span>Excellent Behavior:</span> +20 points</li>
+            <li><span>Parent Involvement:</span> +10 points</li>
+            <li><span>Special Achievements:</span> +25 points</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Rewards Section -->
+      <!-- Rewards -->
       <div class="rewards-section">
         <h3>Available Rewards</h3>
-
         <div class="rewards-grid">
           <div class="reward-card">
             <span class="reward-icon">🎁</span>
@@ -410,35 +616,30 @@
             <p>100 points</p>
             <button class="redeem-btn" data-cost="100">Redeem</button>
           </div>
-
           <div class="reward-card">
             <span class="reward-icon">🧸</span>
             <h4>Stuffed Toy</h4>
             <p>250 points</p>
             <button class="redeem-btn" data-cost="250">Redeem</button>
           </div>
-
           <div class="reward-card">
             <span class="reward-icon">🎨</span>
             <h4>Drawing Set</h4>
             <p>400 points</p>
             <button class="redeem-btn" data-cost="400">Redeem</button>
           </div>
-
           <div class="reward-card">
             <span class="reward-icon">📚</span>
             <h4>Educational Story</h4>
             <p>300 points</p>
             <button class="redeem-btn" data-cost="300">Redeem</button>
           </div>
-
           <div class="reward-card">
             <span class="reward-icon">🎪</span>
             <h4>Entertainment Trip</h4>
             <p>600 points</p>
             <button class="redeem-btn" data-cost="600">Redeem</button>
           </div>
-
           <div class="reward-card">
             <span class="reward-icon">💰</span>
             <h4>20% Discount</h4>
@@ -450,53 +651,66 @@
     </div>
   </section>
 
-  <!-- ================== Footer ================== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-left">
-        <img src="logo.png" class="footer-logo" />
-        <div class="socials">
-          <img src="insta.png" class="social-icon" />
-          <img src="snap.png" class="social-icon" />
-          <img src="x.png" class="social-icon" />
+        <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+        <div class="footer-socials">
+          <div class="icon-box">
+            <img src="insta.png" class="social-icon" alt="">
+            <span>@LittleStepsKSA</span>
+          </div>
+          <div class="icon-box">
+            <img src="snap.png" class="social-icon" alt="">
+            <span>@LittleSteps</span>
+          </div>
+          <div class="icon-box">
+            <img src="x.png" class="social-icon" alt="">
+            <span>@LittleStepsNursery</span>
+          </div>
         </div>
       </div>
+
       <div class="footer-copy">© 2025 Little Steps.</div>
       <div class="footer-desc">Nurturing happy little minds.</div>
     </div>
   </footer>
 
-  <!-- Theme JS (مخليه لأنه موجود في الهوم) -->
+  <!-- نفس ملف الثيم حق الهوم بيج -->
   <script src="homepage.js"></script>
 
-  <!-- Redeem Logic -->
+  <!-- تفاعلية النقاط والجوائز -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const pointsEl = document.querySelector(".points-number");
-      let points = parseInt(pointsEl.textContent);
+    document.addEventListener("DOMContentLoaded", function () {
+      const pointsNumberEl = document.querySelector(".points-number");
+      let currentPoints = parseInt(pointsNumberEl.textContent, 10) || 0;
 
-      const updateButtons = () => {
-        document.querySelectorAll(".redeem-btn").forEach((btn) => {
-          btn.disabled = parseInt(btn.dataset.cost) > points;
+      function updateButtons() {
+        document.querySelectorAll(".redeem-btn").forEach(btn => {
+          const cost = parseInt(btn.dataset.cost, 10);
+          btn.disabled = cost > currentPoints;
         });
-      };
+      }
 
-      document.querySelectorAll(".redeem-btn").forEach((btn) => {
+      document.querySelectorAll(".redeem-btn").forEach(btn => {
         btn.addEventListener("click", () => {
-          const cost = parseInt(btn.dataset.cost);
-          if (cost > points) return;
+          const cost = parseInt(btn.dataset.cost, 10);
+          if (cost > currentPoints) return;
 
-          if (confirm(`Redeem this reward for ${cost} points?`)) {
-            points -= cost;
-            pointsEl.textContent = points;
-            updateButtons();
-          }
+          const ok = confirm(
+            `Redeem this reward for ${cost} points?\nCurrent points: ${currentPoints}`
+          );
+          if (!ok) return;
+
+          currentPoints -= cost;
+          pointsNumberEl.textContent = currentPoints;
+          updateButtons();
         });
       });
 
       updateButtons();
     });
   </script>
-
 </body>
 </html>
