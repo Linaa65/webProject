@@ -479,7 +479,35 @@ body.dark-theme .hero-section {
     padding: 8px 16px;
     font-size: 0.85rem;
   }
+/* ==================== GLOBAL MOBILE NAV FIX ==================== */
+@media (max-width: 768px) {
 
+  /* ترتيب وتصميم الحاوية مثل صفحة البنات */
+  .nav-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* تعديل مسافات القائمة لتطابق تمامًا صفحة About Us */
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    gap: 1.6rem !important; 
+    width: 100%;
+  }
+
+  /* شكل الروابط مثل البنات */
+  .nav-menu a {
+    font-size: 1rem !important;
+    padding: 6px 12px !important;
+    font-weight: 600 !important;
+  }
+}
   </style>
 </head>
 
@@ -566,6 +594,7 @@ body.dark-theme .hero-section {
   <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
