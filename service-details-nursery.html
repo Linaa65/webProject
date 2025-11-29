@@ -3,245 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <title>Nursery Service</title>
+
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ======= Reset ======= */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial, sans-serif;
+  background:#f8f9fa;
+  color:#333;
+  line-height:1.6;
+  transition:background .3s, color .3s;
 }
 
-/* وضع عادي */
-body {
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
+/* ======= Container ======= */
+.container{
+  max-width:850px;
+  margin:40px auto;
+  background:#fff;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+  transition:background .3s, box-shadow .3s;
 }
 
-/* ======= Dark Mode عام ======= */
-body.dark-theme {
-  background: #111827;
-  color: #f9f9f9;
+/* ======= Header ======= */
+.header{
+  background:#4CAF50;
+  color:white;
+  padding:15px;
+  text-align:center;
+  font-size:22px;
+  border-radius:10px;
+  margin-bottom:20px;
+  position:relative;
 }
 
-/* البوكس الأبيض نفسه */
-.container {
-  max-width: 800px;
-  margin: 40px auto;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,.1);
-  overflow: hidden;
-}
-
-/* البوكس في الدارك مود (هنا التغيير اللي تبغينه) */
-body.dark-theme .container {
-  background: #1f2937;               /* غامق */
-  box-shadow: 0 4px 20px rgba(0,0,0,.6);
-}
-
-/* الهيدر */
-.header {
-  background: #4CAF50;
-  padding: 15px;
-  color: #fff;
-  text-align: center;
-  font-size: 22px;
-  position: relative;
-}
-
-/* الهيدر في الدارك (نفس الباص/الألعاب) */
-body.dark-theme .header {
-  background: #111827;
-  border-bottom: 1px solid #374151;
-}
-
-/* زر الرجوع */
-.top-back-box{
+/* Back Button */
+.back-btn{
   position:absolute;
   top:12px;
   left:15px;
-}
-.back-btn{
   width:36px;
   height:36px;
-  display:inline-flex;
+  background:white;
+  border-radius:50%;
+  border:2px solid #4CAF50;
+  display:flex;
   align-items:center;
   justify-content:center;
-  background:#fff;
-  border-radius:50%;
-  text-decoration:none;
-  border:2px solid #4CAF50;
+  cursor:pointer;
 }
 .back-btn::before{
   content:"";
   border:solid #4CAF50;
   border-width:0 3px 3px 0;
-  display:inline-block;
   padding:6px;
   transform:rotate(135deg);
 }
-.back-btn:hover{
-  background:#4CAF50;
-}
-.back-btn:hover::before{
-  border-color:#fff;
-}
 
-/* صورة الخدمة */
+/* Image */
 .image-box{
   width:100%;
   text-align:center;
-  padding:20px 0;
 }
 .image-box img{
-  max-width:260px;
-  height:auto;
-  border-radius: 8px;
+  width:260px;
+  height:260px;
+  object-fit:cover;
+  border-radius:15px;
 }
 
-/* المحتوى */
+/* Content */
 .content{
-  padding:20px;
+  padding:10px 20px;
 }
+
 label{
   font-weight:bold;
 }
 
-/* السليكت */
 select{
   width:100%;
-  padding:10px;
+  padding:12px;
   margin:10px 0;
-  border-radius:6px;
+  border-radius:10px;
   border:1px solid #ccc;
+  font-size:16px;
 }
 
-/* السليكت في الدارك */
-body.dark-theme select {
-  background:#111827;
-  color:#f9f9f9;
-  border-color:#4b5563;
-}
-
-/* السعر */
-.price{
-  color:#e74c3c;
-  font-size:20px;
-  font-weight:bold;
-  margin:15px 0;
-}
-
-/* السعر في الدارك */
-body.dark-theme .price{
-  color:#f97373;
-}
-
-/* صندوق الزر + السعر */
+/* Price + Button */
 .btn-box{
+  margin-top:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-top:15px;
 }
 
-/* زر Book */
+.price{
+  font-size:22px;
+  font-weight:bold;
+  color:#e74c3c;
+}
+
 .btn{
   background:#4CAF50;
   color:#fff;
-  padding:10px 18px;
-  border-radius:6px;
+  padding:12px 22px;
+  border-radius:10px;
   text-decoration:none;
   font-weight:bold;
+  transition:.3s;
 }
 .btn:hover{
   background:#43a047;
 }
 
-/* الزر في الدارك */
-body.dark-theme .btn{
-  background:#2563eb;
-}
-body.dark-theme .btn:hover{
-  background:#1d4ed8;
+/* ======================================
+              DARK MODE
+======================================= */
+
+/* صفحة كاملة */
+body.dark-theme{
+  background:#111827 !important;
+  color:#f9f9f9 !important;
 }
 
-/* نصوص داخل البوكس */
-body.dark-theme .content p,
-body.dark-theme label {
-  color:#e5e7eb;
+/* البوكس */
+body.dark-theme .container{
+  background:#1f2937 !important;
+  box-shadow:0 4px 20px rgba(0,0,0,.7) !important;
+  color:#f9f9f9 !important;
 }
+
+/* الهيدر */
+body.dark-theme .header{
+  background:#111827 !important;
+  color:#f9f9f9 !important;
+  border:1px solid #374151 !important;
+}
+
+/* زر الرجوع */
+body.dark-theme .back-btn{
+  background:#1f2937 !important;
+  border-color:#4b5563 !important;
+}
+body.dark-theme .back-btn::before{
+  border-color:#f9f9f9 !important;
+}
+
+/* النص */
+body.dark-theme label, 
+body.dark-theme p{
+  color:#f3f4f6 !important;
+}
+
+/* السليكت */
+body.dark-theme select{
+  background:#111827 !important;
+  color:white !important;
+  border:1px solid #4b5563 !important;
+}
+
+/* السعر */
+body.dark-theme .price{
+  color:#f87171 !important;
+}
+
+/* زر Book */
+body.dark-theme .btn{
+  background:#2563eb !important;
+}
+body.dark-theme .btn:hover{
+  background:#1e40af !important;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
   <div class="header">
+    <a href="services.html" class="back-btn"></a>
     Nursery Service
-    <div class="top-back-box">
-      <a class="back-btn" href="services.html" title="Back"></a>
-    </div>
   </div>
 
-  <div class="image-box"> 
-    <img src="bus.png" alt="Nursery Service Image">
+  <div class="image-box">
+    <img src="bus.png" alt="Nursery Service">
   </div>
 
   <div class="content">
-    <p>Safe and educational childcare service for kids.</p>
 
-    <label for="nurseryPlan">Nursery services:</label>
-    <select id="nurseryPlan">
-      <!-- غيري الأسعار لو حابة -->
-      <option value="1 hour"  data-price="200">1 hour</option>
-      <option value="4 hours" data-price="1200">4 hours</option>
-      <option value="6 hours" data-price="1800">6 hours</option>
+    <label>Select Option:</label>
+    <select id="nurseryMenu">
+      <option value="1">1 hour</option>
+      <option value="4">4 hours</option>
+      <option value="6">6 hours</option>
     </select>
 
     <div class="btn-box">
-      <div class="price" id="nurseryPrice">200 SAR / Month</div>
-      <a class="btn" href="#" id="nurseryBookBtn">Book</a>
+      <div class="price" id="priceLabel">100 SAR</div>
+      <a class="btn" href="Request-service.html">Book</a>
     </div>
+
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const nurseryPlan    = document.getElementById('nurseryPlan');
-  const nurseryPrice   = document.getElementById('nurseryPrice');
-  const nurseryBookBtn = document.getElementById('nurseryBookBtn');
+/* تغيير السعر حسب الاختيار */
+document.getElementById("nurseryMenu").addEventListener("change", function(){
+    let v = this.value;
+    let price = 0;
 
-  function updateNurseryPrice() {
-    const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
-    const price = selectedOption.getAttribute('data-price');
-    nurseryPrice.textContent = price + ' SAR / Month';
-  }
+    if(v == "1") price = 100;
+    if(v == "4") price = 350;
+    if(v == "6") price = 500;
 
-  // أول ما تفتح الصفحة
-  updateNurseryPrice();
+    document.getElementById("priceLabel").innerText = price + " SAR";
+});
 
-  // لما يغيّرون الخطة
-  nurseryPlan.addEventListener('change', updateNurseryPrice);
-
-  // زر Book -> يفتح صفحة الطلب مع البيانات
-  nurseryBookBtn.addEventListener('click', function(e){
-    e.preventDefault();
-    const selectedOption = nurseryPlan.options[nurseryPlan.selectedIndex];
-    const plan  = selectedOption.value;
-    const price = selectedOption.getAttribute('data-price');
-
-    const url = 'Request-service.html'
-      + '?service=' + encodeURIComponent('Nursery Service')
-      + '&plan='   + encodeURIComponent(plan)
-      + '&price='  + encodeURIComponent(price);
-
-    window.location.href = url;
-  });
+/* تفعيل الدارك مود من الهيدر */
+document.addEventListener("DOMContentLoaded", function(){
+    let theme = localStorage.getItem("theme");
+    if(theme === "dark"){
+        document.body.classList.add("dark-theme");
+    }
 });
 </script>
 
-<!-- نفس سكربت الثيم المستخدم في الهوم بيج والباص والألعاب -->
-<script src="homepage.js"></script>
 </body>
 </html>
