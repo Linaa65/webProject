@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Service Provider Dashboard</title>
   <link rel="stylesheet" href="style.css">
 
   <style> 
+
+      .nav-container img {
+      width: 35px;
+      height: 35px;
+    }
   
     
 /* ================= DARK MODE ================= */
@@ -51,6 +57,111 @@ body.dark-theme .nav-menu a {
   color: white !important;
 }
 
+    /* ================= mobile ================= */
+
+    @media (max-width: 768px) {
+
+      body {
+        margin: 0;
+        font-family: Arial;
+        background: #ffffff;
+      }
+
+      .navbar {
+        background-color: #4CAF50;
+        padding: 1rem 0;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 0.75rem 1rem;
+      }
+
+      .logo-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .logo-box img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+
+      .logo-box span {
+        color: white;
+        font-size: 1.8rem !important;
+        font-weight: bold;
+        line-height: 1.1;
+      }
+
+      .nav-menu {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-menu a {
+        color: white;
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 15px;
+      }
+
+      .nav-menu a.active {
+        background-color: rgba(255,255,255,0.2);
+      }
+
+      .breadcrumbs {
+        padding: 10px 20px;
+        background: #ecf0f1;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .breadcrumbs a {
+        color: #3498db;
+        text-decoration: none;
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 25px;
+        color: #2c3e50;
+        font-size: 28px;
+      }
+
+      section {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+
+      section img {
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+      }
+    }
   </style>
 
     <script>
@@ -86,7 +197,7 @@ body.dark-theme .nav-menu a {
   </header>
 
   <div class="breadcrumbs">
-    <a href="index.html">home</a> &gt;
+    <a href="index.html">Home</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -164,4 +275,5 @@ body.dark-theme .nav-menu a {
 
 </body>
 </html>
+
 
