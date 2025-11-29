@@ -692,6 +692,29 @@ body.dark-theme .hero-section {
  body.dark-theme form {
     background-color: #242424 !important;
 }
+
+ /* ===== Dark Mode Inputs Only ===== */
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border: 1px solid #555 !important;
+}
+
+/* placeholder يصبح رمادي فاتح */
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+  color: #bfbfbf !important;
+}
+
+/* ===== checkbox background (بدون ما تغيري لون التشيك نفسه) ===== */
+body.dark-theme input[type="checkbox"] {
+  accent-color: #3b7a3b !important; /* يخلي لون علامة الصح أخضر */
+  background-color: #1e1e1e !important;
+  border: 2px solid #777 !important;
+}
+
 </style>
 </head>
 
@@ -983,6 +1006,7 @@ var allChecks = document.querySelectorAll(".options input[type='checkbox']");
  <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
