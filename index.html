@@ -402,96 +402,43 @@ body.dark-theme .hero-section {
 }
 @media (max-width: 768px) {
 
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 10px;
-  }
+  /* ===== الهيدر في الجوال ===== */
 
-  .footer-left {
-    justify-content: center;
-  }
-
-  .footer-socials {
-    justify-content: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-  }
-
-  .breadcrumbs {
-    max-width: 100%;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    line-height: 1.4;
-    overflow-wrap: break-word;
-  }
-
-  /* ===== الهيدر في الجوال: سطرين والاسم + اللوقو يسار ===== */
   .nav-container {
-    flex-direction: column;          /* يخلي الهيدر سطرين */
-    align-items: flex-start;         /* كل شيء يسار */
+    flex-direction: column;       /* سطرين */
     justify-content: center;
-    gap: 6px;
-    padding: 0.5rem 1rem;
-    text-align: left;                /* النص يسار */
+    align-items: center;          /* كل شيء بالنص */
+    padding: 0.7rem 1rem;
+    text-align: center;
   }
 
+  /* اللوقو + اسم الموقع يسار بس */
   .nav-container > div:first-child {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start !important; /* اللوقو + الاسم يسار */
+    align-items: flex-start !important; /* هنا نخليه يسار */
+    justify-content: flex-start;
+    margin-bottom: 5px;
   }
 
+  /* القائمة تكون بالنص */
   .nav-menu {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;   /* بالنص */
     flex-wrap: wrap;
-    justify-content: flex-start;     /* المنيو تبدأ من اليسار */
-    gap: 6px;
+    gap: 8px;
   }
 
   .nav-menu a {
     font-size: 0.9rem;
-    padding: 0.35rem 0.75rem;
+    padding: 0.4rem 0.8rem;
   }
 
   #themeToggle {
-    align-self: flex-start !important;  /* زر الثيم (لو بقيتي عليه) يسار */
-    margin-top: 6px !important;
-    margin-left: 0 !important;
-  }
-
-  .main-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 16px 24px;
-    border-radius: 16px;
-  }
-
-  .services-row {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .services-row > div {
-    width: 100% !important;
-    max-width: 340px;
-  }
-
-  .offers-sidebar {
-    width: 100% !important;
-    max-width: 340px;
-    margin: 20px auto 0;
-  }
-
-  .hero-section {
-    background-color: #ffe6f7 !important;
+    margin-left: 0;
+    align-self: center;
   }
 }
 
