@@ -195,12 +195,13 @@ body.dark-theme .btn:hover{
 
   <div class="content">
 
-    <label>Select Option:</label>
-    <select id="nurseryMenu">
-      <option value="1">1 hour</option>
-      <option value="4">6 hours</option>
-      <option value="6">1 month</option>
-    </select>
+  <label>Select Option:</label>
+<select id="nurseryMenu">
+  <option value="hour">1 Hour</option>
+  <option value="day">1 Day</option>
+  <option value="month">1 Month</option>
+</select>
+
 
     <div class="btn-box">
       <div class="price" id="priceLabel">100 SAR</div>
@@ -216,9 +217,9 @@ document.getElementById("nurseryMenu").addEventListener("change", function(){
     let v = this.value;
     let price = 0;
 
-    if(v == "1") price = 100;
-    if(v == "4") price = 350;
-    if(v == "6") price = 4000;
+    if(v === "hour") price = 100;
+    if(v === "day") price = 250;      // تقدرين تغيرينه لو تبين
+    if(v === "month") price = 4000;
 
     document.getElementById("priceLabel").innerText = price + " SAR";
 });
@@ -232,6 +233,8 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 </script>
 
+
 </body>
 </html>
+
 
