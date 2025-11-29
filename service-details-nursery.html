@@ -211,28 +211,28 @@ body.dark-theme .btn:hover{
 </div>
 
 <script>
-/* تغيير السعر حسب الاختيار */
-document.getElementById("nurseryMenu").addEventListener("change", function(){
-    let v = this.value;
-    let price = 0;
-
-    if(v === "hour")  price = 100;
-    if(v === "day")   price = 250;
-    if(v === "month") price = 4000;
-
-    document.getElementById("nurseryPrice").innerText = price + " SAR";
-});
-
-/* ضبط أول قيمة */
 document.addEventListener("DOMContentLoaded", function(){
-    // أول سعر
-    document.getElementById("nurseryPrice").innerText = "100 SAR";
 
-    // تفعيل الدارك مود من localStorage
+    // تفعيل الدارك مود لو مخزن
     let theme = localStorage.getItem("theme");
     if(theme === "dark"){
         document.body.classList.add("dark-theme");
     }
+
+    // أول سعر
+    document.getElementById("nurseryPrice").innerText = "100 SAR";
+
+    // تغيير السعر حسب الاختيار
+    document.getElementById("nurseryMenu").addEventListener("change", function(){
+        let v = this.value;
+        let price = 0;
+
+        if(v === "hour")  price = 100;
+        if(v === "day")   price = 250;
+        if(v === "month") price = 4000;
+
+        document.getElementById("nurseryPrice").innerText = price + " SAR";
+    });
 });
 </script>
 
