@@ -450,6 +450,56 @@ body.dark-theme .hero-section {
     padding-left: 2.5rem;  /* زودنا اليسار شوي */
     padding-right: 1.5rem; /* ونقصنا اليمين شوي */
 } 
+    /* ===== توحيد شكل الهيدر مع البنات في كل الصفحات ===== */
+
+/* نفس خلفية ولون الهيدر بالضبط */
+.navbar {
+  background-color: #4CAF50;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+/* نفس ترتيب و تموضع العناصر */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* قائمة الروابط */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* الروابط نفسها */
+.nav-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  font-size: 1rem; /* نفس البنات */
+}
+
+/* الرابط النشط و الهوفر */
+.nav-menu a:hover,
+.nav-menu a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* حجم اللوقو مثل البنات */
+.nav-container img {
+  width: 35px !important;
+  height: 35px !important;
+}
   </style>
 </head>
 
@@ -536,6 +586,7 @@ body.dark-theme .hero-section {
   <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
