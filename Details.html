@@ -374,6 +374,11 @@ body.dark-theme .card {
     background-color: #242424 !important;
     color: #e5e5e5 !important;
 }
+      /* إزالة التحديد الأبيض في صفحة التفاصيل فقط */
+.wrap *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+} 
 </style>
 </head>
 
@@ -489,6 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
        <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
