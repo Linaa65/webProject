@@ -425,129 +425,83 @@
       opacity: 0.85;
     }
 
-    /* =============== Dark Theme =============== */
-    body.dark-theme {
-      background-color: #020617;
-      color: #e5e7eb;
-    }
+   /* =============== Dark Theme =============== */
+body.dark-theme {
+  background-color: #0b1120;   /* خلفية كحلي غامق مو سوداء تمامًا */
+  color: #e5e7eb;
+}
 
-    body.dark-theme .navbar {
-      background-color: #020617;
-    }
+/* الهيدر */
+body.dark-theme .navbar {
+  background-color: #020617;
+}
 
-    body.dark-theme .nav-menu a {
-      color: #e5e7eb;
-    }
+body.dark-theme .nav-menu a {
+  color: #e5e7eb;
+}
 
-    body.dark-theme #themeToggle {
-      background-color: #e5e7eb;
-      color: #020617;
-    }
+body.dark-theme #themeToggle {
+  background-color: #e5e7eb;
+  color: #020617;
+}
 
-    body.dark-theme .breadcrumbs {
-      background-color: #020617;
-      border-color: #111827;
-      color: #9ca3af;
-    }
+/* البريدكرمب */
+body.dark-theme .breadcrumbs {
+  background-color: #020617;
+  border-color: #111827;
+  color: #9ca3af;
+}
 
-    body.dark-theme .breadcrumbs a {
-      color: #38bdf8;
-    }
+body.dark-theme .breadcrumbs a {
+  color: #38bdf8;
+}
 
-    body.dark-theme .progress-section {
-      background-color: #020617;
-      color: #f9fafb;
-    }
+/* جزء التقدم اللي فوق (البارز) */
+body.dark-theme .progress-section {
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  color: #f9fafb;
+}
 
-    body.dark-theme .loyalty-program {
-      background-color: #020617;
-    }
+/* الخلفية اللي تحت للكروت */
+body.dark-theme .loyalty-program {
+  background-color: #0b1120;
+}
 
-    body.dark-theme .points-section,
-    body.dark-theme .rewards-section {
-      background-color: #020617;
-      border: 1px solid #1f2937;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    }
+/* الكروت نفسها تظل فاتحة وفرحة حتى في الدارك مود */
+body.dark-theme .points-section,
+body.dark-theme .rewards-section {
+  background-color: #fdf4ff;          /* ليلكي/وردي فاتح */
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.3);
+}
 
-    body.dark-theme .points-circle {
-      background-color: #020617;
-    }
+/* دائرة النقاط */
+body.dark-theme .points-circle {
+  background-color: #ffffff;
+  border-color: #22c55e;
+}
 
-    body.dark-theme .reward-card {
-      background-color: #020617;
-      border-color: #1f2937;
-    }
+body.dark-theme .points-number {
+  color: #0f172a;
+}
 
-    body.dark-theme .footer {
-      background-color: #020617;
-    }
+body.dark-theme .points-label {
+  color: #6b7280;
+}
 
-    /* =============== Responsive =============== */
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0.6rem 1rem;
-      }
+/* بطاقات الريوارد */
+body.dark-theme .reward-card {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+}
 
-      .nav-right {
-        flex-direction: column;
-        align-items: center;
-      }
+/* الفوتر */
+body.dark-theme .footer {
+  background-color: #020617;
+  color: #f9fafb;
+}
 
-      .nav-menu {
-        justify-content: center;
-      }
-
-      .breadcrumbs {
-        max-width: 100%;
-        padding: 8px 16px;
-        text-align: center;
-      }
-
-      .loyalty-container {
-        grid-template-columns: 1fr;
-      }
-
-      .progress-section {
-        padding: 2.5rem 1rem;
-      }
-
-      .loyalty-program {
-        padding: 2.5rem 1rem 3rem;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .footer-left,
-      .footer-socials {
-        justify-content: center;
-      }
-
-      .footer-desc {
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .chart-container {
-        gap: 2rem;
-      }
-
-      .chart-labels {
-        gap: 2rem;
-      }
-
-      .chart-bar,
-      .label {
-        width: 60px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -747,3 +701,4 @@
   </script>
 </body>
 </html>
+
