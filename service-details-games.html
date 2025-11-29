@@ -211,26 +211,28 @@ body.dark-theme .btn:hover{
 </div>
 
 <script>
-/* تغيير السعر حسب الاختيار */
-document.getElementById("gamesMenu").addEventListener("change", function(){
-    let v = this.value;
-    let price = 0;
-
-    if(v === "creative") price = 800;
-    if(v === "stem")     price = 900;
-    if(v === "social")   price = 850;
-
-    document.getElementById("gamesPrice").innerText = price + " SAR";
-});
-
-/* ضبط أول قيمة + تفعيل الدارك مود */
 document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("gamesPrice").innerText = "800 SAR";
 
+    // تفعيل الدارك مود لو مخزن
     let theme = localStorage.getItem("theme");
     if(theme === "dark"){
         document.body.classList.add("dark-theme");
     }
+
+    // أول سعر
+    document.getElementById("gamesPrice").innerText = "800 SAR";
+
+    // تغيير السعر حسب الاختيار
+    document.getElementById("gamesMenu").addEventListener("change", function(){
+        let v = this.value;
+        let price = 0;
+
+        if(v === "creative") price = 800;
+        if(v === "stem")     price = 900;
+        if(v === "social")   price = 850;
+
+        document.getElementById("gamesPrice").innerText = price + " SAR";
+    });
 });
 </script>
 
