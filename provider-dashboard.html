@@ -55,114 +55,91 @@ body.dark-theme .nav-menu a {
   color: white !important;
 }
 /* end */
+/* ================== Responsive for Small Screens (phones/tablets) ================== */
 @media (max-width: 768px) {
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #ffffff;
-    }
 
-    .navbar {
-      background-color: #4CAF50;
-      padding: 1rem 0;
-      width: 100%;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+  /* الجسم كامل بدون فراغ أبيض تحت */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
 
-   .nav-container {
-    flex-direction: column;  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
+  .nav-container {
+    flex-direction: column;     /* الشعار فوق، الروابط تحت */
     align-items: flex-start;
     gap: 8px;
     padding: 0.75rem 1rem;
   }
 
+  .nav-menu {
+    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
+    gap: 0.75rem;
+    justify-content: center;
+  }
 
-.logo-box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-   
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* ===== الـ Breadcrumbs ===== */
+  .breadcrumbs {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* ===== الفوتر ===== */
+  .footer {
+    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
+    text-align: center;
+    row-gap: 10px;
+  }
+
+  .footer-left,
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+    white-space: normal;
+  }
 }
+@media (max-width: 768px) {
 
-
-    .logo-box img {
-      width: 35px;
-      height: 35px;
-      object-fit: contain;
-      border-radius: 8px;
-      
-
-    }
-
-    .logo-box span {
-      color: white;
-      font-size: 1.8rem !important;
-      font-weight: bold;
-      text-align: center;
-      line-height: 1.1;
-    
-    }
-
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-menu a {
-      color: white;
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-
-    .nav-menu a.active {
-      background-color: rgba(255,255,255,0.2);
-    }
-
-    .breadcrumbs {
-      padding: 10px 20px;
-      background: #ecf0f1;
-      font-size: 0.9rem;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .breadcrumbs a {
-      color: #3498db;
-      text-decoration: none;
-    }
-
-    h2 {
-      text-align: center;
-      margin-top: 25px;
-      color: #2c3e50;
-      font-size: 28px;
-    }
-
-    section {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-    }
-
-    section img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
-    }
+  .breadcrumbs {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
+  }
+  
+  .breadcrumbs a {
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 768px) {
+    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
+        margin-top: 0 !important;
+        padding-top: 6px !important;
+    }
 }
   </style>
     <script>
@@ -197,7 +174,7 @@ body.dark-theme .nav-menu a {
 
  
   <div class="breadcrumbs">
-    <a href="homepage.html">Home</a> &gt;
+    <a href="homepage.html">Hme</a> &gt;
     <span>provider-dashboard</span>
   </div>
 
@@ -275,6 +252,7 @@ body.dark-theme .nav-menu a {
 
 </body>
 </html>
+
 
 
 
