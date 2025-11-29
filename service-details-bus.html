@@ -211,26 +211,28 @@ body.dark-theme .btn:hover{
 </div>
 
 <script>
-/* تغيير السعر حسب الاختيار */
-document.getElementById("busMenu").addEventListener("change", function(){
-    let v = this.value;
-    let price = 0;
-
-    if(v === "drop") price = 500;
-    if(v === "pick") price = 500;
-    if(v === "both") price = 1000; // زي ما قلتي
-
-    document.getElementById("busPrice").innerText = price + " SAR";
-});
-
-/* ضبط أول قيمة + تفعيل الدارك مود */
 document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("busPrice").innerText = "500 SAR";
 
+    // تفعيل الدارك مود لو مخزن
     let theme = localStorage.getItem("theme");
     if(theme === "dark"){
         document.body.classList.add("dark-theme");
     }
+
+    // أول سعر
+    document.getElementById("busPrice").innerText = "500 SAR";
+
+    // تغيير السعر حسب الاختيار
+    document.getElementById("busMenu").addEventListener("change", function(){
+        let v = this.value;
+        let price = 0;
+
+        if(v === "drop") price = 500;
+        if(v === "pick") price = 500;
+        if(v === "both") price = 1000;
+
+        document.getElementById("busPrice").innerText = price + " SAR";
+    });
 });
 </script>
 
