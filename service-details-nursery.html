@@ -176,7 +176,6 @@ body.dark-theme .btn{
 body.dark-theme .btn:hover{
   background:#1e40af !important;
 }
-
 </style>
 </head>
 
@@ -194,18 +193,18 @@ body.dark-theme .btn:hover{
   </div>
 
   <div class="content">
+    <p>Safe and educational childcare service for kids.</p>
 
-  <label>Select Option:</label>
-<select id="nurseryMenu">
-  <option value="hour">1 Hour</option>
-  <option value="day">1 Day</option>
-  <option value="month">1 Month</option>
-</select>
-
+    <label>Select Option:</label>
+    <select id="nurseryMenu">
+      <option value="hour">1 Hour</option>
+      <option value="day">1 Day</option>
+      <option value="month">1 Month</option>
+    </select>
 
     <div class="btn-box">
-      <div class="price" id="priceLabel">100 SAR</div>
-      <a class="btn" href="Request-service.html">Book</a>
+      <div class="price" id="nurseryPrice">100 SAR</div>
+      <a class="btn" href="Request-service.html" id="nurseryBookBtn">Book</a>
     </div>
 
   </div>
@@ -217,15 +216,19 @@ document.getElementById("nurseryMenu").addEventListener("change", function(){
     let v = this.value;
     let price = 0;
 
-    if(v === "hour") price = 100;
-    if(v === "day") price = 250;      // تقدرين تغيرينه لو تبين
+    if(v === "hour")  price = 100;
+    if(v === "day")   price = 250;
     if(v === "month") price = 4000;
 
-    document.getElementById("priceLabel").innerText = price + " SAR";
+    document.getElementById("nurseryPrice").innerText = price + " SAR";
 });
 
-/* تفعيل الدارك مود من الهيدر */
+/* ضبط أول قيمة */
 document.addEventListener("DOMContentLoaded", function(){
+    // أول سعر
+    document.getElementById("nurseryPrice").innerText = "100 SAR";
+
+    // تفعيل الدارك مود من localStorage
     let theme = localStorage.getItem("theme");
     if(theme === "dark"){
         document.body.classList.add("dark-theme");
@@ -233,8 +236,5 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 </script>
 
-
 </body>
 </html>
-
-
