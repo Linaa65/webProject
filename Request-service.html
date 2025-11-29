@@ -714,7 +714,19 @@ body.dark-theme input[type="checkbox"] {
   background-color: #1e1e1e !important;
   border: 2px solid #777 !important;
 }
+ 
+/* الكبسولات حقت الـ Game / Nursery / Bus في الدارك مود */
+body.dark-theme .options label {
+  background-color: #2b2b2b !important;  /* رمادي غامق للكبسولة */
+  border: 1px solid #555 !important;
+  color: #f5f5f5 !important;             /* النص يكون فاتح */
+}
 
+/* مربع الصح نفسه يكون شكله أوضح في الدارك مود */
+body.dark-theme .options input[type="checkbox"] {
+  accent-color: #3b7a3b;      /* لون الصح أخضر */
+  background-color: #2b2b2b;  /* نفس لون الكبسولة تقريباً */
+}
 </style>
 </head>
 
@@ -1006,6 +1018,7 @@ var allChecks = document.querySelectorAll(".options input[type='checkbox']");
  <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
