@@ -1,1430 +1,749 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Steps - Loyalty Program</title>
-   
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Steps - Loyalty Program</title>
 
-/* ================== Navigation Bar ================== */
-.navbar {
-  background-color: #4CAF50;
-  padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 100%;
-}
-.nav-container {
-  display: flex; justify-content: space-between; align-items: center;
-  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-}
-.logo h1 { color: white; font-size: 1.8rem; }
-.nav-menu { display: flex; list-style: none; gap: 2rem; }
-.nav-menu a {
-  color: white; text-decoration: none; padding: 0.5rem 1rem;
-  border-radius: 4px; transition: background-color 0.3s;
-}
-.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
-
-
-/* ================= Breadcrumbs (مثل شغل البنات) ================= */
-.breadcrumbs {
-  padding: 10px 40px;
-  background-color: #ecf0f1;
-  border-bottom: 1px solid #ddd;
-  font-size: 0.9rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.breadcrumbs a {
-  text-decoration: none;
-  color: #3498db;
-}
-
-.breadcrumbs a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumbs span {
-  color: #778c8d;
-}
-
-/* ================= Base Reset ================= */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* ================= Page Content ================= */
-.wrap {
-  max-width: 600px;
-  margin: 60px auto;
-  text-align: center;
-}
-
-.hero {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 1.8rem;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.btn {
-  display: block;
-  padding: 16px;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 1rem;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  transition: 0.2s;
-}
-
-.btn--green { background: #7657c9; }
-.btn--blue  { background: #4c8bbd; }
-.btn--orange{ background: #dca54c; }
-
-.btn:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
-
-/* ================= Footer (logo + icons + username تحت) ================= */
-.footer {
-  background: #2c3e50;
-  color: white;
-  padding: 20px 0;
-  font-size: 14px;
-}
-
-.footer-grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 25px;
-  padding: 0 20px;
-}
-
-/* Left: logo + socials row */
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Social icons row */
-.footer-socials {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-/* Each icon + username (vertical) */
-.icon-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-size: 13px;
-}
-
-.social-icon {
-  width: 25px;
-  height: 25px;
-  object-fit: cover;
-}
-
-/* Center text */
-.footer-copy {
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* Right text */
-.footer-desc {
-  text-align: right;
-  white-space: nowrap;
-  opacity: .85;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .footer-left {
-    justify-content: center;
-  }
-
-  .footer-socials {
-    justify-content: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-  }
-}
-/* ================== Body ================== */
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #ffffff;
-    color: #222222;
-}
-/* يعالج اللون الأبيض حول المحتوى */
-/* الثيم الفاتح (العادي) */
-
-
-
-/* الثيم الغامق */
-body.dark-theme {
-    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
-    color: #f9f9f9;
-}
-
-
-/* خلي الكروت والبوكسات تصير داكنة بزيادة */
-body.dark-theme .offer-card,
-body.dark-theme .offers-sidebar,
-body.dark-theme section,
-body.dark-theme .hero-section,
-body.dark-theme .footer,
-body.dark-theme .navbar,
-body.dark-theme .breadcrumbs {
-    background-color: #1c1c1d !important;
-    border-color: #333 !important;
-}
-
-body.dark-theme .review-card h4,
-body.dark-theme .review-card p,
-body.dark-theme .review-card .service-name {
-    color: #222222 !important; /* غامق وواضح فوق الأبيض */
-}
-/* النافبار في الثيم الغامق */
-/* Dark navbar */
-body.dark-theme .navbar {
-  background-color: #111827;
-}
-
-/* الفوتر في الثيم الغامق */
-/* Dark footer */
-body.dark-theme .footer {
-  background-color: #111827;
-  color: #f9f9f9;
-}
-
-/* روابط النافبار في الثيم الغامق */
-/* Navbar links in dark theme */
-body.dark-theme .nav-menu a {
-  color: #f9f9f9;
-}
-
-/* الهيرو سيكشن في الثيم الغامق (مثال) */
-/* Hero section in dark theme (example) */
-body.dark-theme .hero-section {
-  background-color: #111827;
-  color: #f9f9f9;
-}
-.navbar img { border-radius: 8px; }
-
-/* ================== Responsive for Small Screens (phones/tablets) ================== */
-@media (max-width: 768px) {
-
-  /* الجسم كامل بدون فراغ أبيض تحت */
-  html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
-  .nav-container {
-    flex-direction: column;     /* الشعار فوق، الروابط تحت */
-    align-items: flex-start;
-    gap: 8px;
-    padding: 0.75rem 1rem;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .nav-menu a {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  /* ===== الـ Breadcrumbs ===== */
-  .breadcrumbs {
-    max-width: 100%;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-  }
-
-  /* ===== المحتوى الرئيسي (داشبورد / فورم / تفاصيل ...) ===== */
-  .wrap,
-  main,
-  form,
-  #requestList,
-  .details-container,
-  .evaluation-box {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 24px;
-    padding: 0 16px;
-  }
-
-  /* ===== الأزرار (أزرار الداشبورد + الفورم) ===== */
-  .btn,
-  button,
-  input[type="submit"] {
-    width: 100%;
-    max-width: 100%;
-    padding: 14px;
-    font-size: 1rem;
-  }
-
-  /* ===== الفوتر ===== */
-  .footer {
-    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
-    text-align: center;
-    row-gap: 10px;
-  }
-
-  .footer-left,
-  .footer-socials {
-    justify-content: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-    white-space: normal;
-  }
-}
-@media (max-width: 768px) {
-
-  .breadcrumbs {
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
-  }
-  
-  .breadcrumbs a {
-    display: inline-block;
-    margin-bottom: 4px;
-  }
-}
-@media (max-width: 768px) {
-    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
-        margin-top: 0 !important;
-        padding-top: 6px !important;
+  <style>
+    /* =============== Reset =============== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-}
-footer {
-    text-align: center;
-}
 
-#clock {
-    margin-top: 5px;
-    display: block;
-    font-size: 14px;
-}
-
-  /* ================== Body ================== */
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #ffffff;
-    color: #222222;
-}
-/* يعالج اللون الأبيض حول المحتوى */
-/* الثيم الفاتح (العادي) */
-
-
-
-/* الثيم الغامق */
-body.dark-theme {
-    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
-    color: #f9f9f9;
-}
-
-
-/* خلي الكروت والبوكسات تصير داكنة بزيادة */
-body.dark-theme .offer-card,
-body.dark-theme .offers-sidebar,
-body.dark-theme section,
-body.dark-theme .hero-section,
-body.dark-theme .footer,
-body.dark-theme .navbar,
-body.dark-theme .breadcrumbs {
-    background-color: #1c1c1d !important;
-    border-color: #333 !important;
-}
-
-body.dark-theme .review-card h4,
-body.dark-theme .review-card p,
-body.dark-theme .review-card .service-name {
-    color: #222222 !important; /* غامق وواضح فوق الأبيض */
-}
-/* النافبار في الثيم الغامق */
-/* Dark navbar */
-body.dark-theme .navbar {
-  background-color: #111827;
-}
-
-/* الفوتر في الثيم الغامق */
-/* Dark footer */
-body.dark-theme .footer {
-  background-color: #111827;
-  color: #f9f9f9;
-}
-
-/* روابط النافبار في الثيم الغامق */
-/* Navbar links in dark theme */
-body.dark-theme .nav-menu a {
-  color: #f9f9f9;
-}
-
-/* الهيرو سيكشن في الثيم الغامق (مثال) */
-/* Hero section in dark theme (example) */
-body.dark-theme .hero-section {
-  background-color: #111827;
-  color: #f9f9f9;
-}
-  
-
-        
-        /* Loyalty Header */
-        .loyalty-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .loyalty-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .loyalty-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-.breadcrumbs {
-    padding: 10px 40px;
-    background-color: #ecf0f1;
-    border-bottom: 1px solid #ddd;
-    font-size: 0.9rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.breadcrumbs a {
-    text-decoration: none;
-    color: #3498db;
-}
-.breadcrumbs a:hover {
-    text-decoration: underline;
-}
-.breadcrumbs span {
-    color: #7f8c8d;
-}
-        /* Progress Section */
-        .progress-section {
-            padding: 3rem 2rem;
-            background-color: white;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .progress-section h2 {
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        .progress-chart {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .chart-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            height: 200px;
-            gap: 4rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 1rem;
-        }
-
-        /* Chart Bar Design */
-        .chart-bar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 200px;
-            justify-content: flex-end;
-            width: 80px;
-        }
-
-        .bar-fill {
-            height: var(--bar-height);
-            width: 100%;
-            border-radius: 5px 5px 0 0;
-            transition: height 1s ease-in-out;
-        }
-
-        .student-bar { 
-            --bar-height: 75%; 
-        }
-        .average-bar { 
-            --bar-height: 60%; 
-        }
-        .top-bar { 
-            --bar-height: 90%; 
-        }
-
-        .student-bar .bar-fill {
-            background: linear-gradient(to top, #2196F3, #64B5F6);
-        }
-
-        .average-bar .bar-fill {
-            background: linear-gradient(to top, #FF9800, #FFB74D);
-        }
-
-        .top-bar .bar-fill {
-            background: linear-gradient(to top, #E91E63, #F48FB1);
-        }
-
-        .chart-bar span {
-            margin-top: 10px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .chart-labels {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 2rem;
-        }
-
-        .label {
-            width: 80px;
-            text-align: center;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        /* Points and Rewards */
-        .loyalty-program {
-            padding: 4rem 2rem;
-            background-color: #ecf0f1;
-        }
-
-        .loyalty-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .points-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .points-display {
-            margin: 2rem 0;
-        }
-
-        .points-circle {
-            width: 150px;
-            height: 150px;
-            border: 10px solid #4CAF50;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            background: white;
-        }
-
-        .points-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .points-label {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        .points-source {
-            text-align: left;
-            margin-top: 2rem;
-        }
-
-        .points-source h4 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .points-source ul {
-            list-style: none;
-        }
-
-        .points-source li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #ecf0f1;
-            color: #4CAF50;
-        }
-
-        .rewards-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .rewards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .reward-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px solid #e9ecef;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .reward-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-            border-color: #4CAF50;
-        }
-
-        .reward-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .reward-card h4 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .reward-card p {
-            color: #e74c3c;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .redeem-btn {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .redeem-btn:hover {
-            background: linear-gradient(135deg, #c0392b, #a93226);
-            transform: scale(1.05);
-        }
-
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-menu {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .loyalty-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .chart-container {
-                gap: 2rem;
-            }
-            
-            .chart-labels {
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .loyalty-header,
-            .progress-section,
-            .loyalty-program {
-                padding: 2rem 1rem;
-            }
-            
-            .chart-container {
-                gap: 1rem;
-            }
-            
-            .chart-labels {
-                gap: 1rem;
-            }
-            
-            .chart-bar {
-                width: 60px;
-            }
-            
-            .label {
-                width: 60px;
-            }
-        }
-         /* ================== Navigation Bar ================== */
-.navbar {
-  background-color: #4CAF50;
-  padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 100%;
-}
-.nav-container {
-  display: flex; justify-content: space-between; align-items: center;
-  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-}
-.logo h1 { color: white; font-size: 1.8rem; }
-.nav-menu { display: flex; list-style: none; gap: 2rem; }
-.nav-menu a {
-  color: white; text-decoration: none; padding: 0.5rem 1rem;
-  border-radius: 4px; transition: background-color 0.3s;
-}
-.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
-
-
-/* ================= Breadcrumbs (مثل شغل البنات) ================= */
-.breadcrumbs {
-  padding: 10px 40px;
-  background-color: #ecf0f1;
-  border-bottom: 1px solid #ddd;
-  font-size: 0.9rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.breadcrumbs a {
-  text-decoration: none;
-  color: #3498db;
-}
-
-.breadcrumbs a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumbs span {
-  color: #778c8d;
-}
-
-/* ================= Base Reset ================= */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* ================= Page Content ================= */
-.wrap {
-  max-width: 600px;
-  margin: 60px auto;
-  text-align: center;
-}
-
-.hero {
-  background-color: #4CAF50;
-  color: white;
-  font-size: 1.8rem;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.btn {
-  display: block;
-  padding: 16px;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 1rem;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  transition: 0.2s;
-}
-
-.btn--green { background: #7657c9; }
-.btn--blue  { background: #4c8bbd; }
-.btn--orange{ background: #dca54c; }
-
-.btn:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
-
-/* ================= Footer (logo + icons + username تحت) ================= */
-.footer {
-  background: #2c3e50;
-  color: white;
-  padding: 20px 0;
-  font-size: 14px;
-}
-
-.footer-grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 25px;
-  padding: 0 20px;
-}
-
-/* Left: logo + socials row */
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Social icons row */
-.footer-socials {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-/* Each icon + username (vertical) */
-.icon-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-size: 13px;
-}
-
-.social-icon {
-  width: 25px;
-  height: 25px;
-  object-fit: cover;
-}
-
-/* Center text */
-.footer-copy {
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* Right text */
-.footer-desc {
-  text-align: right;
-  white-space: nowrap;
-  opacity: .85;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .footer-left {
-    justify-content: center;
-  }
-
-  .footer-socials {
-    justify-content: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-  }
-}
-/* ================== Body ================== */
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #ffffff;
-    color: #222222;
-}
-/* يعالج اللون الأبيض حول المحتوى */
-/* الثيم الفاتح (العادي) */
-
-
-
-/* الثيم الغامق */
-body.dark-theme {
-    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
-    color: #f9f9f9;
-}
-
-
-/* خلي الكروت والبوكسات تصير داكنة بزيادة */
-body.dark-theme .offer-card,
-body.dark-theme .offers-sidebar,
-body.dark-theme section,
-body.dark-theme .hero-section,
-body.dark-theme .footer,
-body.dark-theme .navbar,
-body.dark-theme .breadcrumbs {
-    background-color: #1c1c1d !important;
-    border-color: #333 !important;
-}
-
-body.dark-theme .review-card h4,
-body.dark-theme .review-card p,
-body.dark-theme .review-card .service-name {
-    color: #222222 !important; /* غامق وواضح فوق الأبيض */
-}
-/* النافبار في الثيم الغامق */
-/* Dark navbar */
-body.dark-theme .navbar {
-  background-color: #111827;
-}
-
-/* الفوتر في الثيم الغامق */
-/* Dark footer */
-body.dark-theme .footer {
-  background-color: #111827;
-  color: #f9f9f9;
-}
-
-/* روابط النافبار في الثيم الغامق */
-/* Navbar links in dark theme */
-body.dark-theme .nav-menu a {
-  color: #f9f9f9;
-}
-
-/* الهيرو سيكشن في الثيم الغامق (مثال) */
-/* Hero section in dark theme (example) */
-body.dark-theme .hero-section {
-  background-color: #111827;
-  color: #f9f9f9;
-}
-.navbar img { border-radius: 8px; }
-
-/* ================== Responsive for Small Screens (phones/tablets) ================== */
-@media (max-width: 768px) {
-
-  /* الجسم كامل بدون فراغ أبيض تحت */
-  html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
-  .nav-container {
-    flex-direction: column;     /* الشعار فوق، الروابط تحت */
-    align-items: flex-start;
-    gap: 8px;
-    padding: 0.75rem 1rem;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .nav-menu a {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  /* ===== الـ Breadcrumbs ===== */
-  .breadcrumbs {
-    max-width: 100%;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-  }
-
-  /* ===== المحتوى الرئيسي (داشبورد / فورم / تفاصيل ...) ===== */
-  .wrap,
-  main,
-  form,
-  #requestList,
-  .details-container,
-  .evaluation-box {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 24px;
-    padding: 0 16px;
-  }
-
-  /* ===== الأزرار (أزرار الداشبورد + الفورم) ===== */
-  .btn,
-  button,
-  input[type="submit"] {
-    width: 100%;
-    max-width: 100%;
-    padding: 14px;
-    font-size: 1rem;
-  }
-
-  /* ===== الفوتر ===== */
-  .footer {
-    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
-    text-align: center;
-    row-gap: 10px;
-  }
-
-  .footer-left,
-  .footer-socials {
-    justify-content: center;
-  }
-
-  .footer-desc {
-    text-align: center;
-    white-space: normal;
-  }
-}
-@media (max-width: 768px) {
-
-  .breadcrumbs {
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
-  }
-  
-  .breadcrumbs a {
-    display: inline-block;
-    margin-bottom: 4px;
-  }
-}
-@media (max-width: 768px) {
-    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
-        margin-top: 0 !important;
-        padding-top: 6px !important;
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
     }
-}
-footer {
-    text-align: center;
-}
 
-#clock {
-    margin-top: 5px;
-    display: block;
-    font-size: 14px;
-}
+    /* =============== Navbar =============== */
+    .navbar {
+      background-color: #4caf50;
+      padding: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
 
-  /* ================== Body ================== */
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background-color: #ffffff;
-    color: #222222;
-}
-/* يعالج اللون الأبيض حول المحتوى */
-/* الثيم الفاتح (العادي) */
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
 
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
+    .nav-left img {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
 
-/* الثيم الغامق */
-body.dark-theme {
-    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
-    color: #f9f9f9;
-}
+    .nav-left span {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-/* خلي الكروت والبوكسات تصير داكنة بزيادة */
-body.dark-theme .offer-card,
-body.dark-theme .offers-sidebar,
-body.dark-theme section,
-body.dark-theme .hero-section,
-body.dark-theme .footer,
-body.dark-theme .navbar,
-body.dark-theme .breadcrumbs {
-    background-color: #1c1c1d !important;
-    border-color: #333 !important;
-}
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-body.dark-theme .review-card h4,
-body.dark-theme .review-card p,
-body.dark-theme .review-card .service-name {
-    color: #222222 !important; /* غامق وواضح فوق الأبيض */
-}
-/* النافبار في الثيم الغامق */
-/* Dark navbar */
-body.dark-theme .navbar {
-  background-color: #111827;
-}
+    .nav-menu a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: background-color 0.3s;
+    }
 
-/* الفوتر في الثيم الغامق */
-/* Dark footer */
-body.dark-theme .footer {
-  background-color: #111827;
-  color: #f9f9f9;
-}
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
-/* روابط النافبار في الثيم الغامق */
-/* Navbar links in dark theme */
-body.dark-theme .nav-menu a {
-  color: #f9f9f9;
-}
+    #themeToggle {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      background-color: #ffffff;
+    }
 
-/* الهيرو سيكشن في الثيم الغامق (مثال) */
-/* Hero section in dark theme (example) */
-body.dark-theme .hero-section {
-  background-color: #111827;
-  color: #f9f9f9;
-}
-   /* Services Header */
-        .services-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; padding: 3rem 2rem; text-align: center;
-        }
-        .services-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .services-header p { font-size: 1.2rem; opacity: 0.9; }
+    /* =============== Breadcrumbs =============== */
+    .breadcrumbs {
+      padding: 10px 40px;
+      background-color: #e5e7eb;
+      border-bottom: 1px solid #d1d5db;
+      font-size: 0.9rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        /* Sorting Section */
-        .sorting-section {
-            padding: 2rem; background-color: white; text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 2rem;
-            max-width: 1200px; margin-left:auto; margin-right:auto;
-        }
-        .sorting-section label { font-weight: bold; margin-right: 1rem; }
-        .sorting-section select {
-            padding: 0.5rem 1rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;
-        }
+    .breadcrumbs a {
+      text-decoration: none;
+      color: #2563eb;
+    }
 
-        /* Services Grid */
-        .services-grid {
-            max-width: 1200px; margin: 0 auto 2rem auto; padding: 2rem;
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-        }
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
 
-        .service-item {
-            background: white; border-radius: 10px; overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
-        }
+    .breadcrumbs span {
+      color: #6b7280;
+    }
 
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
+    /* =============== Progress Section =============== */
+    .progress-section {
+      padding: 3rem 1.5rem;
+      background-color: #0f172a; /* نفس لون الهيدر الغامق في الصورة */
+      color: #f9fafb;
+    }
 
-        .service-image {
-            height: 200px; overflow: hidden; background-color: #ddd;
-            display: flex; align-items: center; justify-content: center; color: #666;
-        }
+    .progress-section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-        .service-image img { width: 100%; height: 100%; object-fit: cover; }
+    .progress-section h2 {
+      margin-bottom: 2rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
 
-        .service-info { padding: 1.5rem; }
+    .progress-chart {
+      max-width: 650px;
+      margin: 0 auto;
+    }
 
-        .service-info h3 {
-            color: #2c3e50; margin-bottom: 1rem; font-size: 1.3rem;
-        }
+    .chart-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 200px;
+      gap: 3.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e5e7eb33;
+      padding-bottom: 1rem;
+    }
 
-        .service-info p {
-            color: #7f8c8d; margin-bottom: 1rem; line-height: 1.5;
-        }
+    .chart-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 70px;
+      height: 200px;
+      justify-content: flex-end;
+    }
 
-        .service-meta {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ecf0f1;
-        }
+    .bar-fill {
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+      height: 0;
+      animation: grow 1s forwards;
+    }
 
-        .price { color: #e74c3c; font-weight: bold; font-size: 1.2rem; }
+    .student-bar {
+      --bar-height: 75%;
+    }
 
-        .details-btn {
-            background-color: #4CAF50; color: white; border: none; padding: 0.5rem 1rem;
-            border-radius: 4px; cursor: pointer; transition: background-color 0.3s;
-            text-decoration: none; display: inline-block;
-        }
+    .average-bar {
+      --bar-height: 60%;
+    }
 
-        .details-btn:hover { background-color: #45a049; }
-    </style>
+    .top-bar {
+      --bar-height: 90%;
+    }
 
+    .student-bar .bar-fill {
+      background: linear-gradient(to top, #1d4ed8, #60a5fa);
+    }
 
+    .average-bar .bar-fill {
+      background: linear-gradient(to top, #f59e0b, #fbbf24);
+    }
 
+    .top-bar .bar-fill {
+      background: linear-gradient(to top, #e11d48, #f472b6);
+    }
 
+    .chart-bar span {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
 
+    .chart-labels {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      margin-top: 1.5rem;
+    }
 
+    .label {
+      width: 70px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
 
+    @keyframes grow {
+      to {
+        height: var(--bar-height);
+      }
+    }
 
+    /* =============== Loyalty Program Section =============== */
+    .loyalty-program {
+      padding: 3rem 1.5rem 4rem;
+      background-color: #f3f4f6;
+    }
 
+    .loyalty-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.5rem;
+    }
 
+    .points-section,
+    .rewards-section {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+    }
 
+    .points-section h3,
+    .rewards-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
 
+    .points-display {
+      margin: 2rem 0;
+    }
 
+    .points-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 10px solid #22c55e;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      background-color: #ffffff;
+    }
 
+    .points-number {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
 
+    .points-label {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
 
+    .points-source {
+      text-align: left;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+    }
 
+    .points-source h4 {
+      margin-bottom: 0.75rem;
+      color: #111827;
+    }
 
+    .points-source ul {
+      list-style: none;
+    }
 
+    .points-source li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      color: #16a34a;
+      font-size: 0.9rem;
+    }
 
+    .points-source li span {
+      color: #111827;
+    }
 
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
 
+    .reward-card {
+      background-color: #f9fafb;
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      border: 2px solid #e5e7eb;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
 
+    .reward-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
+      border-color: #4caf50;
+    }
 
+    .reward-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
 
+    .reward-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #111827;
+    }
 
-    
+    .reward-card p {
+      font-size: 0.9rem;
+      color: #dc2626;
+      font-weight: bold;
+      margin-bottom: 0.7rem;
+    }
+
+    .redeem-btn {
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      color: #ffffff;
+      border: none;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.9rem;
+      width: 100%;
+      transition: transform 0.15s, opacity 0.15s, background 0.2s;
+    }
+
+    .redeem-btn:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .redeem-btn:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    /* =============== Footer =============== */
+    .footer {
+      background: #111827;
+      color: #f9fafb;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 25px;
+      padding: 0 20px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .social-icon {
+      width: 25px;
+      height: 25px;
+      object-fit: cover;
+    }
+
+    .footer-copy {
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .footer-desc {
+      text-align: right;
+      white-space: nowrap;
+      opacity: 0.85;
+    }
+
+    /* =============== Dark Theme =============== */
+    body.dark-theme {
+      background-color: #020617;
+      color: #e5e7eb;
+    }
+
+    body.dark-theme .navbar {
+      background-color: #020617;
+    }
+
+    body.dark-theme .nav-menu a {
+      color: #e5e7eb;
+    }
+
+    body.dark-theme #themeToggle {
+      background-color: #e5e7eb;
+      color: #020617;
+    }
+
+    body.dark-theme .breadcrumbs {
+      background-color: #020617;
+      border-color: #111827;
+      color: #9ca3af;
+    }
+
+    body.dark-theme .breadcrumbs a {
+      color: #38bdf8;
+    }
+
+    body.dark-theme .progress-section {
+      background-color: #020617;
+      color: #f9fafb;
+    }
+
+    body.dark-theme .loyalty-program {
+      background-color: #020617;
+    }
+
+    body.dark-theme .points-section,
+    body.dark-theme .rewards-section {
+      background-color: #020617;
+      border: 1px solid #1f2937;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-theme .points-circle {
+      background-color: #020617;
+    }
+
+    body.dark-theme .reward-card {
+      background-color: #020617;
+      border-color: #1f2937;
+    }
+
+    body.dark-theme .footer {
+      background-color: #020617;
+    }
+
+    /* =============== Responsive =============== */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.6rem 1rem;
+      }
+
+      .nav-right {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-menu {
+        justify-content: center;
+      }
+
+      .breadcrumbs {
+        max-width: 100%;
+        padding: 8px 16px;
+        text-align: center;
+      }
+
+      .loyalty-container {
+        grid-template-columns: 1fr;
+      }
+
+      .progress-section {
+        padding: 2.5rem 1rem;
+      }
+
+      .loyalty-program {
+        padding: 2.5rem 1rem 3rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-left,
+      .footer-socials {
+        justify-content: center;
+      }
+
+      .footer-desc {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .chart-container {
+        gap: 2rem;
+      }
+
+      .chart-labels {
+        gap: 2rem;
+      }
+
+      .chart-bar,
+      .label {
+        width: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
+  <!-- Navbar -->
+  <header>
     <nav class="navbar">
       <div class="nav-container">
-        <div style="display:flex; flex-direction:column; align-items:flex-start;">
-          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px; object-fit:contain;">
-          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        <div class="nav-left">
+          <img src="logo.png" alt="Little Steps Logo">
+          <span>Little Steps</span>
         </div>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="active" >Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
-          <li><a href="dashboard.html">Customer Dashboard</a></li>
-        </ul>
+
+        <div class="nav-right">
+          <ul class="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+            <li><a href="dashboard.html">Customer Dashboard</a></li>
+          </ul>
+          <button id="themeToggle">🌞 / 🌙</button>
+        </div>
       </div>
     </nav>
   </header>
-<div class="breadcrumbs">
-        <a href= "homepage.html">home</a> &gt; <span>loyalty program</span>
-    </div>
-   
 
-    <!-- Progress Chart -->
-    <section class="progress-section">
-        <h2>Your Child's Progress Among Peers</h2>
-        <div class="progress-chart">
-            <div class="chart-container">
-                <div class="chart-bar student-bar">
-                    <div class="bar-fill"></div>
-                    <span>Your Child</span>
-                </div>
-                <div class="chart-bar average-bar">
-                    <div class="bar-fill"></div>
-                    <span>Average</span>
-                </div>
-                <div class="chart-bar top-bar">
-                    <div class="bar-fill"></div>
-                    <span>Top</span>
-                </div>
-            </div>
-            <div class="chart-labels">
-                <div class="label">75%</div>
-                <div class="label">60%</div>
-                <div class="label">90%</div>
-            </div>
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <a href="homepage.html">home</a> &gt; <span>loyalty program</span>
+  </div>
+
+  <!-- Progress Section -->
+  <section class="progress-section">
+    <div class="progress-section-inner">
+      <h2>Your Child's Progress Among Peers</h2>
+      <div class="progress-chart">
+        <div class="chart-container">
+          <div class="chart-bar student-bar">
+            <div class="bar-fill"></div>
+            <span>Your Child</span>
+          </div>
+          <div class="chart-bar average-bar">
+            <div class="bar-fill"></div>
+            <span>Average</span>
+          </div>
+          <div class="chart-bar top-bar">
+            <div class="bar-fill"></div>
+            <span>Top</span>
+          </div>
         </div>
-    </section>
-
-    <!-- Points and Rewards -->
-    <section class="loyalty-program">
-        <div class="loyalty-container">
-            <div class="points-section">
-                <h3>Current Points</h3>
-                <div class="points-display">
-                    <div class="points-circle">
-                        <span class="points-number">850</span>
-                        <span class="points-label">Points</span>
-                    </div>
-                </div>
-                <div class="points-source">
-                    <h4>How to Earn Points:</h4>
-                    <ul>
-                        <li>✅ Daily Attendance: 10 points</li>
-                        <li>✅ Activity Participation: 5 points</li>
-                        <li>✅ Task Completion: 15 points</li>
-                        <li>✅ Excellent Behavior: 20 points</li>
-                        <li>✅ Parent Involvement: 10 points</li>
-                        <li>✅ Special Achievements: 25 points</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="rewards-section">
-                <h3>Available Rewards</h3>
-                <div class="rewards-grid">
-                    <div class="reward-card">
-                        <div class="reward-icon">🎁</div>
-                        <h4>Small Gift</h4>
-                        <p>100 points</p>
-                        <button class="redeem-btn">Redeem</button>
-                    </div>
-                    <div class="reward-card">
-                        <div class="reward-icon">🧸</div>
-                        <h4>Stuffed Toy</h4>
-                        <p>250 points</p>
-                        <button class="redeem-btn">Redeem</button>
-                    </div>
-                    <div class="reward-card">
-                        <div class="reward-icon">🎨</div>
-                        <h4>Drawing Set</h4>
-                        <p>400 points</p>
-                        <button class="redeem-btn">Redeem</button>
-                    </div>
-                    <div class="reward-card">
-                        <div class="reward-icon">📚</div>
-                        <h4>Educational Story</h4>
-                        <p>300 points</p>
-                        <button class="redeem-btn">Redeem</button>
-                    </div>
-                    <div class="reward-card">
-                        <div class="reward-icon">🎪</div>
-                        <h4>Entertainment Trip</h4>
-                        <p>600 points</p>
-                        <button class="redeem-btn">Redeem</button>
-                    </div>
-                    <div class="reward-card">
-                        <div class="reward-icon">💰</div>
-                        <h4>20% Discount</h4>
-                        <p>500 points</p>
-                        <button class="redeem-btn">Redeem</button>
-                    </div>
-                </div>
-            </div>
+        <div class="chart-labels">
+          <div class="label">75%</div>
+          <div class="label">60%</div>
+          <div class="label">90%</div>
         </div>
-    </section>
-
-   
- <footer class="footer">
-  <div class="footer-grid">
-
-    <div class="footer-left">
-      <!-- صورة اللوقو في الفوتر هنا -->
-      <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
-
-      <div class="footer-socials">
-
-        <div class="icon-box">
-          <img src="insta.png" class="social-icon">
-          <span>@LittleStepsKSA</span>
-        </div>
-
-        <div class="icon-box">
-          <img src="snap.png" class="social-icon">
-          <span>@LittleSteps</span>
-        </div>
-
-        <div class="icon-box">
-          <img src="x.png" class="social-icon">
-          <span>@LittleStepsNursery</span>
-        </div>
-
       </div>
     </div>
+  </section>
 
-    <div class="footer-copy">©️ 2025 Little Steps.</div>
+  <!-- Loyalty Program -->
+  <section class="loyalty-program">
+    <div class="loyalty-container">
+      <!-- Points -->
+      <div class="points-section">
+        <h3>Current Points</h3>
+        <div class="points-display">
+          <div class="points-circle">
+            <span class="points-number">850</span>
+            <span class="points-label">Points</span>
+          </div>
+        </div>
+        <div class="points-source">
+          <h4>How to Earn Points:</h4>
+          <ul>
+            <li><span>Daily Attendance:</span> +10 points</li>
+            <li><span>Activity Participation:</span> +5 points</li>
+            <li><span>Task Completion:</span> +15 points</li>
+            <li><span>Excellent Behavior:</span> +20 points</li>
+            <li><span>Parent Involvement:</span> +10 points</li>
+            <li><span>Special Achievements:</span> +25 points</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="footer-desc">Nurturing happy little minds.</div>
+      <!-- Rewards -->
+      <div class="rewards-section">
+        <h3>Available Rewards</h3>
+        <div class="rewards-grid">
+          <div class="reward-card">
+            <span class="reward-icon">🎁</span>
+            <h4>Small Gift</h4>
+            <p>100 points</p>
+            <button class="redeem-btn" data-cost="100">Redeem</button>
+          </div>
+          <div class="reward-card">
+            <span class="reward-icon">🧸</span>
+            <h4>Stuffed Toy</h4>
+            <p>250 points</p>
+            <button class="redeem-btn" data-cost="250">Redeem</button>
+          </div>
+          <div class="reward-card">
+            <span class="reward-icon">🎨</span>
+            <h4>Drawing Set</h4>
+            <p>400 points</p>
+            <button class="redeem-btn" data-cost="400">Redeem</button>
+          </div>
+          <div class="reward-card">
+            <span class="reward-icon">📚</span>
+            <h4>Educational Story</h4>
+            <p>300 points</p>
+            <button class="redeem-btn" data-cost="300">Redeem</button>
+          </div>
+          <div class="reward-card">
+            <span class="reward-icon">🎪</span>
+            <h4>Entertainment Trip</h4>
+            <p>600 points</p>
+            <button class="redeem-btn" data-cost="600">Redeem</button>
+          </div>
+          <div class="reward-card">
+            <span class="reward-icon">💰</span>
+            <h4>20% Discount</h4>
+            <p>500 points</p>
+            <button class="redeem-btn" data-cost="500">Redeem</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </div>
-</footer>
-  
-  <!-- ربط ملف الجافاسكربت الخاص بالهوم بيج -->
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-left">
+        <img src="logo.png" class="footer-logo" alt="Little Steps Logo">
+        <div class="footer-socials">
+          <div class="icon-box">
+            <img src="insta.png" class="social-icon" alt="">
+            <span>@LittleStepsKSA</span>
+          </div>
+          <div class="icon-box">
+            <img src="snap.png" class="social-icon" alt="">
+            <span>@LittleSteps</span>
+          </div>
+          <div class="icon-box">
+            <img src="x.png" class="social-icon" alt="">
+            <span>@LittleStepsNursery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-copy">© 2025 Little Steps.</div>
+      <div class="footer-desc">Nurturing happy little minds.</div>
+    </div>
+  </footer>
+
+  <!-- لو عندك نفس ملف الجافاسكربت للثيم استمري عليه -->
   <script src="homepage.js"></script>
+
+  <!-- تفاعلية النقاط + الأزرار -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const pointsNumberEl = document.querySelector(".points-number");
+      let currentPoints = parseInt(pointsNumberEl.textContent, 10) || 0;
+
+      function updateButtons() {
+        document.querySelectorAll(".redeem-btn").forEach(btn => {
+          const cost = parseInt(btn.dataset.cost, 10);
+          if (cost > currentPoints) {
+            btn.disabled = true;
+          } else {
+            btn.disabled = false;
+          }
+        });
+      }
+
+      document.querySelectorAll(".redeem-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const cost = parseInt(btn.dataset.cost, 10);
+          if (cost > currentPoints) {
+            alert("You don't have enough points for this reward.");
+            return;
+          }
+
+          const ok = confirm(
+            `Redeem this reward for ${cost} points?\nCurrent points: ${currentPoints}`
+          );
+          if (!ok) return;
+
+          currentPoints -= cost;
+          pointsNumberEl.textContent = currentPoints;
+          updateButtons();
+        });
+      });
+
+      updateButtons();
+    });
+  </script>
 </body>
-
 </html>
-
-
-
-
