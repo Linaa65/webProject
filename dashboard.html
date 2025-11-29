@@ -437,67 +437,48 @@ body.dark-theme .hero-section {
   background-color: #111827;
   color: #f9f9f9;
 }
-/* ==============================
-   تعديل الهيدر ليطابق نسخة البنات
-   ============================== */
 
-/* الهيدر العام */
-.navbar {
-    height: 90px;
-    display: flex;
-    align-items: center;
-}
-
-/* توزيع العناصر ومحاذاة أقرب لليسار مثل البنات */
-.nav-container {
-    max-width: 1250px;
-    margin: auto;
-    padding-left: 18px; /* يحرك العناصر يسار شوي */
-}
-
-/* الروابط - نفس سماكة البنات */
-.nav-menu a {
-    font-size: 18px; 
-    font-weight: 600;
-    padding: 10px 18px;
-}
-
-/* توزيع أفضل للروابط */
-.nav-menu {
-    display: flex;
-    gap: 20px;
-}
-
-
-/* ==============================
-   الجوال والأجهزة الصغيرة (بدون تخريب الشكل)
-   ============================== */
-
+/* end */
+/* ================== Responsive for Small Screens (phones/tablets) ================== */
 @media (max-width: 768px) {
 
-  .navbar {
-      height: auto;
-      padding: 12px 0;
+  /* الجسم كامل بدون فراغ أبيض تحت */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
   }
 
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
   .nav-container {
-      flex-direction: column;
-      align-items: center; /* يخلي كل شيء بالسنتر مثل البنات */
-      padding-left: 0; /* ما نحتاج إزاحة بالجوال */
-      gap: 10px;
+    flex-direction: column;     /* الشعار فوق، الروابط تحت */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0.75rem 1rem;
   }
 
   .nav-menu {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
+    flex-wrap: wrap;            /* يسمح للروابط تنزل سطر ثاني */
+    gap: 0.75rem;
+    justify-content: center;
   }
 
   .nav-menu a {
-      font-size: 16px;
-      padding: 6px 12px;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
   }
-}
+
+  /* ===== الـ Breadcrumbs ===== */
+  .breadcrumbs {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
 
   </style>
 </head>
@@ -585,6 +566,7 @@ body.dark-theme .hero-section {
   <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
