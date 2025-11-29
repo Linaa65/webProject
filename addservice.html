@@ -6,27 +6,39 @@
   <title>Add New Service</title>
   <link rel="stylesheet" href="style.css">
 
-   <style>
+    <style>
+      
       .nav-container img {
     width: 35px !important;
     height: 35px !important;
   }
 
-    /* ================= DARK MODE ================= */
+      body.dark-theme input[type="text"],
+body.dark-theme input[type="email"],
+body.dark-theme input[type="file"],
+body.dark-theme input[type="number"],
+body.dark-theme textarea {
+    background-color: #1f2229 !important; /* رمادي متوسط */
+    color: #ffffff !important; /* النص يصير أسود */
+    border-color: #3a3d44 !important;
+}
+
+      
+
 /* ================== Body ================== */
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   background-color: #ffffff;
     color: #222222;
-      max-width: 700px;
-    margin: 20px !important
+
+  margin: 20px ;
+  
 }
 /* يعالج اللون الأبيض حول المحتوى */
 /* الثيم الفاتح (العادي) */
 
-
-
+    /* ================= DARK MODE ================= */
 
 /* الثيم الغامق */
 body.dark-theme {
@@ -273,6 +285,7 @@ body.dark-theme .hero-section {
 
 </body>
 </html>
+
 
 
 
