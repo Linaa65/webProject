@@ -382,6 +382,17 @@ body.dark-theme .card {
     outline: none !important;
     box-shadow: none !important;
 }   
+       /* Remove Safari/iPhone white highlight effect */
+.nav-menu a {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.nav-menu a:focus,
+.nav-menu a:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
 </style>
 </head>
 
@@ -497,6 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
        <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
