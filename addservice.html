@@ -6,126 +6,78 @@
   <title>Add New Service</title>
   <link rel="stylesheet" href="style.css">
 
-  <style>
+   <style>
+      .nav-container img {
+    width: 35px !important;
+    height: 35px !important;
+  }
 
-  
-    
-/* ================= DARK MODE ================= */
+    /* ================= DARK MODE ================= */
+/* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+}
+/* يعالج اللون الأبيض حول المحتوى */
+/* الثيم الفاتح (العادي) */
+
+
+
+/* الثيم الغامق */
 body.dark-theme {
-  background-color: #111827;
-  color: #ffffff !important;
+    background-color: #111827;  /* هذا يغطي خلفية الصفحة من برا */
+    color: #f9f9f9;
 }
 
-/* فورم */
-body.dark-theme form {
-  background-color: #1f2937 !important;
-  border-color: #374151 !important;
+
+/* خلي الكروت والبوكسات تصير داكنة بزيادة */
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
 }
 
-body.dark-theme form label { color: #e5e7eb !important; }
-
-body.dark-theme input,
-body.dark-theme textarea {
-  background-color: #1f2937 !important;
-  color: white;
-  border-color: #4b5563 !important;
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; /* غامق وواضح فوق الأبيض */
 }
-
-/* زر */
-body.dark-theme form button {
-  background-color: #374151 !important;
-  color: white !important;
-}
-
-/* هيدر */
+/* النافبار في الثيم الغامق */
+/* Dark navbar */
 body.dark-theme .navbar {
-  background-color: #111827 !important;
+  background-color: #111827;
 }
 
-/* فوتر */
+/* الفوتر في الثيم الغامق */
+/* Dark footer */
 body.dark-theme .footer {
-  background-color: #111827 !important;
-  color: #e5e7eb !important;
-}
-
-/* روابط */
-body.dark-theme .nav-menu a {
-  color: white !important;
-}
-
-    /* ================== Navigation Bar ================== */
-.navbar {
-  background-color: #4CAF50;
-  padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 100%;
-}
-.nav-container {
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center;
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 2rem;
-}
-
-.navbar img { border-radius: 8px; }
-
-.logo h1 { 
-  color: white; 
-  font-size: 1.8rem; 
-}
-
-.nav-menu { 
-  display: flex; 
-  list-style: none; 
-  gap: 2rem; 
-}
-
-.nav-menu a {
-  color: white; 
-  text-decoration: none; 
-  padding: 0.5rem 1rem;
-  border-radius: 4px; 
-  transition: background-color 0.3s;
-}
-
-.nav-menu a:hover, 
-.nav-menu a.active { 
-  background-color: rgba(255,255,255,0.2); 
-}
-
-/* ---- Dark theme for navbar ---- */
-body.dark-theme .navbar {
   background-color: #111827;
+  color: #f9f9f9;
 }
+
+/* روابط النافبار في الثيم الغامق */
+/* Navbar links in dark theme */
 body.dark-theme .nav-menu a {
   color: #f9f9f9;
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
-
-  .nav-container {
-    flex-direction: column;     
-    align-items: flex-start;
-    gap: 8px;
-    padding: 0.75rem 1rem;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;            
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
-  .nav-menu a {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
+/* الهيرو سيكشن في الثيم الغامق (مثال) */
+/* Hero section in dark theme (example) */
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
 }
 
-    @media (max-width: 768px) {
+/* end */
+/* ================== Responsive for Small Screens (phones/tablets) ================== */
+@media (max-width: 768px) {
 
   /* الجسم كامل بدون فراغ أبيض تحت */
   html, body {
@@ -139,7 +91,7 @@ body.dark-theme .nav-menu a {
     flex-direction: column;
   }
 
-  /* ===== الهيدر للجوال ===== */
+  /* ===== الهيدر (نفس التصميم، بس يتكيّف) ===== */
   .nav-container {
     flex-direction: column;     /* الشعار فوق، الروابط تحت */
     align-items: flex-start;
@@ -157,8 +109,59 @@ body.dark-theme .nav-menu a {
     font-size: 0.9rem;
     padding: 0.4rem 0.8rem;
   }
-}
 
+  /* ===== الـ Breadcrumbs ===== */
+  .breadcrumbs {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* ===== الفوتر ===== */
+  .footer {
+    margin-top: auto;           /* يلصقه تحت لو المحتوى قصير */
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr; /* عناصر الفوتر تحت بعض في الجوال */
+    text-align: center;
+    row-gap: 10px;
+  }
+
+  .footer-left,
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+    white-space: normal;
+  }
+}
+@media (max-width: 768px) {
+
+  .breadcrumbs {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    overflow-wrap: break-word; /* عشان ما يطلع خارج الشاشة */
+  }
+  
+  .breadcrumbs a {
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 768px) {
+    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
+        margin-top: 0 !important;
+        padding-top: 6px !important;
+    }
+}
   </style>
 
   <script>
@@ -267,6 +270,7 @@ body.dark-theme .nav-menu a {
 
 </body>
 </html>
+
 
 
 
