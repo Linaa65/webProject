@@ -437,7 +437,19 @@ body.dark-theme .hero-section {
   background-color: #111827;
   color: #f9f9f9;
 }
-  
+ /* ===== تعديل الهيدر ليطابق هيدر البنات (ديسكتوب) ===== */
+
+/* تكبير الخط وتغليظه شوي */
+.navbar .nav-menu a {
+    font-size: 18px;       /* كان أصغر؛ الآن مثل البنات تقريبًا */
+    font-weight: 600;      /* يعطي سماكة بسيطة للخط */
+}
+
+/* تزحيف بسيط لليسار بدون ما يخرب الشكل */
+.navbar .nav-container {
+    padding-left: 2.5rem;  /* زودنا اليسار شوي */
+    padding-right: 1.5rem; /* ونقصنا اليمين شوي */
+} 
   </style>
 </head>
 
@@ -524,6 +536,7 @@ body.dark-theme .hero-section {
   <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
