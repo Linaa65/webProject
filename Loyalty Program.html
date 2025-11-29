@@ -425,81 +425,72 @@
       opacity: 0.85;
     }
 
-   /* =============== Dark Theme =============== */
+ /* ================= DARK THEME SAME AS HOMEPAGE ================= */
+
 body.dark-theme {
-  background-color: #0b1120;   /* خلفية كحلي غامق مو سوداء تمامًا */
-  color: #e5e7eb;
+    background-color: #111827; 
+    color: #f9f9f9;
 }
 
-/* الهيدر */
+/* navbar */
 body.dark-theme .navbar {
-  background-color: #020617;
+    background-color: #111827 !important;
 }
-
 body.dark-theme .nav-menu a {
-  color: #e5e7eb;
+    color: #f9f9f9 !important;
 }
 
-body.dark-theme #themeToggle {
-  background-color: #e5e7eb;
-  color: #020617;
-}
-
-/* البريدكرمب */
+/* breadcrumbs */
 body.dark-theme .breadcrumbs {
-  background-color: #020617;
-  border-color: #111827;
-  color: #9ca3af;
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
+    color: #ddd;
 }
-
 body.dark-theme .breadcrumbs a {
-  color: #38bdf8;
+    color: #7cc7ff !important;
 }
 
-/* جزء التقدم اللي فوق (البارز) */
+/* progress-section (خليه نفس صندوق الهيرو في الهوم بيج) */
 body.dark-theme .progress-section {
-  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-  color: #f9fafb;
+    background-color: #1c1c1d !important;
+    color: #f9f9f9 !important;
+    border-radius: 20px;
 }
 
-/* الخلفية اللي تحت للكروت */
+/* loyalty background */
 body.dark-theme .loyalty-program {
-  background-color: #0b1120;
+    background-color: #111827 !important;
 }
 
-/* الكروت نفسها تظل فاتحة وفرحة حتى في الدارك مود */
+/* points + rewards boxes نفس الخدمات في الهوم (تبقى فاتحة) */
 body.dark-theme .points-section,
 body.dark-theme .rewards-section {
-  background-color: #fdf4ff;          /* ليلكي/وردي فاتح */
-  color: #111827;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.3);
+    background-color: #fdf2ff !important;      /* نفس لون الهيرو في الهوم */
+    border: 2px solid #ffd8e3 !important;       /* نفس الحدود الوردية */
+    color: #222 !important;
+    box-shadow: 0 6px 15px rgba(255, 173, 202, 0.3);
 }
 
-/* دائرة النقاط */
-body.dark-theme .points-circle {
-  background-color: #ffffff;
-  border-color: #22c55e;
-}
-
-body.dark-theme .points-number {
-  color: #0f172a;
-}
-
-body.dark-theme .points-label {
-  color: #6b7280;
-}
-
-/* بطاقات الريوارد */
+/* reward cards remain light */
 body.dark-theme .reward-card {
-  background-color: #ffffff;
-  border-color: #e5e7eb;
+    background-color: #ffffff !important;
+    border: 2px solid #ffe3ef !important;
+    color: #222 !important;
 }
 
-/* الفوتر */
+/* points circle stays green & clean */
+body.dark-theme .points-circle {
+    background-color: white !important;
+    border-color: #4CAF50 !important;
+}
+body.dark-theme .points-number {
+    color: #222 !important;
+}
+
+/* footer */
 body.dark-theme .footer {
-  background-color: #020617;
-  color: #f9fafb;
+    background-color: #111827 !important;
+    color: #f9f9f9 !important;
 }
 
   </style>
@@ -701,4 +692,5 @@ body.dark-theme .footer {
   </script>
 </body>
 </html>
+
 
