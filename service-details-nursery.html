@@ -198,8 +198,8 @@ body.dark-theme .btn:hover{
     <label>Select Option:</label>
     <select id="nurseryMenu">
       <option value="1">1 hour</option>
-      <option value="4">4 hours</option>
-      <option value="6">6 hours</option>
+      <option value="4">6 hours</option>
+      <option value="6">1 month</option>
     </select>
 
     <div class="btn-box">
@@ -218,7 +218,7 @@ document.getElementById("nurseryMenu").addEventListener("change", function(){
 
     if(v == "1") price = 100;
     if(v == "4") price = 350;
-    if(v == "6") price = 500;
+    if(v == "6") price = 4000;
 
     document.getElementById("priceLabel").innerText = price + " SAR";
 });
@@ -234,3 +234,4 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
+
