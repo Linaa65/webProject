@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="style.css">
 
- 
+  <!-- ========== CSS المأخوذ من INLINE بدون تغيير شكل ========== -->
   <style>
 
   /* ================== CONTIANERS ================== */
@@ -334,9 +334,95 @@
 
   </div>
 </footer>
+ 
+
+
+  <script>
+(function(){
+  const form = document.getElementById("joinForm");
+
+  if (!form) return; // safety
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nameEl = document.getElementById("name");
+    const dobEl = document.getElementById("dob");
+    const photoEl = document.getElementById("photo");
+    const emailEl = document.getElementById("email");
+    const skillsEl = document.getElementById("skills");
+    const expertiseEl = document.getElementById("expertise");
+    const educationEl = document.getElementById("education");
+    const messageEl = document.getElementById("message");
+
+ if (!nameEl || !dobEl || !photoEl || !emailEl || !skillsEl || !expertiseEl || !educationEl || !messageEl) {
+      alert("Form elements missing from page. Check element IDs.");
+      return;
+    }
+
+    const name = nameEl.value.trim();
+    const dob = dobEl.value;
+    const photoFiles = photoEl.files; // FileList
+    const email = emailEl.value.trim();
+    const skills = skillsEl.value.trim();
+    const expertise = expertiseEl.value.trim();
+    const education = educationEl.value.trim();
+    const message = messageEl.value.trim();
+
+// no empty fields
+    if (
+      name === "" ||
+      dob === "" ||
+      !photoFiles || photoFiles.length === 0 ||
+      email === "" ||
+      skills === "" ||
+      expertise === "" ||
+      education === "" ||
+      message === ""
+    ) {
+      alert("Please fill all required fields.");
+      return;
+    }
+    // 2) Name can't start with a number
+    const firstChar = name.charAt(0);
+    if (!isNaN(firstChar) && firstChar !== " ") {
+      alert("Name cannot start with a number.");
+      return;
+    }
+
+    // 3) Photo field accepts only images
+    const file = photoFiles[0];
+    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/webp"];
+    if (!file || !allowedTypes.includes(file.type)) {
+      alert("Photo must be an image (jpg, jpeg, png, gif, webp).");
+      return;
+    }
+
+
+// 4) DOB should not be after 2008 (i.e. DOB <= 2008-12-31)
+    const enteredDob = new Date(dob);
+    const cutoff = new Date("2008-12-31T23:59:59");
+    if (isNaN(enteredDob.getTime())) {
+      alert("Invalid date of birth.");
+      return;
+    }
+    if (enteredDob > cutoff) {
+      alert("Date of birth must not be after 31 December 2008.");
+      return;
+    }
+
+    
+   
+    alert("✅ Confirmation: Thank you for joining the team, " + name + "!");
+
+    
+    form.reset();
+  });
+})();
+
+</script>
 
 <script src="homepage.js"></script>
 
 </body>
 </html>
-
