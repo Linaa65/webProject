@@ -15,14 +15,14 @@
 
     body {
       font-family: "Arial", sans-serif;
-      background-color: #f9fafb;
+      background-color: #ffffff;
       color: #111827;
       line-height: 1.6;
     }
 
-    /* =============== Navbar =============== */
+    /* =============== Navbar (نفس الهوم بيج) =============== */
     .navbar {
-      background-color: #4caf50;
+      background-color: #4CAF50;
       padding: 1rem 0;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       width: 100%;
@@ -35,48 +35,40 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
     }
 
-    .nav-left {
+    .nav-logo-box {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    .nav-left img {
+    .nav-logo-box img {
       width: 35px;
       height: 35px;
       object-fit: contain;
       border-radius: 8px;
     }
 
-    .nav-left span {
-      color: #fff;
-      font-size: 1.2rem;
+    .nav-logo-box span {
+      color: #ffffff;
+      font-size: 20px;
       font-weight: bold;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
     }
 
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 2rem;
     }
 
     .nav-menu a {
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
       transition: background-color 0.3s;
+      font-size: 0.95rem;
     }
 
     .nav-menu a:hover,
@@ -84,20 +76,16 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
 
+    /* زر الثيم موجود لملف js لكن مخفي */
     #themeToggle {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-      background-color: #ffffff;
+      display: none;
     }
 
     /* =============== Breadcrumbs =============== */
     .breadcrumbs {
       padding: 10px 40px;
-      background-color: #e5e7eb;
-      border-bottom: 1px solid #d1d5db;
+      background-color: #ecf0f1;
+      border-bottom: 1px solid #ddd;
       font-size: 0.9rem;
       max-width: 1200px;
       margin: 0 auto;
@@ -105,7 +93,7 @@
 
     .breadcrumbs a {
       text-decoration: none;
-      color: #2563eb;
+      color: #3498db;
     }
 
     .breadcrumbs a:hover {
@@ -113,30 +101,29 @@
     }
 
     .breadcrumbs span {
-      color: #6b7280;
+      color: #7f8c8d;
     }
 
-    /* =============== Progress Section =============== */
+    /* =============== Progress Section (بوكس الرسم البياني) =============== */
     .progress-section {
-      padding: 3rem 1.5rem;
-      background-color: #0f172a; /* نفس لون الهيدر الغامق في الصورة */
-      color: #f9fafb;
-    }
-
-    .progress-section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 30px 20px;
+      background-color: #fdf2ff;          /* بينك مثل الهوم */
+      border: 2px solid #ffd8e3;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(255, 173, 202, 0.25);
       text-align: center;
     }
 
     .progress-section h2 {
-      margin-bottom: 2rem;
-      font-size: 1.6rem;
-      font-weight: bold;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #2c3e50;
     }
 
     .progress-chart {
-      max-width: 650px;
+      max-width: 550px;
       margin: 0 auto;
     }
 
@@ -144,19 +131,19 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      height: 200px;
-      gap: 3.5rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #e5e7eb33;
-      padding-bottom: 1rem;
+      height: 150px;               /* أصغر من قبل */
+      gap: 3rem;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
     }
 
     .chart-bar {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 70px;
-      height: 200px;
+      width: 60px;
+      height: 150px;
       justify-content: flex-end;
     }
 
@@ -167,59 +154,49 @@
       animation: grow 1s forwards;
     }
 
-    .student-bar {
-      --bar-height: 75%;
-    }
-
-    .average-bar {
-      --bar-height: 60%;
-    }
-
-    .top-bar {
-      --bar-height: 90%;
-    }
+    .student-bar { --bar-height: 75%; }
+    .average-bar { --bar-height: 60%; }
+    .top-bar { --bar-height: 90%; }
 
     .student-bar .bar-fill {
-      background: linear-gradient(to top, #1d4ed8, #60a5fa);
+      background: linear-gradient(to top, #2196F3, #64B5F6);
     }
 
     .average-bar .bar-fill {
-      background: linear-gradient(to top, #f59e0b, #fbbf24);
+      background: linear-gradient(to top, #FF9800, #FFB74D);
     }
 
     .top-bar .bar-fill {
-      background: linear-gradient(to top, #e11d48, #f472b6);
+      background: linear-gradient(to top, #E91E63, #F48FB1);
     }
 
     .chart-bar span {
-      margin-top: 10px;
+      margin-top: 8px;
       font-weight: bold;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .chart-labels {
       display: flex;
       justify-content: center;
-      gap: 3.5rem;
-      margin-top: 1.5rem;
+      gap: 3rem;
+      margin-top: 10px;
     }
 
     .label {
-      width: 70px;
+      width: 60px;
       text-align: center;
+      font-size: 0.85rem;
       font-weight: bold;
-      font-size: 0.9rem;
     }
 
     @keyframes grow {
-      to {
-        height: var(--bar-height);
-      }
+      to { height: var(--bar-height); }
     }
 
-    /* =============== Loyalty Program Section =============== */
+    /* =============== Loyalty Program (النقاط + الجوائز) =============== */
     .loyalty-program {
-      padding: 3rem 1.5rem 4rem;
+      padding: 30px 20px 50px;
       background-color: #f3f4f6;
     }
 
@@ -228,33 +205,34 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 2fr;
-      gap: 2.5rem;
+      gap: 2rem;
     }
 
     .points-section,
     .rewards-section {
-      background-color: #ffffff;
+      background-color: #fdf2ff;
       border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+      padding: 20px 20px 25px;
+      box-shadow: 0 6px 15px rgba(255, 173, 202, 0.25);
+      border: 2px solid #ffd8e3;
     }
 
     .points-section h3,
     .rewards-section h3 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
       color: #111827;
     }
 
     .points-display {
-      margin: 2rem 0;
+      margin: 1.5rem 0;
     }
 
     .points-circle {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      border: 10px solid #22c55e;
+      border: 10px solid #4CAF50;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -264,24 +242,23 @@
     }
 
     .points-number {
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       font-weight: bold;
-      color: #0f172a;
+      color: #111827;
     }
 
     .points-label {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #6b7280;
     }
 
     .points-source {
-      text-align: left;
       margin-top: 1.5rem;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .points-source h4 {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       color: #111827;
     }
 
@@ -291,9 +268,8 @@
 
     .points-source li {
       padding: 0.4rem 0;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid #ffe6f2;
       color: #16a34a;
-      font-size: 0.9rem;
     }
 
     .points-source li span {
@@ -304,39 +280,39 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1.2rem;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
     }
 
     .reward-card {
-      background-color: #f9fafb;
+      background-color: #ffffff;
       border-radius: 12px;
-      padding: 1.2rem 1rem;
+      padding: 1.1rem 0.9rem;
       text-align: center;
-      border: 2px solid #e5e7eb;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      border: 2px solid #ffe3ef;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
 
     .reward-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
-      border-color: #4caf50;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      border-color: #4CAF50;
     }
 
     .reward-icon {
       font-size: 1.8rem;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       display: block;
     }
 
     .reward-card h4 {
       font-size: 1rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.3rem;
       color: #111827;
     }
 
     .reward-card p {
       font-size: 0.9rem;
-      color: #dc2626;
+      color: #e11d48;
       font-weight: bold;
       margin-bottom: 0.7rem;
     }
@@ -345,13 +321,13 @@
       background: linear-gradient(135deg, #ef4444, #b91c1c);
       color: #ffffff;
       border: none;
-      padding: 0.45rem 0.75rem;
+      padding: 0.45rem 0.8rem;
       border-radius: 999px;
       cursor: pointer;
       font-weight: bold;
       font-size: 0.9rem;
       width: 100%;
-      transition: transform 0.15s, opacity 0.15s, background 0.2s;
+      transition: transform 0.15s, opacity 0.15s;
     }
 
     .redeem-btn:hover:not(:disabled) {
@@ -366,8 +342,8 @@
 
     /* =============== Footer =============== */
     .footer {
-      background: #111827;
-      color: #f9fafb;
+      background: #2c3e50;
+      color: white;
       padding: 20px 0;
       font-size: 14px;
     }
@@ -425,74 +401,129 @@
       opacity: 0.85;
     }
 
- /* ================= DARK THEME SAME AS HOMEPAGE ================= */
+    /* =============== Dark Theme (نفس ألوان الهوم تقريبًا) =============== */
+    body.dark-theme {
+      background-color: #111827;
+      color: #f9f9f9;
+    }
 
-body.dark-theme {
-    background-color: #111827; 
-    color: #f9f9f9;
-}
+    body.dark-theme .navbar {
+      background-color: #111827;
+    }
 
-/* navbar */
-body.dark-theme .navbar {
-    background-color: #111827 !important;
-}
-body.dark-theme .nav-menu a {
-    color: #f9f9f9 !important;
-}
+    body.dark-theme .nav-menu a {
+      color: #f9f9f9;
+    }
 
-/* breadcrumbs */
-body.dark-theme .breadcrumbs {
-    background-color: #1c1c1d !important;
-    border-color: #333 !important;
-    color: #ddd;
-}
-body.dark-theme .breadcrumbs a {
-    color: #7cc7ff !important;
-}
+    body.dark-theme .breadcrumbs {
+      background-color: #1c1c1d;
+      border-color: #333;
+      color: #ddd;
+    }
 
-/* progress-section (خليه نفس صندوق الهيرو في الهوم بيج) */
-body.dark-theme .progress-section {
-    background-color: #1c1c1d !important;
-    color: #f9f9f9 !important;
-    border-radius: 20px;
-}
+    body.dark-theme .breadcrumbs a {
+      color: #7cc7ff;
+    }
 
-/* loyalty background */
-body.dark-theme .loyalty-program {
-    background-color: #111827 !important;
-}
+    body.dark-theme .progress-section,
+    body.dark-theme .points-section,
+    body.dark-theme .rewards-section {
+      background-color: #fdf2ff;
+      border-color: #ffd8e3;
+      color: #222;
+    }
 
-/* points + rewards boxes نفس الخدمات في الهوم (تبقى فاتحة) */
-body.dark-theme .points-section,
-body.dark-theme .rewards-section {
-    background-color: #fdf2ff !important;      /* نفس لون الهيرو في الهوم */
-    border: 2px solid #ffd8e3 !important;       /* نفس الحدود الوردية */
-    color: #222 !important;
-    box-shadow: 0 6px 15px rgba(255, 173, 202, 0.3);
-}
+    body.dark-theme .reward-card {
+      background-color: #ffffff;
+      border-color: #ffe3ef;
+      color: #222;
+    }
 
-/* reward cards remain light */
-body.dark-theme .reward-card {
-    background-color: #ffffff !important;
-    border: 2px solid #ffe3ef !important;
-    color: #222 !important;
-}
+    body.dark-theme .points-circle {
+      background-color: #ffffff;
+    }
 
-/* points circle stays green & clean */
-body.dark-theme .points-circle {
-    background-color: white !important;
-    border-color: #4CAF50 !important;
-}
-body.dark-theme .points-number {
-    color: #222 !important;
-}
+    body.dark-theme .footer {
+      background-color: #111827;
+      color: #f9f9f9;
+    }
 
-/* footer */
-body.dark-theme .footer {
-    background-color: #111827 !important;
-    color: #f9f9f9 !important;
-}
+    /* =============== Responsive =============== */
+    @media (max-width: 768px) {
+      /* الهيدر سطرين مثل الهوم */
+      .nav-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 0.5rem 1rem;
+        text-align: center;
+      }
 
+      .nav-logo-box {
+        align-items: center !important;
+      }
+
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .nav-menu a {
+        font-size: 0.9rem;
+        padding: 0.35rem 0.75rem;
+      }
+
+      .breadcrumbs {
+        max-width: 100%;
+        padding: 8px 16px;
+        text-align: center;
+      }
+
+      .loyalty-container {
+        grid-template-columns: 1fr;
+      }
+
+      .loyalty-program {
+        padding: 20px 16px 40px;
+      }
+
+      .points-section,
+      .rewards-section {
+        padding: 18px 16px 22px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-left,
+      .footer-socials {
+        justify-content: center;
+      }
+
+      .footer-desc {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .progress-section {
+        max-width: 100%;
+        margin: 20px 12px;
+        padding: 22px 14px;
+      }
+
+      .chart-container {
+        gap: 2rem;
+      }
+
+      .chart-labels {
+        gap: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -500,21 +531,21 @@ body.dark-theme .footer {
   <header>
     <nav class="navbar">
       <div class="nav-container">
-        <div class="nav-left">
+        <div class="nav-logo-box">
           <img src="logo.png" alt="Little Steps Logo">
           <span>Little Steps</span>
         </div>
 
-        <div class="nav-right">
-          <ul class="nav-menu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
-            <li><a href="dashboard.html">Customer Dashboard</a></li>
-          </ul>
-          <button id="themeToggle">🌞 / 🌙</button>
-        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+          <li><a href="dashboard.html">Customer Dashboard</a></li>
+        </ul>
+
+        <!-- زر الثيم مخفي لكن موجود عشان ملف JS ما يطيح -->
+        <button id="themeToggle">🌞 / 🌙</button>
       </div>
     </nav>
   </header>
@@ -526,28 +557,26 @@ body.dark-theme .footer {
 
   <!-- Progress Section -->
   <section class="progress-section">
-    <div class="progress-section-inner">
-      <h2>Your Child's Progress Among Peers</h2>
-      <div class="progress-chart">
-        <div class="chart-container">
-          <div class="chart-bar student-bar">
-            <div class="bar-fill"></div>
-            <span>Your Child</span>
-          </div>
-          <div class="chart-bar average-bar">
-            <div class="bar-fill"></div>
-            <span>Average</span>
-          </div>
-          <div class="chart-bar top-bar">
-            <div class="bar-fill"></div>
-            <span>Top</span>
-          </div>
+    <h2>Your Child's Progress Among Peers</h2>
+    <div class="progress-chart">
+      <div class="chart-container">
+        <div class="chart-bar student-bar">
+          <div class="bar-fill"></div>
+          <span>Your Child</span>
         </div>
-        <div class="chart-labels">
-          <div class="label">75%</div>
-          <div class="label">60%</div>
-          <div class="label">90%</div>
+        <div class="chart-bar average-bar">
+          <div class="bar-fill"></div>
+          <span>Average</span>
         </div>
+        <div class="chart-bar top-bar">
+          <div class="bar-fill"></div>
+          <span>Top</span>
+        </div>
+      </div>
+      <div class="chart-labels">
+        <div class="label">75%</div>
+        <div class="label">60%</div>
+        <div class="label">90%</div>
       </div>
     </div>
   </section>
@@ -648,10 +677,10 @@ body.dark-theme .footer {
     </div>
   </footer>
 
-  <!-- لو عندك نفس ملف الجافاسكربت للثيم استمري عليه -->
+  <!-- نفس ملف الثيم حق الهوم بيج -->
   <script src="homepage.js"></script>
 
-  <!-- تفاعلية النقاط + الأزرار -->
+  <!-- تفاعلية النقاط والجوائز -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const pointsNumberEl = document.querySelector(".points-number");
@@ -660,21 +689,14 @@ body.dark-theme .footer {
       function updateButtons() {
         document.querySelectorAll(".redeem-btn").forEach(btn => {
           const cost = parseInt(btn.dataset.cost, 10);
-          if (cost > currentPoints) {
-            btn.disabled = true;
-          } else {
-            btn.disabled = false;
-          }
+          btn.disabled = cost > currentPoints;
         });
       }
 
       document.querySelectorAll(".redeem-btn").forEach(btn => {
         btn.addEventListener("click", () => {
           const cost = parseInt(btn.dataset.cost, 10);
-          if (cost > currentPoints) {
-            alert("You don't have enough points for this reward.");
-            return;
-          }
+          if (cost > currentPoints) return;
 
           const ok = confirm(
             `Redeem this reward for ${cost} points?\nCurrent points: ${currentPoints}`
@@ -692,5 +714,3 @@ body.dark-theme .footer {
   </script>
 </body>
 </html>
-
-
