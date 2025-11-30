@@ -455,7 +455,18 @@ body.dark-theme .hero-section {
         padding-bottom: 14px;
     }
 }
+/* رفع المسافات تحت اللوقو والروابط في الجوال فقط */
+@media (max-width: 768px) {
+  .nav-container {
+    padding-top: 22px !important;  
+    padding-bottom: 18px !important;
+    gap: 14px !important;
+  }
 
+  .nav-menu {
+    margin-top: 6px !important;
+  }
+}
   </style>
 </head>
 
@@ -542,6 +553,7 @@ body.dark-theme .hero-section {
   <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
