@@ -437,7 +437,24 @@ body.dark-theme .hero-section {
   background-color: #111827;
   color: #f9f9f9;
 }
+/* ------ Fix Navbar Layers Like Other Team Pages ------ */
+@media (max-width: 768px) {
 
+    /* يحرك الروابط اللي تحت شوي */
+    .nav-menu li:nth-child(n+4) {
+        margin-top: 10px;
+    }
+
+    /* تخفيف التزاحم وتوسيع المسافات العمودية */
+    .nav-menu {
+        gap: 1.1rem;
+    }
+
+    /* ينزل البلوك كامل تحت اللوقو شوي */
+    .nav-container {
+        padding-bottom: 14px;
+    }
+}
 
   </style>
 </head>
@@ -525,6 +542,7 @@ body.dark-theme .hero-section {
   <script src="homepage.js"></script>
 </body>
 </html>
+
 
 
 
