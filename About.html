@@ -2,7 +2,909 @@
 <html lang="en">
 <head>
   
+  <meta charset="UTF-8"/><!DOCTYPE html>
+<html lang="en">
+<head>
+  
   <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Little Steps</title>
+
+  <link rel="stylesheet" href="style.css">
+
+
+  <style>
+
+  /* ================== CONTIANERS ================== */
+
+  .about-main {
+    max-width:1200px;
+    margin:0 auto;
+    padding:2rem;
+    background-color:#ffffff;
+  }
+
+body.dark-theme .join-title {
+    color: #ffffff !important; 
+}
+  h2.about-title {
+    text-align:center;
+    margin-bottom:2rem;
+    color:#32465a;
+  }
+
+  h3.section-title {
+    margin:3rem 0 1rem 0;
+    color:#32465a;
+  }
+
+  .staff-section {
+    display:flex;
+    overflow-x:auto;
+    white-space:nowrap;
+    padding:20px;
+    background-color:#ecf0f1;
+    border-radius:8px;
+    margin-bottom:4rem;
+    gap:20px;
+  }
+
+  .staff-card {
+    background:#fff;
+    padding:1.5rem;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    flex-shrink:0;
+    width:180px;
+    margin-right:1rem;
+  }
+
+  .staff-card img {
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:1rem;
+  }
+
+  .staff-card a {
+    text-decoration:none;
+    color:#2c3e50;
+    font-weight:bold;
+    font-size:1.1rem;
+  }
+
+  /* JOIN FORM BOX */
+  .join-box {
+    background-color:#eeeeee;
+    padding:2rem;
+    border-radius:8px;
+    max-width:900px;
+    margin:3rem auto;
+  }
+
+  .join-title {
+    text-align:center;
+    color:#2c3e50;
+    margin:0 0 2rem 0;
+    border-bottom:none;
+  }
+
+  .join-form {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px 30px;
+  }
+
+  .join-col {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .row {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:10px;
+  }
+
+  .join-label {
+    margin-bottom:5px;
+    font-weight:bold;
+    color:#333;
+    text-align:left;
+  }
+
+  .join-input {
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
+
+  .join-textarea {
+    width:100%;
+    height:120px;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    resize:vertical;
+  }
+
+  .submit-wrap {
+    grid-column:1 / -1;
+    text-align:center;
+    margin-top:1rem;
+  }
+
+  .submit-btn {
+    color:#fff;
+    border:none;
+    padding:1rem 2rem;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+    width:100%;
+    font-size:1rem;
+  }
+
+  
+
+/* ================== Navigation Bar ================== */
+.navbar {
+  background-color: #4CAF50;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+}
+.nav-container {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+}
+.logo h1 { color: white; font-size: 1.8rem; }
+.nav-menu { display: flex; list-style: none; gap: 2rem; }
+.nav-menu a {
+  color: white; text-decoration: none; padding: 0.5rem 1rem;
+  border-radius: 4px; transition: background-color 0.3s;
+}
+.nav-menu a:hover, .nav-menu a.active { background-color: rgba(255,255,255,0.2); }
+
+
+/* ================= Breadcrumbs ================= */
+.breadcrumbs {
+  padding: 10px 40px;
+  background-color: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  color: #778c8d;
+}
+
+/* ================= Base Reset ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ================= Page Content ================= */
+.wrap {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.hero {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.8rem;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.btn {
+  display: block;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.btn--green { background: #7657c9; }
+.btn--blue  { background: #4c8bbd; }
+.btn--orange{ background: #dca54c; }
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* ================= Footer (logo + icons + username down) ================= */
+.footer {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 25px;
+  padding: 0 20px;
+}
+
+/* Left: logo + socials row */
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Social icons row */
+.footer-socials {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Each icon + username (vertical) */
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.social-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+
+/* Center text */
+.footer-copy {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Right text */
+.footer-desc {
+  text-align: right;
+  white-space: nowrap;
+  opacity: .85;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+  }
+}
+/* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+} 
+
+
+
+body.dark-theme {
+    background-color: #111827; 
+    color: #f9f9f9;
+}
+
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
+}
+
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; 
+}
+
+/* Dark navbar */
+body.dark-theme .navbar {
+  background-color: #111827;
+}
+
+
+/* Dark footer */
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+
+
+/* Navbar links in dark theme */
+body.dark-theme .nav-menu a {
+  color: #f9f9f9;
+}
+
+
+/* Hero section in dark theme (example) */
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+.navbar img { border-radius: 8px; }
+
+/* ================== Responsive for Small Screens (phones/tablets) ================== */
+@media (max-width: 768px) {
+
+ 
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .nav-container {
+    flex-direction: column;     
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;           
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* =====  Breadcrumbs ===== */
+  .breadcrumbs {
+    max-width: 100%;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+
+  .wrap,
+  main,
+  form,
+  #requestList,
+  .details-container,
+  .evaluation-box {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    padding: 0 16px;
+  }
+
+  /* ===== buttons (bottun dash + form) ===== */
+  .btn,
+  button,
+  input[type="submit"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    margin-top: auto;          
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr; 
+    text-align: center;
+    row-gap: 10px;
+  }
+
+  .footer-left,
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-desc {
+    text-align: center;
+    white-space: normal;
+  }
+}
+@media (max-width: 768px) {
+
+  .breadcrumbs {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    overflow-wrap: break-word; 
+  }
+  
+  .breadcrumbs a {
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 768px) {
+    [class*="breadcrumb"], .breadcrumbs, nav.breadcrumbs {
+        margin-top: 0 !important;
+        padding-top: 6px !important;
+    }
+}
+footer {
+    text-align: center;
+}
+
+#clock {
+    margin-top: 5px;
+    display: block;
+    font-size: 14px;
+}
+
+  /* ================== Body ================== */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+    color: #222222;
+}
+
+
+
+body.dark-theme {
+    background-color: #111827; 
+    color: #f9f9f9;
+}
+
+
+
+body.dark-theme .offer-card,
+body.dark-theme .offers-sidebar,
+body.dark-theme section,
+body.dark-theme .hero-section,
+body.dark-theme .footer,
+body.dark-theme .navbar,
+body.dark-theme .breadcrumbs {
+    background-color: #1c1c1d !important;
+    border-color: #333 !important;
+}
+
+body.dark-theme .review-card h4,
+body.dark-theme .review-card p,
+body.dark-theme .review-card .service-name {
+    color: #222222 !important; 
+}
+
+/* Dark navbar */
+body.dark-theme .navbar {
+  background-color: #111827;
+}
+
+
+/* Dark footer */
+body.dark-theme .footer {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+
+
+/* Navbar links in dark theme */
+body.dark-theme .nav-menu a {
+  color: #f9f9f9;
+}
+
+
+/* Hero section in dark theme (example) */
+body.dark-theme .about-main {
+  background-color: #111827 !important;
+}
+body.dark-theme .hero-section {
+  background-color: #111827;
+  color: #f9f9f9;
+}
+  
+  body.dark-theme .staff-section,
+  body.dark-theme .join-box { 
+     background:#1d1d1d !important;
+    color:white !important;
+  }
+  
+body.dark-theme .staff-card {
+    background:#3a3a3a !important; 
+    color:white !important;
+  }
+body.dark-theme .join-label {
+    color: #313146!important;
+}
+  body.dark-theme .join-input,
+  body.dark-theme .join-textarea {
+    background:#2b2b2b !important;
+    color:#ffffff !important;
+    border:1px solid #555 !important;
+  }
+
+  body.dark-theme .staff-card a {
+    color:white !important;
+  }
+@media (max-width: 768px) {
+  .wrap,
+  main,
+  form,
+  #requestList,
+  .details-container,
+  
+   .staff-wrapper {
+        padding: 1rem 0.5rem; 
+    }
+    
+    .staff-table td {
+        padding: 8px; 
+    }
+    
+    .staff-table .label {
+        width: 35%; 
+    }
+  .evaluation-box {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    padding: 0 16px;
+  }
+
+  .btn,
+  button,
+  input[type="submit"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+  }
+}
+
+  /* جعل خانات الإدخال رمادي غامق عند تفعيل dark-theme */
+body.dark-theme input[type="text"],
+body.dark-theme input[type="email"],
+body.dark-theme input[type="date"],
+body.dark-theme input[type="file"],
+body.dark-theme textarea {
+    background-color: #2b2b2b !important;  
+    color: #ffffff !important;
+    border: 1px solid #555 !important;
+}
+  </style>
+
+</head>
+
+<body>
+
+<!-- ============ Navigation Bar ============ -->
+<header>
+  <nav class="navbar">
+    <div class="nav-container">
+
+      <div style="display:flex; flex-direction:column; align-items:flex-start;">
+        <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
+        <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="About.html" class="active">About Us</a></li>
+        <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+        <li><a href="dashboard.html">Customer Dashboard</a></li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumbs">
+  <a href="index.html">Home</a> &gt;
+  <span>About Us</span>
+</div>
+
+<!-- ============ CONTENT ============ -->
+<main class="about-main">
+
+  <h2 class="about-title">Who's We?</h2>
+
+  <!-- Nursery Dept -->
+  <h3 class="section-title">Nursery Department</h3>
+  <div class="staff-section">
+
+    <div class="staff-card">
+      <img src="layal.png">
+      <a href="layal.html">Layal Hamad</a>
+    </div>
+
+    <div class="staff-card">
+      <img src="asma.png">
+      <a>Asma Nasser</a>
+    </div>
+
+    <div class="staff-card">
+      <img src="maryam.png">
+      <a>Maryam Ahmed</a>
+    </div>
+
+  </div>
+
+  <!-- Bus Dept -->
+  <h3 class="section-title">Bus Transport Department</h3>
+  <div class="staff-section">
+
+    <div class="staff-card">
+      <img src="ahmed.png">
+      <a href="Ahmed.html">Ahmed</a>
+    </div>
+
+    <div class="staff-card">
+      <img src="hamad.png">
+      <a>Hamad Abdullah</a>
+    </div>
+
+    <div class="staff-card">
+      <img src="faris.png">
+      <a>Faris Abdullah</a>
+    </div>
+
+  </div>
+
+  <!-- JOIN FORM -->
+  <div class="join-box">
+    <h2 class="join-title">Join Our Team</h2>
+
+    <form id="joinForm" novalidate class="join-form">
+
+      <!-- LEFT -->
+      <div class="join-col">
+        <div>
+          <label class="join-label">Name:</label>
+          <input type="text" id="name" class="join-input" required>
+        </div>
+
+        <div>
+          <label class="join-label">DoB:</label>
+          <input type="date" id="dob" class="join-input" required>
+        </div>
+
+        <div>
+          <label class="join-label">Email:</label>
+          <input type="email" id="email" class="join-input" required>
+        </div>
+
+        <div>
+          <label class="join-label">Skills:</label>
+          <input type="text" id="skills" class="join-input">
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="join-col">
+        <div class="row">
+          <label class="join-label">Photo:</label>
+          <input type="file" id="photo" accept="image/*">
+        </div>
+
+        <div>
+          <label class="join-label">Area of Expertise:</label>
+          <input type="text" id="expertise" class="join-input">
+        </div>
+
+        <div>
+          <label class="join-label">Education:</label>
+          <input type="text" id="education" class="join-input">
+        </div>
+
+        <div>
+          <label class="join-label">Message:</label>
+          <textarea id="message" class="join-textarea"></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-wrap">
+        <button class="submit-btn" type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+
+    <div class="footer-left">
+      <img src="logo.png" class="footer-logo">
+      <div class="footer-socials">
+        <div class="icon-box">
+          <img src="insta.png" class="social-icon"><span>@LittleStepsKSA</span>
+        </div>
+        <div class="icon-box">
+          <img src="snap.png" class="social-icon"><span>@LittleSteps</span>
+        </div>
+        <div class="icon-box">
+          <img src="x.png" class="social-icon"><span>@LittleStepsNursery</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-copy">© 2025 Little Steps.</div>
+
+    <div class="footer-desc">Nurturing happy little minds.</div>
+
+  </div>
+</footer>
+ 
+
+
+  <script>
+(function(){
+  const form = document.getElementById("joinForm");
+
+  if (!form) return; // safety
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nameEl = document.getElementById("name");
+    const dobEl = document.getElementById("dob");
+    const photoEl = document.getElementById("photo");
+    const emailEl = document.getElementById("email");
+    const skillsEl = document.getElementById("skills");
+    const expertiseEl = document.getElementById("expertise");
+    const educationEl = document.getElementById("education");
+    const messageEl = document.getElementById("message");
+
+ if (!nameEl || !dobEl || !photoEl || !emailEl || !skillsEl || !expertiseEl || !educationEl || !messageEl) {
+      alert("Form elements missing from page. Check element IDs.");
+      return;
+    }
+
+    const name = nameEl.value.trim();
+    const dob = dobEl.value;
+    const photoFiles = photoEl.files; // FileList
+    const email = emailEl.value.trim();
+    const skills = skillsEl.value.trim();
+    const expertise = expertiseEl.value.trim();
+    const education = educationEl.value.trim();
+    const message = messageEl.value.trim();
+
+// no empty fields
+    if (
+      name === "" ||
+      dob === "" ||
+      !photoFiles || photoFiles.length === 0 ||
+      email === "" ||
+      skills === "" ||
+      expertise === "" ||
+      education === "" ||
+      message === ""
+    ) {
+      alert("Please fill all required fields.");
+      return;
+    }
+    // 2) Name can't start with a number
+    const firstChar = name.charAt(0);
+    if (!isNaN(firstChar) && firstChar !== " ") {
+      alert("Name cannot start with a number.");
+      return;
+    }
+
+    // 3) Photo field accepts only images
+    const file = photoFiles[0];
+    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/webp"];
+    if (!file || !allowedTypes.includes(file.type)) {
+      alert("Photo must be an image (jpg, jpeg, png, gif, webp).");
+      return;
+    }
+
+
+// 4) DOB should not be after 2008 (i.e. DOB <= 2008-12-31)
+    const enteredDob = new Date(dob);
+    const cutoff = new Date("2008-12-31T23:59:59");
+    if (isNaN(enteredDob.getTime())) {
+      alert("Invalid date of birth.");
+      return;
+    }
+    if (enteredDob > cutoff) {
+      alert("Date of birth must not be after 31 December 2008.");
+      return;
+    }
+
+    
+   
+    alert("✅ Confirmation: Thank you for joining the team, " + name + "!");
+
+    
+    form.reset();
+  });
+})();
+
+</script>
+
+<script src="homepage.js"></script>
+
+</body>
+</html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Little Steps</title>
 
@@ -901,4 +1803,5 @@ body.dark-theme textarea {
 
 </body>
 </html>
+
 
