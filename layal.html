@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Staff Profile - Layal</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ======================== GENERAL ======================== */
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    body.dark-theme {
+      background-color: #111827;
+      color: #f1f1f1;
+    }
+
+    /* ======================== NAVBAR ======================== */
+    .navbar {
+      background-color: #4CAF50;
+      padding: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    .nav-menu a.active {
+      background-color: rgba(255,255,255,0.2);
+    }
+    body.dark-theme .navbar {
+      background-color: #1c1c1d;
+    }
+    body.dark-theme .nav-menu a {
+      color: #f1f1f1;
+    }
+
+    /* ======================== BREADCRUMBS ======================== */
+    .staff-breadcrumbs {
+      padding: 10px 40px;
+      background-color: #ecf0f1;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.9rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    body.dark-theme .staff-breadcrumbs {
+      background-color: #1f1f21;
+      border-color: #333;
+    }
+    .staff-breadcrumbs a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    .staff-breadcrumbs span {
+      color: #7f8c8d;
+    }
+
+    /* ======================== MAIN ======================== */
+    .staff-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+    body.dark-theme .staff-wrapper {
+      background-color: #1c1c1d;
+    }
+    .staff-title {
+      margin-bottom: 2rem;
+      color: #2c3e50;
+    }
+    body.dark-theme .staff-title {
+      color: #f1f1f1;
+    }
+
+    /* ======================== TABLE ======================== */
+    .staff-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .staff-table td {
+      border: 1px solid #ecf0f1;
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .label {
+      background-color: #ecf0f1;
+      font-weight: bold;
+      width: 25%;
+      color: #2c3e50;
+    }
+    .staff-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #ccc;
+    }
+    body.dark-theme .staff-table {
+      background-color: #2b2b2d;
+    }
+    body.dark-theme .staff-table td {
+      border-color: #444;
+    }
+    body.dark-theme .staff-table .label {
+      background-color: #1f1f21;
+      color: #ddd;
+    }
+
+    /* ======================== FOOTER ======================== */
+    .footer {
+      background: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 25px;
+      padding: 0 20px;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+    .icon-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 13px;
+    }
+    .social-icon {
+      width: 25px;
+      height: 25px;
+      margin-bottom: 4px;
+    }
+    .footer-copy {
+      text-align: center;
+      white-space: nowrap;
+    }
+    .footer-desc {
+      text-align: right;
+      opacity: .85;
+      white-space: nowrap;
+    }
+
+    body.dark-theme .footer {
+      background-color: #111827;
+    }
+    body.dark-theme .footer-desc,
+    body.dark-theme .footer-copy {
+      color: #f9f9f9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+
+        <div style="display:flex; flex-direction:column; align-items:flex-start;">
+          <img src="logo.png" alt="Little Steps Logo" style="width:35px; height:35px;">
+          <span style="color:white; font-size:20px; font-weight:bold;">Little Steps</span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="About.html" class="active">About Us</a></li>
+          <li><a href="provider-dashboard.html">Provider Dashboard</a></li>
+          <li><a href="dashboard.html">Customer Dashboard</a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <div class="staff-breadcrumbs">
+    <a href="index.html">Home</a> &gt;
+    <a href="About.html">About Us</a> &gt;
+    <span>Layal</span>
+  </div>
+
+  <main class="staff-wrapper">
+    <h1 class="staff-title">Staff Member Profile</h1>
+
+    <table class="staff-table">
+<tr>
+  <td rowspan="3" style="text-align:center;">
+    <img src="layal.png" class="staff-photo">
+  </td>
+  <td class="label">Name:</td>
+  <td>Layal Hamad</td>
+</tr>
+
+<tr>
+  <td class="label">Date of Birth (DoB):</td>
+  <td>14/03/1994</td>
+</tr>
+
+<tr>
+  <td class="label">Email:</td>
+  <td>layal.hamad@littlesteps.sa</td>
+</tr>
+
+<tr>
+  <td class="label">Area of expertise:</td>
+  <td colspan="2">Nursery Care Specialist</td>
+</tr>
+
+<tr>
+  <td class="label">Skills:</td>
+  <td colspan="2">
+    <ul style="margin:0; padding-left:20px; list-style-type:disc;">
+
+      <li>Technical Skills
+        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+          <li>Early Childhood Development</li>
+          <li>Health & Hygiene Monitoring</li>
+        </ul>
+      </li>
+
+      <li style="margin-top:10px;">Soft Skills
+        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+          <li>Patience</li>
+          <li>Communication with Children</li>
+        </ul>
+      </li>
+
+    </ul>
+  </td>
+</tr>
+
+<tr>
+  <td class="label">Education:</td>
+  <td colspan="2">
+    <ul style="margin:0; padding-left:20px; list-style-type:disc;">
+      <li>Bachelor’s in Early Childhood Education
+        <ul style="margin-top:5px; padding-left:20px; list-style-type:circle;">
+          <li>King Saud University</li>
+        </ul>
+      </li>
+    </ul>
+  </td>
+</tr>
+    </table>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-left">
+
+        <img src="logo.png" class="footer-logo">
+
+        <div class="footer-socials">
+          <div class="icon-box">
+            <img src="insta.png" class="social-icon">
+            <span>@LittleStepsKSA</span>
+          </div>
+
+          <div class="icon-box">
+            <img src="snap.png" class="social-icon">
+            <span>@LittleSteps</span>
+          </div>
+
+          <div class="icon-box">
+            <img src="x.png" class="social-icon">
+            <span>@LittleStepsNursery</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-copy">© 2025 Little Steps.</div>
+
+      <div class="footer-desc">Nurturing happy little minds.</div>
+
+    </div>
+  </footer>
+
+  <script src="homepage.js"></script>
+
+</body>
+</html>
